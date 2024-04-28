@@ -1,3 +1,17 @@
+/* login */
+
+const container = document.getElementById('login-container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
 /* for mobile view */
 let menu = document.querySelector('#menu-btn');
 let navbar = document.querySelector('.navbar');
@@ -40,3 +54,4 @@ var swiper = new Swiper(".review-slider", {
         },
     },
 });
+
