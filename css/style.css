@@ -75,7 +75,7 @@ section{
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    background: #ff8a59;
+    background: #d1470b;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
     padding: 1rem 9%;
     height: 90px;
@@ -154,7 +154,7 @@ section{
 
 .home .row .content h3{
     font-size: 6.5rem;
-    color:var(--main-color);
+    color:#e97700;
     text-transform: uppercase;
 }
 
