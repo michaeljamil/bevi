@@ -55,3 +55,26 @@ var swiper = new Swiper(".review-slider", {
     },
 });
 
+// Menu Form
+    const popup = document.getElementById('popup');
+    const showPopupButton = document.getElementById('showPopup');
+
+    showPopupButton.addEventListener('click', () => {
+        popup.style.display = 'flex';
+    });
+
+    function closePopup() {
+        popup.style.display = 'none';
+    }
+
+    const form = document.getElementById('orderForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const orderDetails = {};
+        formData.forEach((value, key) => {
+            orderDetails[key] = value;
+        });
+        alert('Order placed successfully!\n' + JSON.stringify(orderDetails, null, 2));
+        closePopup();
+    });
