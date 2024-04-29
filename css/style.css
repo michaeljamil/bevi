@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
+
 :root{
     --main-color:#443;
     --border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
@@ -139,14 +140,14 @@ section{
 .home{
     min-height: 100vh;
     padding-top: 12rem;
-    background: url(../images/home-bg.jpg) no-repeat;
+    background: url(../images/menu-bg.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     
 }
 
 .home .row{
-    display: flex;
+    text-align: center;
     align-items: center;
     flex-wrap: wrap;
     gap:1.5rem;
@@ -159,8 +160,7 @@ section{
 
 .home .row .image{
     flex:1 1 42rem;
-    padding-top: 10rem;
-    text-align: center;
+    padding-top: 2rem;
 }
 
 .home .row .image img{
@@ -170,68 +170,136 @@ section{
 }
 
 .home .row .content h3{
-    padding-top: 20px;
+    font-family: "Itim", cursive;
+    padding-top: 100px;
+    padding-bottom: 20px;
     font-size: 5.5rem;
     color:#ab523c;
     text-transform: uppercase;
 }
 
-/*@keyframes float {
+@keyframes float-1 {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0);
     }
     50% {
-        transform: translateY(-2px);
+        transform: translateY(-5px) rotate(-4deg);
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0);
     }
-}*/
+}
+
+@keyframes float-2 {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    50% {
+        transform: translateX(5px) rotate(4deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+@keyframes float-3 {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(5px) rotate(-3deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes float-4 {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    50% {
+        transform: translateX(-5px) rotate(3deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+@keyframes float-5 {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-4deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes float-6 {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    50% {
+        transform: translateX(5px) rotate(4deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
 
 .home .image-slider {
-    text-align: right; /* Center the images */
+    text-align: center;
     padding: -3rem 0;
-    position: relative; /* Set positioning context */
-    top: -40px; /* Adjust to move it a bit to the top */
-    right: 20px; /* Adjust to move it a bit to the right */
+    position: relative;
+    top: 5%;
 }
 
 .home .image-slider img {
-    height: 24rem;
+    height: 33rem;
     margin: 0 .5rem;
     cursor: pointer;
-    position: relative; /* Needed for absolute positioning */
-    top: 0; /* Reset any previous transforms */
+    position: relative;
+    top: 0;
 }
 
-/* Define different rotation angles for each image */
-.home .image-slider img:nth-child(1) { /* First image */
-    transform: rotate(10deg); /* Rotate 10 degrees */
+/* Apply animations to each image */
+.home .image-slider img:nth-child(1) {
+    transform: rotate(10deg);
+    animation: float-1 5s infinite alternate;
 }
 
-.home .image-slider img:nth-child(2) { /* Second image */
-    transform: rotate(20deg); /* Rotate 20 degrees */
+.home .image-slider img:nth-child(2) {
+    transform: rotate(20deg);
+    animation: float-2 5s infinite alternate;
 }
 
-.home .image-slider img:nth-child(3) { /* Third image */
-    transform: rotate(-10deg); /* Rotate -10 degrees */
+.home .image-slider img:nth-child(3) {
+    transform: rotate(-10deg);
+    animation: float-3 5s infinite alternate;
 }
 
-.home .image-slider img:nth-child(4) { /* Fourth image */
-    transform: rotate(-20deg); /* Rotate -20 degrees */
+.home .image-slider img:nth-child(4) {
+    transform: rotate(-20deg);
+    animation: float-4 5s infinite alternate;
 }
 
-.home .image-slider img:nth-child(5) { /* Fifth image */
-    transform: rotate(5deg); /* Rotate 5 degrees */
+.home .image-slider img:nth-child(5) {
+    transform: rotate(5deg);
+    animation: float-5 5s infinite alternate;
 }
 
-.home .image-slider img:nth-child(6) { /* Sixth image */
-    transform: rotate(-5deg); /* Rotate -5 degrees */
+.home .image-slider img:nth-child(6) {
+    transform: rotate(-5deg);
+    animation: float-6 5s infinite alternate;
 }
 
 .home .image-slider img:hover {
     transform: translateY(-2rem);
 }
+
 
 .about .row{
     display: flex;
