@@ -509,7 +509,7 @@ section{
 }
 
 .login-container button{
-    background-color: #512da8;
+    background-color: #8d7066;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -623,9 +623,9 @@ section{
 }
 
 .toggle{
-    background-color: #512da8;
+    background-color: #e9c3b1;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
+    background: linear-gradient(to right, #ab523c, #e9c3b1);
     color: #fff;
     position: relative;
     left: -100%;
