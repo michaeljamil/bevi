@@ -3,9 +3,10 @@
 
 :root{
     --main-color:#443;
+    --btn-color: #ffffff;
     --border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
     --border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
-    --border:.2rem solid var(--main-color);
+    --border:.2rem solid var(--btn-color);
     --border-hover:.2rem dashed var(--main-color);
 }
 
@@ -55,8 +56,8 @@ section{
     display: inline-block;
     padding:.9rem 1.5rem;
     border-radius: var(--border-radius);
-    color: #8d7066;
-    background: none;
+    color: #e9c3b1;
+    background: #8d7066;
     border:var(--border);
     cursor: pointer;
     margin-top: 1rem;
@@ -75,6 +76,7 @@ section{
     padding:.9rem 1.5rem;
     border-radius: var(--border-radius);
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(50, 25, 0, 0.8); /* Brown-black shadow */
     background: none;
     border:var(--border);
     cursor: pointer;
@@ -96,7 +98,7 @@ section{
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    background: linear-gradient(to right, #bb7462, #cc978a);
+    background: url(../images/bevi-bg.jpg) center/cover no-repeat; /* Updated */
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
     padding: 1rem 9%;
     height: 90px;
@@ -106,6 +108,7 @@ section{
     color:#ffffff;
     font-size: 5rem;
     font-family: "Pacifico", cursive;
+    text-shadow: 2px 2px 4px rgba(50, 25, 0, 0.8); /* Brown-black shadow */
     font-weight: 400;
     font-style: normal;
 }
@@ -114,15 +117,18 @@ section{
     padding-left: .5rem;
 }
 
-.header .navbar a{
-    margin:0 3rem;
-    font-size: 1.6rem;
+.header .navbar a {
+    margin: 0 3rem;
+    font-family: "Itim", cursive;
+    font-size: 1.8rem;
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(50, 25, 0, 0.8); /* Brown-black shadow */
 }
+
 
 .header .navbar a:hover{
     /*border:var(--border-hover); */
-    color: #ddb9b1;
+    color: #311d23;
     padding-bottom: .5rem;
 }
 
@@ -174,7 +180,7 @@ section{
     padding-top: 100px;
     padding-bottom: 20px;
     font-size: 5.5rem;
-    color:#ab523c;
+    color:#311d23;
     text-transform: uppercase;
 }
 
@@ -661,7 +667,7 @@ section{
 
 .login-container form{
     background:url(../images/menu-bg.jpg) no-repeat;
-        display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -754,10 +760,10 @@ section{
     border-radius: 0 150px 100px 0;
 }
 
-.toggle{
+.toggle {
     background-color: #e9c3b1;
     height: 100%;
-    background: linear-gradient(to right, #bb7462, #cc978a);
+    background: url(../images/bevi-bg.jpg) center/cover no-repeat; /* Updated */
     color: #fff;
     position: relative;
     left: -100%;
