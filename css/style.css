@@ -7,6 +7,8 @@
     --border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
     --border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
     --border:.2rem solid var(--btn-color);
+    --black-border:.2rem solid var(--main-color);
+    --white-border-hover: .2rem solid var(var(--btn-color));
     --border-hover:.2rem dashed var(--main-color);
 }
 
@@ -306,6 +308,10 @@ section{
     transform: translateY(-2rem);
 }
 
+.about{
+    background: linear-gradient(to right, #fcf9f7, #ffffff);
+
+}
 
 .about .row{
     display: flex;
@@ -363,8 +369,6 @@ section{
     flex:1 1 15rem;
     padding:1.5rem;
     text-align: center;
-    border:var(--border);
-    border-radius: var(--border-radius);
 }
 
 .about .row .content .icons-container .icons img{
@@ -398,6 +402,7 @@ section{
 }
 
 .menu .box-container{
+    margin-top: 5%;
     display: flex;
     flex-wrap: wrap;
     gap:2rem;
@@ -407,7 +412,7 @@ section{
 .menu .box-container .box{
     flex:1 1 42rem;
     padding:2rem;
-    border:var(--border);
+    border:var(--black-border);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
@@ -430,7 +435,7 @@ section{
     font-size: 1.6rem;
     color:var(--main-color);
     line-height: 1.8;
-    padding:1rem 0;
+    padding:4rem 0;
 }
 
 .menu .box-container .box .content span{
@@ -442,6 +447,11 @@ section{
 .menu .box-container .box:hover{
     border:var(--border-hover);
     border-radius: var(--border-radius-hover);
+}
+
+.review{
+    background: linear-gradient(to right, #fcf9f7, #ffffff);
+
 }
 
 .review .review-slider{
@@ -561,6 +571,11 @@ section{
     resize: none;
 }
 
+.footer{
+    background:url(../images/) no-repeat;
+
+}
+
 .footer .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
@@ -597,7 +612,7 @@ section{
 }
 
 .footer .credit span{
-    border-bottom: var(--border-hover);
+    font-family: "Pacifico", cursive;
 }
 
 /* Login */
