@@ -826,6 +826,26 @@ section{
     transform: translateX(200%);
 }
 
+.review-btn{
+    margin-left: 44%;
+    display: inline-block;
+    padding:.9rem 1.5rem;
+    border-radius: var(--border-radius);
+    color: #ffffff;
+    background: #8d7066;
+    border:var(--border);
+    cursor: pointer;
+    margin-top: 4rem;
+    font-size: 1.7rem;
+}
+.review-btn:hover{
+    border-radius: var(--border-radius-hover);
+    border:var(--border-hover);
+    color: #ddb9b1;
+
+}
+
+
 /* Landing Page */
 
 .use-case {
