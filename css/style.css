@@ -309,7 +309,7 @@ section{
 }
 
 .about{
-    background: linear-gradient(to right, #fcf9f7, #ffffff);
+    background:url(../images/menu-bg.jpg) no-repeat;
 
 }
 
@@ -396,7 +396,7 @@ section{
 
 
 .menu{
-    background: url(../images/menu-bg.jpg) no-repeat;
+    background: linear-gradient(to right, #fcf9f7, #ffffff);
     background-position: center;
     background-size: cover;
 }
@@ -450,7 +450,7 @@ section{
 }
 
 .review{
-    background: linear-gradient(to right, #fcf9f7, #ffffff);
+    background:url(../images/book-bg.jpg) no-repeat;
 
 }
 
@@ -536,13 +536,13 @@ section{
     background:var(--main-color);
 }
 
-.book{
-    background:url(../images/book-bg.jpg) no-repeat;
+.featured{
+    background: linear-gradient(to right, #fcf9f7, #ffffff);
     background-position: center;
     background-size: cover;
 }
 
-.book form{
+.featured form{
     margin:0 auto 2rem auto;
     max-width: 60rem;
     border-radius: var(--border-radius-hover);
@@ -572,13 +572,14 @@ section{
 }
 
 .footer{
-    background:url(../images/) no-repeat;
-
+    background: linear-gradient(to right, #fcf9f7, #ffffff);
+    
 }
 
 .footer .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+    margin-left: 20%;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
 }
 
