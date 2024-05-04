@@ -304,11 +304,46 @@
             </div>
 
         </div>
-        <a href="login.html" class="review-btn">Give Feedback</a>
+        <button onclick="openFeedbackModal()" class="review-btn">Give Feedback</a>
         <div class="swiper-pagination"></div>
     </div>
 
 </section>
+
+<!-- The Modal -->
+<div id="feedbackModal" class="modal">
+    <span onclick="closeFeedbackModal()" class="close" title="Close Modal">&times;</span>
+  
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/submit-feedback.php">
+      <!--<div class="imgcontainer">
+        <img src="images/customer01.jpg" alt="Avatar" class="avatar">
+      </div>
+    -->
+      <div class="container">
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Your Name" name="name" required>
+  
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Your Email" name="email" required>
+  
+        <label for="date"><b>Date</b></label>
+        <input type="date" name="date" required>
+
+        <label for="rating"><b>Rating</b></label>
+        <input type="text" placeholder="Enter Rating (1 to 5)" name="rating" required>
+
+        <label for="product"><b>Product</b></label>
+        <input type="text" placeholder="Enter Product Name" name="product" required>
+  
+        <label for="feedback"><b>Your Feedback</b></label>
+        <textarea placeholder="Enter Your Feedback" name="feedback" required></textarea>
+  
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" onclick="closeFeedbackModal()" class="btn">Cancel</button>
+      </div>
+    </form>
+</div>
 
 <section class="footer">
 
