@@ -139,3 +139,34 @@ function populateFeedbacksTable() {
 
 // Call the function to initially populate the table
 populateFeedbacksTable();
+
+// Admin JS //
+
+// Sample feedback data (you can replace this with your actual data)
+const adminaccounts = [
+  { id: 1, customerid: 2, date: 'February', rating: '4/5', comment: 'Very Delicious', product: 'Frappe'},
+  // Add more feedback records as needed
+];
+
+// Function to populate the table with feedback data
+function populateAdminAccountsTable() {
+  const tbody = document.querySelector('.feedbacksdetail .manager table tbody');
+  tbody.innerHTML = ''; // Clear existing table rows
+
+  adminaccounts.forEach(adminaccount => {
+      const row = `
+          <tr>
+              <td>${adminaccount.id}</td>
+              <td>${adminaccount.customerid}</td>
+              <td>${adminaccount.date}</td>
+              <td>${adminaccount.rating}</td>
+              <td>${adminaccount.comment}</td>
+              <td>${adminaccount.product}</td>
+          </tr>
+      `;
+      tbody.innerHTML += row;
+  });
+}
+
+// Call the function to initially populate the table
+populateAdminAccountsTable();
