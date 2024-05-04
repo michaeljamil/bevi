@@ -142,30 +142,47 @@ populateFeedbacksTable();
 
 // Admin JS //
 
-// Sample feedback data (you can replace this with your actual data)
+// Sample admin data (you can replace this with your actual data)
 const adminaccounts = [
-  { id: 1, customerid: 2, date: 'February', rating: '4/5', comment: 'Very Delicious', product: 'Frappe'},
-  // Add more feedback records as needed
+  { id: 1, firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com', contactNumber: '1234567890', username: 'johndoe', password: 'password123'},
+  // Add more admin records as needed
 ];
 
-// Function to populate the table with feedback data
+// Function to populate the table with admin data
 function populateAdminAccountsTable() {
-  const tbody = document.querySelector('.feedbacksdetail .manager table tbody');
-  tbody.innerHTML = ''; // Clear existing table rows
+    const tbody = document.querySelector('.adminaccountsdetail .manager table tbody');
+    tbody.innerHTML = ''; // Clear existing table rows
 
-  adminaccounts.forEach(adminaccount => {
-      const row = `
-          <tr>
-              <td>${adminaccount.id}</td>
-              <td>${adminaccount.customerid}</td>
-              <td>${adminaccount.date}</td>
-              <td>${adminaccount.rating}</td>
-              <td>${adminaccount.comment}</td>
-              <td>${adminaccount.product}</td>
-          </tr>
-      `;
-      tbody.innerHTML += row;
-  });
+    adminaccounts.forEach(adminaccount => {
+        const row = `
+            <tr>
+                <td>${adminaccount.id}</td>
+                <td>${adminaccount.firstName}</td>
+                <td>${adminaccount.lastName}</td>
+                <td>${adminaccount.email}</td>
+                <td>${adminaccount.contactNumber}</td>
+                <td>${adminaccount.username}</td>
+                <td>${adminaccount.password}</td>
+                <td>
+                    <button class="update-btn" onclick="updateAdmin(${adminaccount.id})">Update</button>
+                    <button class="delete-btn" onclick="deleteAdmin(${adminaccount.id})">Delete</button>
+                </td>
+            </tr>
+        `;
+        tbody.innerHTML += row;
+    });
+}
+
+// Function to update admin account
+function updateAdmin(adminId) {
+    // Implement update functionality here
+    console.log('Update admin with ID:', adminId);
+}
+
+// Function to delete admin account
+function deleteAdmin(adminId) {
+    // Implement delete functionality here
+    console.log('Delete admin with ID:', adminId);
 }
 
 // Call the function to initially populate the table
