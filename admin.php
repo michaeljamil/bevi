@@ -410,6 +410,8 @@
                                     <th scope="col">Items Ordered</th>
                                     <th scope="col">Shipping Address</th>
                                     <th scope="col">Total Amount</th>
+                                    <th scope="col"> Action</th>
+
 
                                 </tr>
                             </thead>
