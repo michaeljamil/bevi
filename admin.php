@@ -88,7 +88,7 @@
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Search here" name="search">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -307,7 +307,9 @@
         </div>
     </div>
             <!-- ========================= Customers ==================== -->
+
             <div id="customers" class="main">
+            
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu()">
                         <ion-icon name="menu-outline"></ion-icon>
@@ -315,7 +317,7 @@
             
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Search here">
+                            <input type="text" placeholder="Search here" name="search">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -339,12 +341,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Customer records will be dynamically inserted here -->
+                            <?php
+                                // Include the file that connects to the database
+                                include 'connect.php';
+
+                                // Query to select all rows from the customer table
+                                $sql = "SELECT * FROM bevi_db.customer";
+                                $result = mysqli_query($conn, $sql);
+
+                                // Check if there are any rows returned
+                                if (mysqli_num_rows($result) > 0) {
+                                    // Output data of each row
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<th scope='row'>" . $row["customer_id"] . "</th>";
+                                        echo "<td>" . $row["name"] . "</td>";
+                                        echo "<td>" . $row["email"] . "</td>";
+                                        echo "<td>" . $row["username"] . "</td>";
+                                        echo "<td>" . $row["password"] . "</td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='5'>0 results</td></tr>";
+                                }
+
+                                // Close the connection
+                                mysqli_close($conn);
+                            ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            
 
 
 
@@ -358,7 +388,7 @@
             
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Search here">
+                            <input type="text" placeholder="Search here" name="search">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -401,7 +431,7 @@
             
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Search here">
+                            <input type="text" placeholder="Search here" name="search">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -433,7 +463,7 @@
             </div>
 
             <!-- ========================= Accounts ==================== -->
-
+            
             <div id="adminaccounts" class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu()">
@@ -442,7 +472,7 @@
             
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Search here">
+                            <input type="text" placeholder="Search here" name="search">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
