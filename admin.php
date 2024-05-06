@@ -542,19 +542,6 @@
            
 
     <!-- =========== Scripts =========  -->
-    <script>
-    // Open the add admin modal
-    function openAddAdminModal() {
-    var modal = document.getElementById("addAdminModal");
-    modal.style.display = "block";
-    }
-
-    // Close the add admin modal
-    function closeAddAdminModal() {
-    var modal = document.getElementById("addAdminModal");
-    modal.style.display = "none";
-    }
-    </script>
     <script src="js/main.js"></script>
 
     <!-- ====== ionicons ======= -->
