@@ -47,36 +47,6 @@ document.querySelectorAll('.navigation a:not([href="index.html"])').forEach(link
 
 // Customer JS //
 
-// Sample customer data (you can replace this with your actual data)
-const customers = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', username: 'nakahash to', password: 'nakahash din' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', username: 'nakahash to', password: 'nakahash din' },
-  // Add more customer records as needed
-];
-
-// Function to populate the table with customer data
-function populateCustomersTable() {
-  const tbody = document.querySelector('.customerdetails .manager table tbody');
-  tbody.innerHTML = ''; // Clear existing table rows
-
-  customers.forEach(customer => {
-      const row = `
-          <tr>
-              <th scope="row">${customer.id}</th>
-              <td>${customer.name}</td>
-              <td>${customer.email}</td>
-              <td>${customer.username}</td>
-              <td>${customer.password}</td>
-
-          </tr>
-      `;
-      tbody.innerHTML += row;
-  });
-}
-
-// Call the function to initially populate the table
-populateCustomersTable();
-
 // Orders JS //
 
 // Sample order data (you can replace this with your actual data)
