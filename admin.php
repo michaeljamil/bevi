@@ -410,6 +410,8 @@
                                     <th scope="col">Items Ordered</th>
                                     <th scope="col">Shipping Address</th>
                                     <th scope="col">Total Amount</th>
+                                    <th scope="col"> Action</th>
+
 
                                 </tr>
                             </thead>
@@ -462,9 +464,9 @@
                 </div>
             </div>
 
-            <!-- ========================= Accounts ==================== -->
-            
-            <div id="adminaccounts" class="main">
+             <!-- ========================= Accounts ==================== -->
+
+             <div id="adminaccounts" class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu()">
                         <ion-icon name="menu-outline"></ion-icon>
@@ -472,7 +474,7 @@
             
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Search here" name="search">
+                            <input type="text" placeholder="Search here">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -481,7 +483,7 @@
                         <img src="images/customer01.jpg" alt="">
                     </div>
                 </div>
-                <button class="add-btn" onclick="openAddAdminForm()">Add Admin</button>
+                <button class="add-btn" onclick="openAddAdminModal()">Register Admin</button>
                 <div class="adminaccountsdetail">
                     <div class="manager">
                         <table class="striped-table">
@@ -505,9 +507,54 @@
                 </div>
             </div>
             
+    <!-- Modal -->
+<div id="addAdminModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddAdminModal()">&times;</span>
+        <h2>Register Admin</h2>
+        <form id="addAdminForm">
+            <label for="adminID">Admin ID:</label>
+            <input type="text" id="adminID" name="adminID"><br><br>
+            
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName"><br><br>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName"><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text" id="contactNumber" name="contactNumber"><br><br>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>       
+            
            
 
     <!-- =========== Scripts =========  -->
+    <script>
+    // Open the add admin modal
+    function openAddAdminModal() {
+    var modal = document.getElementById("addAdminModal");
+    modal.style.display = "block";
+    }
+
+    // Close the add admin modal
+    function closeAddAdminModal() {
+    var modal = document.getElementById("addAdminModal");
+    modal.style.display = "none";
+    }
+    </script>
     <script src="js/main.js"></script>
 
     <!-- ====== ionicons ======= -->

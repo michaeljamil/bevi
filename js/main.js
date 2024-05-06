@@ -1,3 +1,15 @@
+// Open the add admin modal
+function openAddAdminModal() {
+  var modal = document.getElementById("addAdminModal");
+  modal.style.display = "block";
+}
+
+// Close the add admin modal
+function closeAddAdminModal() {
+  var modal = document.getElementById("addAdminModal");
+  modal.style.display = "none";
+}
+
 // Add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -9,6 +21,7 @@ function activeLink() {
 }
 
 list.forEach((item) => item.addEventListener("mouseover", activeLink));
+
 
 // Menu Toggle
 let toggle = document.querySelector(".toggle");
@@ -70,6 +83,10 @@ function populateOrdersTable() {
               <td>${order.items}</td>
               <td>${order.shippingAddress}</td>
               <td>${order.total}</td>
+              <td>
+                    <button class="order-complete" onclick="orderComplete(${order.id})">Order Completed</button>
+                    <button class="order-return" onclick="orderReturn(${order.id})">Order Returned</button>
+              </td>
           </tr>
       `;
       tbody.innerHTML += row;
@@ -78,6 +95,8 @@ function populateOrdersTable() {
 
 // Call the function to initially populate the table
 populateOrdersTable();
+
+
 
 // Feedback JS //
 
@@ -157,3 +176,4 @@ function deleteAdmin(adminId) {
 
 // Call the function to initially populate the table
 populateAdminAccountsTable();
+
