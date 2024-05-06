@@ -2,6 +2,7 @@
 include "connect.php";
 
 header("Location: index.html");
+/**UNCOMMENT PAG TAPOS NA ANG GABOS */
 
 // // Check if the form is submitted
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
