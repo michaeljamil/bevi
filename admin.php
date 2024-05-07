@@ -341,33 +341,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
-                                // Include the file that connects to the database
-                                include 'connect.php';
+                                <?php
+                                    // Include the file that connects to the database
+                                    include 'connect.php';
 
-                                // Query to select all rows from the customer table
-                                $sql = "SELECT * FROM bevi_db.customer";
-                                $result = mysqli_query($conn, $sql);
+                                    // Query to select all rows from the customer table
+                                    $sql = "SELECT * FROM bevi_db.customer";
+                                    $result = mysqli_query($conn, $sql);
 
-                                // Check if there are any rows returned
-                                if (mysqli_num_rows($result) > 0) {
-                                    // Output data of each row
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<tr>";
-                                        echo "<th scope='row'>" . $row["customer_id"] . "</th>";
-                                        echo "<td>" . $row["name"] . "</td>";
-                                        echo "<td>" . $row["email"] . "</td>";
-                                        echo "<td>" . $row["username"] . "</td>";
-                                        echo "<td>" . $row["password"] . "</td>";
-                                        echo "</tr>";
+                                    // Check if there are any rows returned
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // Output data of each row
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<tr>";
+                                            echo "<th scope='row'>" . $row["customer_id"] . "</th>";
+                                            echo "<td>" . $row["name"] . "</td>";
+                                            echo "<td>" . $row["email"] . "</td>";
+                                            echo "<td>" . $row["username"] . "</td>";
+                                            echo "<td>" . $row["password"] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5'>0 results</td></tr>";
                                     }
-                                } else {
-                                    echo "<tr><td colspan='5'>0 results</td></tr>";
-                                }
 
-                                // Close the connection
-                                mysqli_close($conn);
-                            ?>
+                                    // Close the connection
+                                    mysqli_close($conn);
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -500,7 +500,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Admin records will be dynamically inserted here -->
+                                <?php
+                                    // Include the file that connects to the database
+                                    include 'connect.php';
+
+                                    // Query to select all rows from the admin table
+                                    $sql = "SELECT * FROM bevi_db.admin_acc";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    // Check if there are any rows returned
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // Output data of each row
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<tr>";
+                                            echo "<th scope='row'>" . $row["admin_id"] . "</th>";
+                                            echo "<td>" . $row["admin_fname"] . "</td>";
+                                            echo "<td>" . $row["admin_lname"] . "</td>";
+                                            echo "<td>" . $row["email"] . "</td>";
+                                            echo "<td>" . $row["phone"] . "</td>";
+                                            echo "<td>" . $row["user"] . "</td>";
+                                            echo "<td>" . $row["password"] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5'>0 results</td></tr>";
+                                    }
+
+                                    // Close the connection
+                                    mysqli_close($conn);
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -512,10 +540,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeAddAdminModal()">&times;</span>
         <h2>Register Admin</h2>
-        <form id="addAdminForm">
-            <label for="adminID">Admin ID:</label>
-            <input type="text" id="adminID" name="adminID"><br><br>
-            
+        <form id="addAdminForm" action="addAdmin.php" method="post">            
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName"><br><br>
             
@@ -530,11 +555,14 @@
             
             <label for="username">Username:</label>
             <input type="text" id="username" name="username"><br><br>
-            
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
+
+            <label for="conf_password">Confirm Password:</label>
+            <input type="password" id="password" name="conf_password"><br><br>
             
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" name="submit">
         </form>
     </div>
 </div>       
