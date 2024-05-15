@@ -193,3 +193,9 @@ function closeUpdateAdminModal() {
   document.getElementById('updateAdminModal').style.display = 'none';
 }
 
+function deleteAdmin(adminId) {
+  if (confirm("Are you sure you want to delete this admin?")) {
+      window.location.href = "delAdmin.php?admin_id=" + adminId;
+  }
+}
+
