@@ -215,9 +215,11 @@ function deleteAdmin(adminId) {
 //Admin search
 function searchAdmin() {
   // Get the input element and the search query
-  var input = document.getElementById("searchInput");
+  var input = document.querySelector(".searchAdmin");
   var filter = input.value.toUpperCase();
   
+  console.log("Current input: " + input.value);
+
   // Get all table rows
   var rows = document.querySelectorAll(".striped-table tbody tr");
 
@@ -241,7 +243,7 @@ function searchAdmin() {
 }
 function searchCustomer() {
   // Get the input element and the search query
-  var input = document.getElementById("searchInput");
+  var input = document.querySelector(".searchCustomer");
   var filter = input.value.toUpperCase();
   
   // Get all table rows

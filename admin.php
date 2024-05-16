@@ -321,7 +321,7 @@
             
                     <div class="search">
                         <label>
-                        <input type="text" placeholder="Search here" name="search" id="searchInput" onkeyup="searchCustomer()">
+                        <input type="text" placeholder="Search here" name="search" id="searchInput" class="searchCustomer" onkeyup="searchCustomer()">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -506,7 +506,7 @@
             
                     <div class="search">
                         <label>
-                        <input type="text" placeholder="Search here" id="searchInput" onkeyup="searchAdmin()">
+                        <input type="text" placeholder="Search here" id="searchInput" class="searchAdmin" onkeyup="searchAdmin()">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
