@@ -12,8 +12,6 @@
                     $password = $_POST['password'];
                     $conf_password = $_POST['conf_password'];
 
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
                     // Check if passwords match
                     if ($password !== $conf_password) {
                         echo '<script>alert("Error: Passwords do not match")</script>';
@@ -21,7 +19,7 @@
                     } else {
                         // Insert data into the database
                         $insert_sql = "INSERT INTO `bevi_db`.`admin_acc` (admin_lname, admin_fname, email, phone, user, password) 
-                                    VALUES ('$lname','$fname','$email','$phone','$username','$hashed_password')";
+                                    VALUES ('$lname','$fname','$email','$phone','$username','$password')";
                         
                         if ($conn->query($insert_sql) === TRUE) {
                             echo '<script>alert("Updated Successfully"); window.location.href = "admin.php";</script>';
