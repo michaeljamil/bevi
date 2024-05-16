@@ -174,7 +174,7 @@
 
     <div class="box-container">
 
-        <a href="#" class="box">
+        <a href="productCustomization.html" class="box">
             <img src="images/coffee.png" alt="">
             <div class="content">
                 <h3>Hot Coffee</h3>
