@@ -33,6 +33,40 @@ window.onclick = function(event) {
     }
 }
 
+// Function to open the forgotpassword modal
+function openForgotPasswordModal() {
+    var modal = document.getElementById('forgetpasswordModal');
+    modal.style.display = "block";
+}
+
+// Function to close the feedback modal
+function closeForgotPasswordModal() {
+    var modal = document.getElementById('forgetpasswordModal');
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById('forgetpasswordModal');
+    if (event.target == modal) {
+        closeForgotPasswordModal();
+    }
+}
+
+function togglePasswordVisibility(inputId) {
+    var input = document.getElementById(inputId);
+    var icon = input.nextElementSibling.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
 
 /* for mobile view */
 let menu = document.querySelector('#menu-btn');

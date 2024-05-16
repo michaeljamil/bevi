@@ -87,7 +87,7 @@ function populateOrdersTable() {
               <td>${order.total}</td>
               <td>
                     <button class="order-complete" onclick="orderComplete(${order.id})">Order Completed</button>
-                    <button class="order-return" onclick="orderReturn(${order.id})">Order Returned</button>
+                    <button class="order-return" onclick="orderReturn(${order.id})">Order Cancelled</button>
               </td>
           </tr>
       `;
