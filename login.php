@@ -35,7 +35,7 @@
                     if (password_verify($password, $hashed_password)) {
                         echo "<script>
                                 alert('Login successful!');
-                                window.location.href = 'index.html';
+                                window.location.href = 'index.php';
                             </script>";
                         exit;
                     } else {
