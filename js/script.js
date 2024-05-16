@@ -78,8 +78,6 @@ var swiper = new Swiper(".review-slider", {
         alert('Order placed successfully!\n' + JSON.stringify(orderDetails, null, 2));
         closePopup();
     });
-
-
     // Pre Made Themes Image Slider
 
     const productContainers = [...document.querySelectorAll('.product-container')];

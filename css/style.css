@@ -415,6 +415,10 @@ section{
     transform: translateY(-2rem);
 }
 
+.about{
+    background:url(../images/menu-bg.jpg) no-repeat;
+
+}
 
 /* Featured Products / Image Slider*/
 
