@@ -178,4 +178,24 @@ populateFeedbacksTable();
 
 // // Call the function to initially populate the table
 // populateAdminAccountsTable();
+function openUpdateAdminModal(adminId, firstName, lastName, email, phone, username, password) {
+  document.getElementById('updateAdminId').value = adminId;
+  document.getElementById('updateFirstName').value = firstName;
+  document.getElementById('updateLastName').value = lastName;
+  document.getElementById('updateEmail').value = email;
+  document.getElementById('updateContactNumber').value = phone;
+  document.getElementById('updateUsername').value = username;
+  document.getElementById('updatePassword').value = password;
+  document.getElementById('updateAdminModal').style.display = 'block';
+}
+
+function closeUpdateAdminModal() {
+  document.getElementById('updateAdminModal').style.display = 'none';
+}
+
+function deleteAdmin(adminId) {
+  if (confirm("Are you sure you want to delete this admin?")) {
+      window.location.href = "delAdmin.php?admin_id=" + adminId;
+  }
+}
 

@@ -465,8 +465,8 @@
             </div>
 
              <!-- ========================= Accounts ==================== -->
-
-             <div id="adminaccounts" class="main">
+             
+            <div id="adminaccounts" class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu()">
                         <ion-icon name="menu-outline"></ion-icon>
@@ -520,10 +520,14 @@
                                             echo "<td>" . $row["phone"] . "</td>";
                                             echo "<td>" . $row["user"] . "</td>";
                                             echo "<td>" . $row["password"] . "</td>";
+                                            echo "<td>";
+                                            echo '<button class="update-btn" onclick="openUpdateAdminModal(' . $row["admin_id"] . ', \'' . $row["admin_fname"] . '\', \'' . $row["admin_lname"] . '\', \'' . $row["email"] . '\', \'' . $row["phone"] . '\', \'' . $row["user"] . '\', \'' . $row["password"] . '\')">Update</button>';
+                                            echo '<button class="delete-btn" onclick="deleteAdmin(' . $row["admin_id"] . ')">Delete</button>';
+                                            echo "</td>";
                                             echo "</tr>";
                                         }
                                     } else {
-                                        echo "<tr><td colspan='5'>0 results</td></tr>";
+                                        echo "<tr><td colspan='8'>0 results</td></tr>";
                                     }
 
                                     // Close the connection
@@ -565,7 +569,39 @@
             <input type="submit" value="Submit" name="submit">
         </form>
     </div>
-</div>       
+</div>
+
+<!-- Update Admin Modal -->
+<div id="updateAdminModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeUpdateAdminModal()">&times;</span>
+        <h2>Update Admin</h2>
+        <form id="updateAdminForm" action="updateAdmin.php" method="post">            
+            <input type="hidden" id="updateAdminId" name="admin_id">
+            
+            <label for="updateFirstName">First Name:</label>
+            <input type="text" id="updateFirstName" name="firstName"><br><br>
+            
+            <label for="updateLastName">Last Name:</label>
+            <input type="text" id="updateLastName" name="lastName"><br><br>
+            
+            <label for="updateEmail">Email:</label>
+            <input type="email" id="updateEmail" name="email"><br><br>
+            
+            <label for="updateContactNumber">Contact Number:</label>
+            <input type="text" id="updateContactNumber" name="contactNumber"><br><br>
+            
+            <label for="updateUsername">Username:</label>
+            <input type="text" id="updateUsername" name="username"><br><br>
+
+            <label for="updatePassword">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+
+            <input type="submit" value="Submit" name="submit">
+        </form>
+    </div>
+</div>
+
             
            
 
