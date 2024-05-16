@@ -976,7 +976,7 @@
         background: #8d7066;
         border:var(--border);
         cursor: pointer;
-        margin-top: -20rem;
+        margin-top: 2%;
         font-size: 1.7rem;
     }
     .review-btn:hover{
