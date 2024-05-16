@@ -358,7 +358,7 @@
                                             echo "<td>" . $row["name"] . "</td>";
                                             echo "<td>" . $row["email"] . "</td>";
                                             echo "<td>" . $row["username"] . "</td>";
-                                            echo "<td>" . $row["password"] . "</td>";
+                                            echo "<td>" . substr($row["password"], 0, 10) . "</td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -519,7 +519,7 @@
                                             echo "<td>" . $row["email"] . "</td>";
                                             echo "<td>" . $row["phone"] . "</td>";
                                             echo "<td>" . $row["user"] . "</td>";
-                                            echo "<td>" . $row["password"] . "</td>";
+                                            echo "<td>" . substr($row["password"], 0, 10) . "</td>";
                                             echo "<td>";
                                             echo '<button class="update-btn" onclick="openUpdateAdminModal(' . $row["admin_id"] . ', \'' . $row["admin_fname"] . '\', \'' . $row["admin_lname"] . '\', \'' . $row["email"] . '\', \'' . $row["phone"] . '\', \'' . $row["user"] . '\', \'' . $row["password"] . '\')">Update</button>';
                                             echo '<button class="delete-btn" onclick="deleteAdmin(' . $row["admin_id"] . ')">Delete</button>';
