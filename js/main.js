@@ -198,4 +198,59 @@ function deleteAdmin(adminId) {
       window.location.href = "delAdmin.php?admin_id=" + adminId;
   }
 }
+//Admin search
+function searchAdmin() {
+  // Get the input element and the search query
+  var input = document.getElementById("searchInput");
+  var filter = input.value.toUpperCase();
+  
+  // Get all table rows
+  var rows = document.querySelectorAll(".striped-table tbody tr");
+
+  // Loop through all table rows, hide those that don't match the search query
+  rows.forEach(function(row) {
+    var cells = row.getElementsByTagName("td");
+    var found = false;
+    for (var i = 0; i < cells.length; i++) {
+      var cell = cells[i];
+      if (cell) {
+        var txtValue = cell.textContent || cell.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          found = true;
+          break;
+        }
+      }
+    }
+    // Toggle row display based on whether it matches the search query
+    row.style.display = found ? "" : "none";
+  });
+}
+function searchCustomer() {
+  // Get the input element and the search query
+  var input = document.getElementById("searchInput");
+  var filter = input.value.toUpperCase();
+  
+  // Get all table rows
+  var rows = document.querySelectorAll(".striped-table tbody tr");
+
+  // Loop through all table rows, hide those that don't match the search query
+  rows.forEach(function(row) {
+    var cells = row.getElementsByTagName("td");
+    var found = false;
+    for (var i = 0; i < cells.length; i++) {
+      var cell = cells[i];
+      if (cell) {
+        var txtValue = cell.textContent || cell.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          found = true;
+          break;
+        }
+      }
+    }
+    // Toggle row display based on whether it matches the search query
+    row.style.display = found ? "" : "none";
+  });
+}
+
+
 
