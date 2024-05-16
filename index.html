@@ -314,7 +314,7 @@
     <span onclick="closeFeedbackModal()" class="close" title="Close Modal">&times;</span>
   
     <!-- Modal Content -->
-    <form class="modal-content animate" action="/submit-feedback.php">
+    <form class="modal-content animate" action="feedback.php" method="post">
       <!--<div class="imgcontainer">
         <img src="images/customer01.jpg" alt="Avatar" class="avatar">
       </div>
@@ -338,7 +338,7 @@
         <label for="feedback"><b>Your Feedback</b></label>
         <textarea placeholder="Enter Your Feedback" name="feedback" required></textarea>
   
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn" name="submit">Submit</button>
         <button type="button" onclick="closeFeedbackModal()" class="btn">Cancel</button>
       </div>
     </form>
