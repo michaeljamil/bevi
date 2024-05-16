@@ -4,6 +4,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "1052"; //Palitan mo na lang pass tas username base sa mysql server mo
+>>>>>>> 553a79d66fdf63b101569ece41e665e12d0028e2
 
     $conn = new mysqli($servername, $username, $password);
 
