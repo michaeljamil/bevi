@@ -1,3 +1,29 @@
+/* Swiper */
+
+document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper(".review-slider", {
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        loop: true,
+        grabCursor: true,
+        autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+        },
+    });
+});
+
 /* login */
 
 const container = document.getElementById('login-container');
@@ -11,6 +37,62 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
+
+
+// Function to open the feedback modal
+function openFeedbackModal() {
+    var modal = document.getElementById('feedbackModal');
+    modal.style.display = "block";
+}
+
+// Function to close the feedback modal
+function closeFeedbackModal() {
+    var modal = document.getElementById('feedbackModal');
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById('feedbackModal');
+    if (event.target == modal) {
+        closeFeedbackModal();
+    }
+}
+
+// Function to open the forgotpassword modal
+function openForgotPasswordModal() {
+    var modal = document.getElementById('forgetpasswordModal');
+    modal.style.display = "block";
+}
+
+// Function to close the feedback modal
+function closeForgotPasswordModal() {
+    var modal = document.getElementById('forgetpasswordModal');
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById('forgetpasswordModal');
+    if (event.target == modal) {
+        closeForgotPasswordModal();
+    }
+}
+
+function togglePasswordVisibility(inputId) {
+    var input = document.getElementById(inputId);
+    var icon = input.nextElementSibling.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
 
 /* for mobile view */
 let menu = document.querySelector('#menu-btn');
@@ -33,27 +115,8 @@ document.querySelectorAll('.image-slider img').forEach(images =>{
     };
 });
 
-var swiper = new Swiper(".review-slider", {
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    loop : true,
-    grabCursor: true,
-    autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-    },
-});
+
+
 
 // Menu Form
     const popup = document.getElementById('popup');
@@ -78,9 +141,9 @@ var swiper = new Swiper(".review-slider", {
         alert('Order placed successfully!\n' + JSON.stringify(orderDetails, null, 2));
         closePopup();
     });
-    // Pre Made Themes Image Slider
+// Pre Made Themes Image Slider
 
-    const productContainers = [...document.querySelectorAll('.product-container')];
+const productContainers = [...document.querySelectorAll('.product-container')];
 const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
 const preBtn = [...document.querySelectorAll('.pre-btn')];
 
@@ -126,3 +189,39 @@ productContainers.forEach((item, i) => {
 
             placeOrder();
         });
+
+// Function to open the feedback popup
+function openFeedbackPopup() {
+    var popup = document.getElementById("feedbackPopup");
+    popup.style.display = "block";
+    document.body.style.overflow = 'hidden'; // Disable scrolling when the popup is open
+}
+
+// Function to close the feedback popup
+function closeFeedbackPopup() {
+    var popup = document.getElementById("feedbackPopup");
+    popup.style.display = "none";
+    document.body.style.overflow = ''; // Enable scrolling when the popup is closed
+}
+
+/// Event listener to open the popup when "Give Feedback" button is clicked
+document.querySelector('.review-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    openFeedbackPopup();
+});
+
+
+// Event listener to close the popup when the close button is clicked
+document.querySelector('.close-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    closeFeedbackPopup();
+});
+
+// Event listener to close the popup when anywhere outside the popup is clicked
+window.addEventListener('click', function(event) {
+    var popup = document.getElementById("feedbackPopup");
+    if (event.target == popup) {
+        closeFeedbackPopup();
+    }
+});
+

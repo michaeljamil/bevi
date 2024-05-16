@@ -1,3 +1,15 @@
+// Open the add admin modal
+function openAddAdminModal() {
+  var modal = document.getElementById("addAdminModal");
+  modal.style.display = "block";
+}
+
+// Close the add admin modal
+function closeAddAdminModal() {
+  var modal = document.getElementById("addAdminModal");
+  modal.style.display = "none";
+}
+
 // Add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -9,6 +21,7 @@ function activeLink() {
 }
 
 list.forEach((item) => item.addEventListener("mouseover", activeLink));
+
 
 // Menu Toggle
 let toggle = document.querySelector(".toggle");
@@ -45,37 +58,9 @@ document.querySelectorAll('.navigation a:not([href="index.html"])').forEach(link
   });
 });
 
+
+
 // Customer JS //
-
-// Sample customer data (you can replace this with your actual data)
-const customers = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', username: 'nakahash to', password: 'nakahash din' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', username: 'nakahash to', password: 'nakahash din' },
-  // Add more customer records as needed
-];
-
-// Function to populate the table with customer data
-function populateCustomersTable() {
-  const tbody = document.querySelector('.customerdetails .manager table tbody');
-  tbody.innerHTML = ''; // Clear existing table rows
-
-  customers.forEach(customer => {
-      const row = `
-          <tr>
-              <th scope="row">${customer.id}</th>
-              <td>${customer.name}</td>
-              <td>${customer.email}</td>
-              <td>${customer.username}</td>
-              <td>${customer.password}</td>
-
-          </tr>
-      `;
-      tbody.innerHTML += row;
-  });
-}
-
-// Call the function to initially populate the table
-populateCustomersTable();
 
 // Orders JS //
 
@@ -100,6 +85,10 @@ function populateOrdersTable() {
               <td>${order.items}</td>
               <td>${order.shippingAddress}</td>
               <td>${order.total}</td>
+              <td>
+                    <button class="order-complete" onclick="orderComplete(${order.id})">Order Completed</button>
+                    <button class="order-return" onclick="orderReturn(${order.id})">Order Cancelled</button>
+              </td>
           </tr>
       `;
       tbody.innerHTML += row;
@@ -108,6 +97,8 @@ function populateOrdersTable() {
 
 // Call the function to initially populate the table
 populateOrdersTable();
+
+
 
 // Feedback JS //
 
@@ -139,3 +130,127 @@ function populateFeedbacksTable() {
 
 // Call the function to initially populate the table
 populateFeedbacksTable();
+
+// Admin JS //
+
+// // Sample admin data (you can replace this with your actual data)
+// const adminaccounts = [
+//   { id: 1, firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com', contactNumber: '1234567890', username: 'johndoe', password: 'password123'},
+//   // Add more admin records as needed
+// ];
+
+// // Function to populate the table with admin data
+// function populateAdminAccountsTable() {
+//     const tbody = document.querySelector('.adminaccountsdetail .manager table tbody');
+//     tbody.innerHTML = ''; // Clear existing table rows
+
+//     adminaccounts.forEach(adminaccount => {
+//         const row = `
+//             <tr>
+//                 <td>${adminaccount.id}</td>
+//                 <td>${adminaccount.firstName}</td>
+//                 <td>${adminaccount.lastName}</td>
+//                 <td>${adminaccount.email}</td>
+//                 <td>${adminaccount.contactNumber}</td>
+//                 <td>${adminaccount.username}</td>
+//                 <td>${adminaccount.password}</td>
+//                 <td>
+//                     <button class="update-btn" onclick="updateAdmin(${adminaccount.id})">Update</button>
+//                     <button class="delete-btn" onclick="deleteAdmin(${adminaccount.id})">Delete</button>
+//                 </td>
+//             </tr>
+//         `;
+//         tbody.innerHTML += row;
+//     });
+// }
+
+// // Function to update admin account
+// function updateAdmin(adminId) {
+//     // Implement update functionality here
+//     console.log('Update admin with ID:', adminId);
+// }
+
+// // Function to delete admin account
+// function deleteAdmin(adminId) {
+//     // Implement delete functionality here
+//     console.log('Delete admin with ID:', adminId);
+// }
+
+// // Call the function to initially populate the table
+// populateAdminAccountsTable();
+function openUpdateAdminModal(adminId, firstName, lastName, email, phone, username, password) {
+  document.getElementById('updateAdminId').value = adminId;
+  document.getElementById('updateFirstName').value = firstName;
+  document.getElementById('updateLastName').value = lastName;
+  document.getElementById('updateEmail').value = email;
+  document.getElementById('updateContactNumber').value = phone;
+  document.getElementById('updateUsername').value = username;
+  document.getElementById('updatePassword').value = password;
+  document.getElementById('updateAdminModal').style.display = 'block';
+}
+
+function closeUpdateAdminModal() {
+  document.getElementById('updateAdminModal').style.display = 'none';
+}
+
+function deleteAdmin(adminId) {
+  if (confirm("Are you sure you want to delete this admin?")) {
+      window.location.href = "delAdmin.php?admin_id=" + adminId;
+  }
+}
+//Admin search
+function searchAdmin() {
+  // Get the input element and the search query
+  var input = document.getElementById("searchInput");
+  var filter = input.value.toUpperCase();
+  
+  // Get all table rows
+  var rows = document.querySelectorAll(".striped-table tbody tr");
+
+  // Loop through all table rows, hide those that don't match the search query
+  rows.forEach(function(row) {
+    var cells = row.getElementsByTagName("td");
+    var found = false;
+    for (var i = 0; i < cells.length; i++) {
+      var cell = cells[i];
+      if (cell) {
+        var txtValue = cell.textContent || cell.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          found = true;
+          break;
+        }
+      }
+    }
+    // Toggle row display based on whether it matches the search query
+    row.style.display = found ? "" : "none";
+  });
+}
+function searchCustomer() {
+  // Get the input element and the search query
+  var input = document.getElementById("searchInput");
+  var filter = input.value.toUpperCase();
+  
+  // Get all table rows
+  var rows = document.querySelectorAll(".striped-table tbody tr");
+
+  // Loop through all table rows, hide those that don't match the search query
+  rows.forEach(function(row) {
+    var cells = row.getElementsByTagName("td");
+    var found = false;
+    for (var i = 0; i < cells.length; i++) {
+      var cell = cells[i];
+      if (cell) {
+        var txtValue = cell.textContent || cell.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          found = true;
+          break;
+        }
+      }
+    }
+    // Toggle row display based on whether it matches the search query
+    row.style.display = found ? "" : "none";
+  });
+}
+
+
+

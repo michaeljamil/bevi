@@ -556,6 +556,25 @@ body {
   border-radius: 20px;
 }
 
+.order-complete {
+  padding: 6px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: #e9c3b1;
+  color: #311d23;
+  border: none;
+  border-radius: 4px;
+}
+.order-return {
+  padding: 6px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: 	#ab523c;
+  color: 	#f5f9fa;
+  border: none;
+  border-radius: 4px;
+}
+
 /* ====================== Feedbacks ========================== */
 
 .feedbacksdetail {
@@ -585,6 +604,13 @@ body {
   /* margin-top: 10px; */
 }
 
+.adminaccountsdetail {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: block;
+}
+
 .adminaccountsdetail .manager {
   position: relative;
   min-height: 700px;
@@ -592,4 +618,125 @@ body {
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+}
+
+/* Style for the action buttons */
+.adminaccountsdetail .manager .update-btn,
+.adminaccountsdetail .manager .delete-btn {
+  padding: 6px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.adminaccountsdetail .manager .update-btn:hover,
+.adminaccountsdetail .manager .delete-btn:hover {
+  background-color: #0056b3;
+}
+
+.adminaccountsdetail .manager .delete-btn {
+  background-color: #dc3545;
+}
+
+.adminaccountsdetail .manager .delete-btn:hover {
+  background-color: #bd2130;
+}
+
+.adminaccountsdetail .manager .update-btn:last-child {
+  margin-right: 0;
+}
+/* Style for the add button */
+.add-btn {
+    left: 20px; /* Adjust the left position as needed */
+    top: 10px; /* Adjust the top position as needed */
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color */
+    margin-top: 5px;
+    margin-left: 85%;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #218838; /* Darker green color on hover */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background: linear-gradient(to right, #fcf9f7, #ffffff);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 50%; /* Adjust width */
+  height: 85vh; /* Adjust height */
+  margin: auto; /* Center horizontally */
+  position: fixed; /* Fixed position */
+  left: 0;
+  right: 0;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  z-index: 1; /* Layered above other content */
+  padding: 20px; /* Add padding */
+  text-align: center;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #000;
+  font-size: 40px;
+}
+
+.close:hover,
+.close:focus {
+  color: #f00; /* Red color on hover */
+  cursor: pointer;
+}
+
+/* Label for inputs */
+.modal-content label {
+  display: block; /* Ensure each label appears on a new line */
+  font-size: 12px; /* Font size */
+  margin-bottom: 5px; /* Add some space between labels */
+  text-align: left; /* Align labels to the left */
+}
+
+/* Input fields */
+.modal-content input {
+  width: calc(100% - 20px); /* Adjust input width */
+  padding: 5px; /* Add some padding */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 5px; /* Add some space between inputs */
+}
+
+
+/* Submit button */
+.modal-content input[type="submit"]{
+  padding: 5px; /* Add some padding */
+  width: 30%;
+  background-color: #ab523c; 
+  color: white; /* White text color */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor on hover */
+  font-size: 1rem; /* Font size */
+  display: inline-block; /* Ensure buttons are displayed inline */
+  margin: 10px; /* Add margin around buttons */
 }

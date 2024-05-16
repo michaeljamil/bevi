@@ -1,1 +1,1 @@
-Hiwalay JS and CSS ng Index at Html
+Hiwalay JS and CSS ng Index at admin
