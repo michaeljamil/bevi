@@ -23,7 +23,7 @@
                     `name` varchar(50) NOT NULL,
                     `email` varchar(50) DEFAULT NULL,
                     `username` varchar(50) NOT NULL,
-                    `password` varchar(50) NOT NULL,
+                    `password` varchar(255) NOT NULL,
                     PRIMARY KEY (`customer_id`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
     $sqlAdmin = "CREATE TABLE IF NOT EXISTS `bevi_db`.`admin_acc` (
@@ -33,7 +33,7 @@
                     `email` varchar(50) DEFAULT NULL,
                     `phone` varchar(50) NOT NULL,
                     `user` varchar(50) NOT NULL,
-                    `password` varchar(50) NOT NULL,
+                    `password` varchar(255) NOT NULL,
                     PRIMARY KEY (`admin_id`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 

@@ -9,9 +9,11 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         // Insert data into the database
         $insert_sql = "INSERT INTO `bevi_db`.`customer` (name, email, username, password) 
-                       VALUES ('$name', '$email', '$username', '$password')";
+                       VALUES ('$name', '$email', '$username', '$hashed_password')";
         
         if ($conn->query($insert_sql) === TRUE) {
             echo "New record created successfully";
