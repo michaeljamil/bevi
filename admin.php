@@ -595,7 +595,7 @@
             <input type="text" id="updateUsername" name="username"><br><br>
 
             <label for="updatePassword">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
+            <input type="password" id="updatePassword" name="password"><br><br>
 
             <input type="submit" value="Submit" name="submit">
         </form>
