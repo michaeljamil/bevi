@@ -10,9 +10,11 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         // Update the admin data
         $update_sql = "UPDATE `bevi_db`.`admin_acc` 
-                       SET admin_fname='$fname', admin_lname='$lname', email='$email', phone='$phone', user='$username', password='$password' 
+                       SET admin_fname='$fname', admin_lname='$lname', email='$email', phone='$phone', user='$username', password='$hashed_password' 
                        WHERE admin_id='$admin_id'";
         
         if ($conn->query($update_sql) === TRUE) {
