@@ -26,7 +26,7 @@
                         } else {
                             echo "Error: " . $insert_sql . "<br>" . $conn->error;
                         }
-                        //echo '<script>alert("Error: Passwords do not match")</script>';
+                        ////echo '<script>alert("Error: Passwords do not match")</script>';
                     }
                 }
             ?>
