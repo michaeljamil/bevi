@@ -98,3 +98,33 @@ productContainers.forEach((item, i) => {
         item.scrollLeft -= containerWidth;
     })
 })
+
+//Checkout
+
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the form values
+            const name = document.getElementById('nameInput').value;
+            const address = document.getElementById('addressInput').value;
+            const email = document.getElementById('emailInput').value;
+            const phone = document.getElementById('phoneInput').value;
+            const zip = document.getElementById('zipInput').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            // Simple validation (just checking if the fields are filled)
+            if (!name || !address || !email || !phone || !zip || !paymentMethod) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            // Here you can add more complex validation if needed
+
+            // Placeholder function to simulate order placement
+            function placeOrder() {
+                alert('Order placed successfully!');
+                // You can add more actions here, like sending the data to a server
+            }
+
+            placeOrder();
+        });

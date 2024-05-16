@@ -18,6 +18,9 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+   <!-- custom js file link  -->
+   <script src="js/script.js" defer></script>
+
 </head>
 <body>
     
@@ -40,7 +43,17 @@
 
 </header>
 
+<div class="cart-button" onclick="toggleCart()">
+    <img src="images/shopping-cart.png" alt="Shopping Cart">
+    <span class="badge">0</span>
+</div>
 
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-items">
+        <!-- Cart items will be displayed here -->
+    </div>
+    <button class="checkout-btn"><a href="checkout.html">Checkout</a></button>
+</div>
 
 <section class="home" id="home">
 
@@ -173,57 +186,529 @@
 
     <h1 class="heading"> our menu <span>choose your drink</span> </h1>
 
-    <div class="box-container">
+    <div class="container">
 
-        <a href="#" class="box">
-            <img src="images/coffee.png" alt="">
-            <div class="content">
-                <h3>Hot Coffee</h3>
-                <p>Indulge in the rich aroma and comforting warmth of freshly brewed beans with our Hot Coffee. Perfect for early mornings or late nights, this classic beverage offers a revitalizing boost of energy with every sip.</p>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/iced coffee.png" alt="">
-            <div class="content">
-                <h3>Iced Coffee</h3>
-                <p>Cool down and refresh with our Iced Coffee, a chilled delight that invigorates with every sip. Balanced flavors, combined with a refreshing chill, make it the perfect companion for any time of day.</p>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/milktea.png" alt="">
-            <div class="content">
-                <h3>Milktea</h3>
-                <p>Experience creamy perfection with our Milktea, crafted to satisfy even the most discerning tea enthusiasts. Choose from a variety of flavors and enjoy the perfect blend of sweetness and creaminess in every sip.</p>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/iced tea.png" alt="">
-            <div class="content">
-                <h3>Iced Tea</h3>
-                <p>Enjoy a classic refreshment with our Iced Tea, a timeless favorite that offers a cool and revitalizing escape. With a variety of flavors to choose from, every sip is a journey into refreshing bliss.</p>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/frappe.png" alt="">
-            <div class="content">
-                <h3>Frappe</h3>
-                <p>Indulge your senses with our Frappes, a symphony of blended goodness that combines creamy textures with decadent toppings. Each sip offers a delightful escape into a world of indulgence and satisfaction.</p>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/soda.png" alt="">
-            <div class="content">
-                <h3> Soda</h3>
-                <p>Quench your thirst with our selection of Sodas, offering a fizzy burst of flavor that delights the senses and refreshes the palate. Choose from a variety of flavors and enjoy a bubbly treat anytime, anywhere.</p>
-            </div>
-        </a>
-
-    </div>
+        <div class="products-container">
+     
+           <div class="product" data-name="p-1">
+              <img src="images/coffee.png" alt="">
+              <h3>Hot Coffee</h3>
+              <div class="price">Php79.00</div>
+           </div>
+     
+           <div class="product" data-name="p-2">
+              <img src="images/frappe.png" alt="">
+              <h3>Frappe</h3>
+              <div class="price">Php90.00</div>
+           </div>
+     
+           <div class="product" data-name="p-3">
+              <img src="images/iced coffee.png" alt="">
+              <h3>Iced Coffee</h3>
+              <div class="price">Php85.00</div>
+           </div>
+     
+           <div class="product" data-name="p-4">
+              <img src="images/iced tea.png" alt="">
+              <h3>Iced Tea</h3>
+              <div class="price">Php79.00</div>
+           </div>
+     
+           <div class="product" data-name="p-5">
+              <img src="images/milktea.png" alt="">
+              <h3>Milktea</h3>
+              <div class="price">Php85.00</div>
+           </div>
+     
+           <div class="product" data-name="p-6">
+              <img src="images/soda.png" alt="">
+              <h3>Soda</h3>
+              <div class="price">Php60.00</div>
+           </div>
+     
+        </div>
+     
+     </div>
+     
+     <div class="products-preview">
+     
+                 <div class="preview" data-target="p-1">
+                 <i class="fas fa-times"></i>
+                 <img src="images/Coffee-removebg-preview.png" alt="">
+                 <h3>Coffee</h3>
+                 <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                 </div>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+                 <div class="price">Php79.00</div>
+     
+                 <div class="form-group">
+                     <select id="size" name="size" required>
+                         <option value="">Select Size</option>
+                         <option value="small">Venti</option>
+                         <option value="medium">Grande</option>
+                         <option value="large">Tall</option>
+                     </select>
+                 </div>
+     
+                 <div class="form-group">
+                     <select id="addons" name="addons" required>
+                         <option value="">Select Add Ons</option>
+                         <option value="Pearl">Pearl</option>
+                         <option value="Crystal">Crystal</option>
+                         <option value="Cream Cheese">Cream Cheese</option>
+                         <option value="Coffee Jelly">Coffee Jelly</option>
+                         <option value="Crushed Oreo">Crushed Oreo</option>
+                         <option value="Cream Puff">Cream Puff</option>
+                         <option value="Cheesecake">Cheesecake</option>
+                     </select>
+                 </div>
+     
+                 <div class="form-group">
+                     <select id="pre-made themes" name="pre-made themes" required>
+                         <option value="">Select Pre Made Themes</option>
+                         <option value="Taylor Swift">Taylor Swift</option>
+                         <option value="Ariana Grande">Ariana Grande</option>
+                         <option value=" Twice">Twice</option>
+                         <option value="Bini">Bini</option>
+                         <option value="BTS">BTS</option>
+                         <option value="Blackpink">Blackpink</option>
+                         <option value="New Jeans">New Jeans</option>
+                     </select>
+     
+                     <select id="Cup Color" name="Cup Color" required>
+                         <option value="">Select Cup Color</option>
+                         <option value="White">White</option>
+                         <option value="Black">Black</option>
+                         <option value="Transparent">Transparent</option>
+                     </select>
+     
+                     <select id="Stickers" name="Stickers" required>
+                         <option value="">Select Stickers</option>
+                         <option value="Boba">Boba/bubble tea illustrations</option>
+                         <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                         <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                         <option value="Qoutes">Inspirational quotes</option>
+                         <option value="Personalized">Personalized stickers (name, initials)</option>
+                     </select>
+     
+                 <select id="Accessories" name="Accessories" required>
+                     <option value="">Select Accessories</option>
+                     <option value="sleeves">Cup sleeves (protective, customizable)</option>
+                     <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+                     <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+                     <option value="holder">Cup holder (for larger cups)</option>
+                     <option value="charms">Customized charms/keychains attached to the cup</option>
+                 </select>
+                 
+             </div>
+             <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+             </div>
+         </div>
+     
+     
+         <div class="preview" data-target="p-2">
+             <i class="fas fa-times"></i>
+             <img src="images/Frappe-removebg-preview.png" alt="">
+             <h3>Frappe</h3>
+             <div class="stars">
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star-half-alt"></i>
+             </div>
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+             <div class="price">Php90.00</div>
+             
+             <div class="form-group">
+                 <select id="size" name="size" required>
+                     <option value="">Select Size</option>
+                     <option value="small">Venti</option>
+                     <option value="medium">Grande</option>
+                     <option value="large">Tall</option>
+                 </select>
+             </div>
+     
+             <div class="form-group">
+                 <select id="addons" name="addons" required>
+                     <option value="">Select Add Ons</option>
+                     <option value="Pearl">Pearl</option>
+                     <option value="Crystal">Crystal</option>
+                     <option value="Cream Cheese">Cream Cheese</option>
+                     <option value="Coffee Jelly">Coffee Jelly</option>
+                     <option value="Crushed Oreo">Crushed Oreo</option>
+                     <option value="Cream Puff">Cream Puff</option>
+                     <option value="Cheesecake">Cheesecake</option>
+                 </select>
+             </div>
+     
+             <div class="form-group">
+                 <select id="pre-made themes" name="pre-made themes" required>
+                     <option value="">Select Pre Made Themes</option>
+                     <option value="Taylor Swift">Taylor Swift</option>
+                     <option value="Ariana Grande">Ariana Grande</option>
+                     <option value=" Twice">Twice</option>
+                     <option value="Bini">Bini</option>
+                     <option value="BTS">BTS</option>
+                     <option value="Blackpink">Blackpink</option>
+                     <option value="New Jeans">New Jeans</option>
+                 </select>
+     
+                 <select id="Cup Color" name="Cup Color" required>
+                     <option value="">Select Cup Color</option>
+                     <option value="White">White</option>
+                     <option value="Black">Black</option>
+                     <option value="Transparent">Transparent</option>
+                 </select>
+     
+                 <select id="Stickers" name="Stickers" required>
+                     <option value="">Select Stickers</option>
+                     <option value="Boba">Boba/bubble tea illustrations</option>
+                     <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                     <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                     <option value="Qoutes">Inspirational quotes</option>
+                     <option value="Personalized">Personalized stickers (name, initials)</option>
+                 </select>
+     
+             <select id="Accessories" name="Accessories" required>
+                 <option value="">Select Accessories</option>
+                 <option value="sleeves">Cup sleeves (protective, customizable)</option>
+                 <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+                 <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+                 <option value="holder">Cup holder (for larger cups)</option>
+                 <option value="charms">Customized charms/keychains attached to the cup</option>
+             </select>
+             </div>
+     
+             <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+             </div>
+         </div>
+     
+         <div class="preview" data-target="p-3">
+             <i class="fas fa-times"></i>
+             <img src="images/IcedCoffee-removebg-preview.png" alt="">
+             <h3>Iced Coffee</h3>
+             <div class="stars">
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star-half-alt"></i>
+             </div>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+           <div class="price">Php85.00</div>
+           <div class="form-group">
+             <select id="size" name="size" required>
+                 <option value="">Select Size</option>
+                 <option value="small">Venti</option>
+                 <option value="medium">Grande</option>
+                 <option value="large">Tall</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="addons" name="addons" required>
+                 <option value="">Select Add Ons</option>
+                 <option value="Pearl">Pearl</option>
+                 <option value="Crystal">Crystal</option>
+                 <option value="Cream Cheese">Cream Cheese</option>
+                 <option value="Coffee Jelly">Coffee Jelly</option>
+                 <option value="Crushed Oreo">Crushed Oreo</option>
+                 <option value="Cream Puff">Cream Puff</option>
+                 <option value="Cheesecake">Cheesecake</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="pre-made themes" name="pre-made themes" required>
+                 <option value="">Select Pre Made Themes</option>
+                 <option value="Taylor Swift">Taylor Swift</option>
+                 <option value="Ariana Grande">Ariana Grande</option>
+                 <option value=" Twice">Twice</option>
+                 <option value="Bini">Bini</option>
+                 <option value="BTS">BTS</option>
+                 <option value="Blackpink">Blackpink</option>
+                 <option value="New Jeans">New Jeans</option>
+             </select>
+     
+             <select id="Cup Color" name="Cup Color" required>
+                 <option value="">Select Cup Color</option>
+                 <option value="White">White</option>
+                 <option value="Black">Black</option>
+                 <option value="Transparent">Transparent</option>
+             </select>
+     
+             <select id="Stickers" name="Stickers" required>
+                 <option value="">Select Stickers</option>
+                 <option value="Boba">Boba/bubble tea illustrations</option>
+                 <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                 <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                 <option value="Qoutes">Inspirational quotes</option>
+                 <option value="Personalized">Personalized stickers (name, initials)</option>
+             </select>
+     
+         <select id="Accessories" name="Accessories" required>
+             <option value="">Select Accessories</option>
+             <option value="sleeves">Cup sleeves (protective, customizable)</option>
+             <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+             <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+             <option value="holder">Cup holder (for larger cups)</option>
+             <option value="charms">Customized charms/keychains attached to the cup</option>
+         </select>
+         </div>
+     
+           <div class="buttons">
+              <a href="#" class="buy">buy now</a>
+              <a href="#" class="cart">add to cart</a>
+           </div>
+        </div>
+     
+        <div class="preview" data-target="p-4">
+           <i class="fas fa-times"></i>
+           <img src="images/IcedTea-removebg-preview.png" alt="">
+           <h3>Iced Tea</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+           </div>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+           <div class="price">Php79.00</div>
+           <div class="form-group">
+             <select id="size" name="size" required>
+                 <option value="">Select Size</option>
+                 <option value="small">Venti</option>
+                 <option value="medium">Grande</option>
+                 <option value="large">Tall</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="addons" name="addons" required>
+                 <option value="">Select Add Ons</option>
+                 <option value="Pearl">Pearl</option>
+                 <option value="Crystal">Crystal</option>
+                 <option value="Cream Cheese">Cream Cheese</option>
+                 <option value="Coffee Jelly">Coffee Jelly</option>
+                 <option value="Crushed Oreo">Crushed Oreo</option>
+                 <option value="Cream Puff">Cream Puff</option>
+                 <option value="Cheesecake">Cheesecake</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="pre-made themes" name="pre-made themes" required>
+                 <option value="">Select Pre Made Themes</option>
+                 <option value="Taylor Swift">Taylor Swift</option>
+                 <option value="Ariana Grande">Ariana Grande</option>
+                 <option value=" Twice">Twice</option>
+                 <option value="Bini">Bini</option>
+                 <option value="BTS">BTS</option>
+                 <option value="Blackpink">Blackpink</option>
+                 <option value="New Jeans">New Jeans</option>
+             </select>
+     
+             <select id="Cup Color" name="Cup Color" required>
+                 <option value="">Select Cup Color</option>
+                 <option value="White">White</option>
+                 <option value="Black">Black</option>
+                 <option value="Transparent">Transparent</option>
+             </select>
+     
+             <select id="Stickers" name="Stickers" required>
+                 <option value="">Select Stickers</option>
+                 <option value="Boba">Boba/bubble tea illustrations</option>
+                 <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                 <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                 <option value="Qoutes">Inspirational quotes</option>
+                 <option value="Personalized">Personalized stickers (name, initials)</option>
+             </select>
+     
+         <select id="Accessories" name="Accessories" required>
+             <option value="">Select Accessories</option>
+             <option value="sleeves">Cup sleeves (protective, customizable)</option>
+             <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+             <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+             <option value="holder">Cup holder (for larger cups)</option>
+             <option value="charms">Customized charms/keychains attached to the cup</option>
+         </select>
+         </div>
+     
+           <div class="buttons">
+              <a href="#" class="buy">buy now</a>
+              <a href="#" class="cart">add to cart</a>
+           </div>
+        </div>
+     
+        <div class="preview" data-target="p-5">
+           <i class="fas fa-times"></i>
+           <img src="images/Milktea-removebg-preview.png" alt="">
+           <h3>Milktea</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+           </div>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+           <div class="price">Php85.00</div>
+           <div class="form-group">
+             <select id="size" name="size" required>
+                 <option value="">Select Size</option>
+                 <option value="small">Venti</option>
+                 <option value="medium">Grande</option>
+                 <option value="large">Tall</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="addons" name="addons" required>
+                 <option value="">Select Add Ons</option>
+                 <option value="Pearl">Pearl</option>
+                 <option value="Crystal">Crystal</option>
+                 <option value="Cream Cheese">Cream Cheese</option>
+                 <option value="Coffee Jelly">Coffee Jelly</option>
+                 <option value="Crushed Oreo">Crushed Oreo</option>
+                 <option value="Cream Puff">Cream Puff</option>
+                 <option value="Cheesecake">Cheesecake</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="pre-made themes" name="pre-made themes" required>
+                 <option value="">Select Pre Made Themes</option>
+                 <option value="Taylor Swift">Taylor Swift</option>
+                 <option value="Ariana Grande">Ariana Grande</option>
+                 <option value=" Twice">Twice</option>
+                 <option value="Bini">Bini</option>
+                 <option value="BTS">BTS</option>
+                 <option value="Blackpink">Blackpink</option>
+                 <option value="New Jeans">New Jeans</option>
+             </select>
+     
+             <select id="Cup Color" name="Cup Color" required>
+                 <option value="">Select Cup Color</option>
+                 <option value="White">White</option>
+                 <option value="Black">Black</option>
+                 <option value="Transparent">Transparent</option>
+             </select>
+     
+             <select id="Stickers" name="Stickers" required>
+                 <option value="">Select Stickers</option>
+                 <option value="Boba">Boba/bubble tea illustrations</option>
+                 <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                 <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                 <option value="Qoutes">Inspirational quotes</option>
+                 <option value="Personalized">Personalized stickers (name, initials)</option>
+             </select>
+     
+         <select id="Accessories" name="Accessories" required>
+             <option value="">Select Accessories</option>
+             <option value="sleeves">Cup sleeves (protective, customizable)</option>
+             <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+             <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+             <option value="holder">Cup holder (for larger cups)</option>
+             <option value="charms">Customized charms/keychains attached to the cup</option>
+         </select>
+         </div>
+           <div class="buttons">
+              <a href="#" class="buy">buy now</a>
+              <a href="#" class="cart">add to cart</a>
+           </div>
+        </div>
+     
+        <div class="preview" data-target="p-6">
+           <i class="fas fa-times"></i>
+           <img src="images/Soda-removebg-preview.png" alt="">
+           <h3>Soda</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+           </div>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+           <div class="price">Php60.00</div>
+           <div class="form-group">
+             <select id="size" name="size" required>
+                 <option value="">Select Size</option>
+                 <option value="small">Venti</option>
+                 <option value="medium">Grande</option>
+                 <option value="large">Tall</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="addons" name="addons" required>
+                 <option value="">Select Add Ons</option>
+                 <option value="Pearl">Pearl</option>
+                 <option value="Crystal">Crystal</option>
+                 <option value="Cream Cheese">Cream Cheese</option>
+                 <option value="Coffee Jelly">Coffee Jelly</option>
+                 <option value="Crushed Oreo">Crushed Oreo</option>
+                 <option value="Cream Puff">Cream Puff</option>
+                 <option value="Cheesecake">Cheesecake</option>
+             </select>
+         </div>
+     
+         <div class="form-group">
+             <select id="pre-made themes" name="pre-made themes" required>
+                 <option value="">Select Pre Made Themes</option>
+                 <option value="Taylor Swift">Taylor Swift</option>
+                 <option value="Ariana Grande">Ariana Grande</option>
+                 <option value=" Twice">Twice</option>
+                 <option value="Bini">Bini</option>
+                 <option value="BTS">BTS</option>
+                 <option value="Blackpink">Blackpink</option>
+                 <option value="New Jeans">New Jeans</option>
+             </select>
+     
+             <select id="Cup Color" name="Cup Color" required>
+                 <option value="">Select Cup Color</option>
+                 <option value="White">White</option>
+                 <option value="Black">Black</option>
+                 <option value="Transparent">Transparent</option>
+             </select>
+     
+             <select id="Stickers" name="Stickers" required>
+                 <option value="">Select Stickers</option>
+                 <option value="Boba">Boba/bubble tea illustrations</option>
+                 <option value="Cute">Cute animals (cats, pandas, etc.)</option>
+                 <option value="Food">Food emojis (smiley faces, hearts, stars)  </option>
+                 <option value="Qoutes">Inspirational quotes</option>
+                 <option value="Personalized">Personalized stickers (name, initials)</option>
+             </select>
+     
+         <select id="Accessories" name="Accessories" required>
+             <option value="">Select Accessories</option>
+             <option value="sleeves">Cup sleeves (protective, customizable)</option>
+             <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+             <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+             <option value="holder">Cup holder (for larger cups)</option>
+             <option value="charms">Customized charms/keychains attached to the cup</option>
+         </select>
+         </div>
+           <div class="buttons">
+              <a href="#" class="buy">buy now</a>
+              <a href="#" class="cart">add to cart</a>
+           </div>
+        </div>
+     
+     </div>
+    
 
 </section>
 
