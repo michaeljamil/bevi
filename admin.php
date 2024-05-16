@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Administrator</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="css/admin-css.css">
@@ -560,12 +564,21 @@
             <label for="username">Username:</label>
             <input type="text" id="username" name="username"><br><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
+            <div class="password-wrapper">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <span class="toggle-password" onclick="togglePasswordVisibility('password','add')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
 
-            <label for="conf_password">Confirm Password:</label>
-            <input type="password" id="password" name="conf_password"><br><br>
-            
+            <div class="password-wrapper">
+                <label for="conf_password">Confirm Password:</label>
+                <input type="password" id="conf_password" name="conf_password"><br><br>
+                <span class="toggle-password" onclick="togglePasswordVisibility('conf_password','add')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
             <input type="submit" value="Submit" name="submit">
         </form>
     </div>
@@ -594,9 +607,13 @@
             <label for="updateUsername">Username:</label>
             <input type="text" id="updateUsername" name="username"><br><br>
 
-            <label for="updatePassword">Password:</label>
-            <input type="password" id="updatePassword" name="password"><br><br>
-
+            <div class="password-wrapper">
+                <label for="updatePassword">Password:</label>
+                <input type="password" id="updatePassword" name="updatePassword"><br><br>
+                <span class="toggle-password" onclick="togglePasswordVisibility('updatePassword','update')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
             <input type="submit" value="Submit" name="submit">
         </form>
     </div>

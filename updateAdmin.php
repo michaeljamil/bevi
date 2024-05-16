@@ -8,7 +8,7 @@
         $email = $_POST['email'];
         $phone = $_POST['contactNumber'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = $_POST['updatePassword'];
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 

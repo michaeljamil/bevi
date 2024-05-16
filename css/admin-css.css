@@ -740,3 +740,20 @@ body {
   display: inline-block; /* Ensure buttons are displayed inline */
   margin: 10px; /* Add margin around buttons */
 }
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: calc(100% - 30px);
+}
+
+.toggle-password {
+  font-size: 15px;
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  right: 20px;
+  cursor: pointer;
+}
