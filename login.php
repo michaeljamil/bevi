@@ -100,12 +100,12 @@
  <div id="forgetpasswordModal" class="forgot-modal">
     <span onclick="closeForgotPasswordModal()" class="close" title="Close Modal">&times;</span>
     <!-- Modal Content -->
-    <form class="forgot-modal-content animate" action="/submit-feedback.php">
+    <form class="forgot-modal-content animate" action="resetPassword.php" method="post">
         <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Enter Your Email" name="email" required>
             <label for="username"><b>Username</b></label>
-            <input type="email" placeholder="Enter Your Username" name="username" required>
+            <input type="text" placeholder="Enter Your Username" name="username" required>
             <label for="newPassword"><b>New Password</b></label>
             <div class="password-wrapper">
                 <input type="password" placeholder="Enter Your New Password" name="newPassword" id="newPassword" required>
