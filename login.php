@@ -14,6 +14,7 @@
 <body class="login">
 
     <?php
+        session_start();
         include "connect.php";
 
         // Check if the form is submitted
@@ -33,10 +34,12 @@
                     
                     // Verify the password
                     if (password_verify($password, $hashed_password)) {
+                        $_SESSION['loggedIn'] = true; // Set a session variable to indicate user is logged in
                         echo "<script>
                                 alert('Login successful!');
                                 window.location.href = 'index.php';
                             </script>";
+                        
                         exit;
                     } else {
                         // Password is incorrect

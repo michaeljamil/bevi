@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +39,16 @@
         <a href="#review">REVIEW</a>
     </nav>
 
-    <a href="login.php" class="btn">Log in</a>
+    <?php
+        // Check if user is logged in
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+            // If logged in, display logout button
+            echo '<a href="logout.php" class="btn" id="logoutBtn">Log out</a>';
+        } else {
+            // If not logged in, display login button
+            echo '<a href="login.php" class="btn" id="loginBtn">Log in</a>';
+        }
+    ?>
 
 </header>
 
@@ -339,6 +351,7 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+
 
 </body>
 </html>
