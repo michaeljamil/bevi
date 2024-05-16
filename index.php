@@ -226,81 +226,50 @@
 
 </section>
 
-
 <section class="review" id="review">
-
     <h1 class="heading"> reviews <span>Their thoughts</span> </h1>
     <div class="swiper review-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide box">
-                <i class="fas fa-quote-left"></i>
-                <i class="fas fa-quote-right"></i>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p>Absolutely love the rich and velvety taste of the Cafe Latte! The perfect balance of smooth espresso and creamy steamed milk is simply delightful. 
-                    It's my go-to choice for a satisfying coffee experience. Highly recommend!</p>
-                <h3>Jeybi Rellora</h3>
-                <span>Chemical Engineering Student</span>
-            </div>
+            <?php
+            // Include the file that connects to the database
+            include 'connect.php';
 
-            <div class="swiper-slide box">
-                <i class="fas fa-quote-left"></i>
-                <i class="fas fa-quote-right"></i>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p>I'm absolutely hooked on the delightful warmth and bold flavors of the Irish Coffee! The combination of smooth Irish whiskey, rich coffee, and 
-                    a dollop of whipped cream is simply irresistible. It's the perfect indulgence for a cozy and comforting treat. Love it!</p>
-                <h3>Troy Patriarca</h3>
-                <span>Chemical Engineering Student</span>
-            </div>
+            // Query to select feedback data
+            $sql = "SELECT * FROM bevi_db.feedback";
+            $result = mysqli_query($conn, $sql);
 
-            <div class="swiper-slide box">
-                <i class="fas fa-quote-left"></i>
-                <i class="fas fa-quote-right"></i>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p>I'm in chocolate heaven! The hot chocolate is rich, creamy, and absolutely divine. The velvety texture and decadent taste are pure bliss. 
-                    It's the perfect drink to cozy up with on a chilly day. Absolutely love it!</p>
-                <h3>Russell Llagas</h3>
-                <span>Chemical Engineering Student</span>
-            </div>
-
-            <div class="swiper-slide box">
-                <i class="fas fa-quote-left"></i>
-                <i class="fas fa-quote-right"></i>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p>Simply irresistible! The cafe mocha is a heavenly blend of rich espresso, velvety chocolate, and frothy milk. The combination of flavors is pure magic, 
-                    and the presentation is always picture-perfect. It's a delightful indulgence that never disappoints. Love it!</p>
-                <h3>Catherine</h3>
-                <span>Web Designer</span>
-            </div>
-
+            // Check if there are any feedbacks
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through each feedback
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="swiper-slide box">
+                        <i class="fas fa-quote-left"></i>
+                        <i class="fas fa-quote-right"></i>
+                        <div class="stars">
+                            <?php
+                            for ($i = 0; $i < $row["rating"]; $i++) {
+                                echo '<i class="fas fa-star"></i>';
+                            }
+                            ?>
+                        </div>
+                        <p><?php echo $row["feedback_details"]; ?></p>
+                        <h3><?php echo $row["name"]; ?></h3>
+                        <span><?php echo $row["date"]; ?></span>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo '<p>No feedbacks found.</p>';
+            }
+            mysqli_close($conn);
+            ?>
         </div>
         <div class="swiper-pagination"></div>
     </div>
     <button onclick="openFeedbackModal()" class="review-btn">Give Feedback</a>
 </section>
+
 
 <!-- The Modal -->
 <div id="feedbackModal" class="modal">
