@@ -40,4 +40,8 @@
       if (!$conn->query($sqlCust)) {
         echo "Error creating Table: " . $conn->error;
     }
+    if (!$conn->query($sqlAdmin)) {
+        echo "Error creating Table: " . $conn->error;
+    }
+
 ?>
