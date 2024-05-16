@@ -1,3 +1,29 @@
+/* Swiper */
+
+document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper(".review-slider", {
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        loop: true,
+        grabCursor: true,
+        autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+        },
+    });
+});
+
 /* login */
 
 const container = document.getElementById('login-container');
@@ -89,27 +115,8 @@ document.querySelectorAll('.image-slider img').forEach(images =>{
     };
 });
 
-var swiper = new Swiper(".review-slider", {
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    loop : true,
-    grabCursor: true,
-    autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-    },
-});
+
+
 
 // Menu Form
     const popup = document.getElementById('popup');
