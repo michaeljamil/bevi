@@ -12,9 +12,54 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="login">
+
+    <?php
+        include "connect.php";
+
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Retrieve input data
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            
+            if (!empty($email) && !empty($password)) {
+                // Retrieve hashed password from the database based on the provided email
+                $sql = "SELECT password FROM bevi_db.admin_acc WHERE email = '$email'";
+                $result = $conn->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $hashed_password = $row['password'];
+                    
+                    // Verify the password
+                    if (password_verify($password, $hashed_password)) {
+                        echo "<script>
+                                alert('Login successful!');
+                                window.location.href = 'admin.php';
+                            </script>";
+                        exit;
+                        exit; // Exit script after echoing success message
+                    } else {
+                        // Password is incorrect
+                        echo "<script>alert('Invalid email or password');</script>";
+                    }
+                } else {
+                    // Email not found in the database
+                    echo "<script>alert('Invalid email or password');</script>";
+                }
+            } else {
+                // Email or password is empty
+                echo "<script>alert('Email and Password Required!');</script>";
+            }
+        }
+
+        // Redirect to index.html if the form is not submitted
+        //header("Location: index.html");
+        ?>
+
     <div class="login-container" id="login-container">
         <div class="form-container sign-in">
-            <form action="login.php" method="post">
+            <form action="" method="post">
                 <h1>Admin Sign In</h1>
                 <p></p>
                 <span>or use your email password</span>
