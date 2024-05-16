@@ -430,39 +430,67 @@
                     <div class="toggle" onclick="toggleMenu()">
                         <ion-icon name="menu-outline"></ion-icon>
                     </div>
-            
-                    <div class="search">
-                        <label>
-                            <input type="text" placeholder="Search here" name="search">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </label>
-                    </div>
-            
-                    <div class="user">
-                        <img src="images/customer01.jpg" alt="">
-                    </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here" name="search">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
                 </div>
-            
-                <div class="feedbacksdetail">
-                    <div class="manager">
-                        <table class="striped-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Feedback ID</th>
-                                    <th scope="col">Customer ID</th>
-                                    <th scope="col">Feedback Date</th>
-                                    <th scope="col">Feedback Rating</th>
-                                    <th scope="col">Feedback Comments</th>
-                                    <th scope="col">Product</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Customer records will be dynamically inserted here -->
-                            </tbody>
-                        </table>
-                    </div>
+
+                <div class="user">
+                    img src="images/customer01.jpg" alt="">
                 </div>
             </div>
+
+                <div class="feedbacksdetail">
+        <div class="manager">
+            <table class="striped-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Feedback ID</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Feedback Date</th>
+                        <th scope="col">Feedback Rating</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Feedback Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Include the file that connects to the database
+                    include 'connect.php';
+
+                    // Query to select all rows from the feedback table
+                    $sql = "SELECT * FROM bevi_db.feedback";
+                    $result = mysqli_query($conn, $sql);
+
+                    // Check if there are any rows returned
+                    if (mysqli_num_rows($result) > 0) {
+                        // Output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<th scope='row'>" . $row["feedback_id"] . "</th>";
+                            echo "<td>" . $row["name"] . "</td>";
+                            echo "<td>" . $row["date"] . "</td>";
+                            echo "<td>" . $row["rating"] . "</td>";
+                            echo "<td>" . $row["product_name"] . "</td>";
+                            echo "<td>" . $row["feedback_details"] . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>No feedbacks found.</td></tr>";
+                    }
+
+                    // Close the connection
+                    mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 
              <!-- ========================= Accounts ==================== -->
              

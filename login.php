@@ -38,7 +38,6 @@
                                 window.location.href = 'index.html';
                             </script>";
                         exit;
-                        exit; // Exit script after echoing success message
                     } else {
                         // Password is incorrect
                         echo "<script>alert('Invalid email or password');</script>";

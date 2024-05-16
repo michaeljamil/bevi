@@ -103,7 +103,7 @@ populateOrdersTable();
 // Feedback JS //
 
 // Sample feedback data (you can replace this with your actual data)
-const feedbacks = [
+/*const feedbacks = [
   { id: 1, customerid: 2, date: 'February', rating: '4/5', comment: 'Very Delicious', product: 'Frappe'},
   // Add more feedback records as needed
 ];
@@ -130,7 +130,7 @@ function populateFeedbacksTable() {
 
 // Call the function to initially populate the table
 populateFeedbacksTable();
-
+*/
 // Admin JS //
 
 // // Sample admin data (you can replace this with your actual data)
