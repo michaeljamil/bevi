@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($conn, $sql)) {
         echo "Feedback submitted successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn); // Corrected variable name
     }
 
     // Close database connection
