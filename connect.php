@@ -46,6 +46,19 @@
                     `feedback_details` mediumtext,
                     PRIMARY KEY (`feedback_id`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+    $sqlOrder = "CREATE TABLE `bevi_db`.`orders` (
+                    `order_id` INT NOT NULL AUTO_INCREMENT,
+                    `product` VARCHAR(45) NOT NULL,
+                    `cup_color` VARCHAR(45) NOT NULL,
+                    `add_ons` VARCHAR(45) NOT NULL,
+                    `stickers` VARCHAR(45) NOT NULL,
+                    `accessories` VARCHAR(45) NOT NULL,
+                    `lid_type` VARCHAR(45) NOT NULL,
+                    `straw_option` VARCHAR(45) NOT NULL,
+                    `pre_made_theme` VARCHAR(45) NOT NULL,
+                    `amount` VARCHAR(45) NOT NULL,
+                    PRIMARY KEY (`order_id`);
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
                 
 
     if (!$conn->query($sqlCust)) {
@@ -57,5 +70,7 @@
     if (!$conn->query($sqlFeedback)) {
         echo "Error creating Table: " . $conn->error;
     }
-
+    if (!$conn->query($sqlOrder)) {
+        echo "Error creating Table: " . $conn->error;
+    }
 ?>
