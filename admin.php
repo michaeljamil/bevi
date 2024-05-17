@@ -73,7 +73,7 @@
                 </li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="index.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
