@@ -128,6 +128,36 @@
         .submit-button:hover {
             background-color: #d09d8c;
         }
+
+        .submit-button{
+            text-decoration: none;
+        }
+
+        /* Styles for hover image */
+        .hover-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hover-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-container:hover .hover-image-container {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -188,7 +218,7 @@
                         <option value="Personalized">Personalized stickers (name, initials)</option>
                     </select>
                 </div>
-                <div class="customization-option">
+                <div class="customization-option dropdown-container">
                     <label for="preMadeThemes">Pre-made Themes:</label>
                     <select id="preMadeThemes">
                         <option value="">None</option>
@@ -199,6 +229,9 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -230,6 +263,18 @@
                         <option value="Biodegradable">Biodegradable paper straw</option>
                         <option value="Stainless">Stainless steel reusable straw</option>
                         <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Americano</option>
+                        <option value="Standard">Caramel Machiatto</option>
+                        <option value="Standard">French Vanilla</option>
+                        <option value="Standard">Hazelnut</option>
+                        <option value="Standard">Pumpkin Spice Latte</option>
+                        
                     </select>
                 </div>
             </div>
@@ -283,6 +328,35 @@
 
         localStorage.setItem('productDetails', JSON.stringify(productDetails));
     });
+
+    // JavaScript to handle hover events
+    const preMadeThemes = document.getElementById('preMadeThemes');
+    const hoverImageContainer = document.getElementById('hoverImageContainer');
+    const hoverImage = document.getElementById('hoverImage');
+
+    const themeImages = {
+        "Bini": "images/bini.png",
+        "BlackPink": "images/BlackPink.png",
+        "BTS": "images/BTS.png",
+        "New Jeans": "images/NewJeans.png",
+        "Taylor": "images/taylor.png",
+        "Twice": "images/Twice.png"
+    };
+
+    preMadeThemes.addEventListener('mouseover', (event) => {
+        const selectedTheme = event.target.value;
+        if (themeImages[selectedTheme]) {
+            hoverImage.src = themeImages[selectedTheme];
+            hoverImageContainer.style.display = 'block';
+        } else {
+            hoverImageContainer.style.display = 'none';
+        }
+    });
+
+    preMadeThemes.addEventListener('mouseout', () => {
+        hoverImageContainer.style.display = 'none';
+    });
+
 </script>
 
 </body>
