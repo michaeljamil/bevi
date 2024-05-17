@@ -286,22 +286,50 @@
 </div>
 
 <script>
-    const quantityElement = document.getElementById('quantity');
-    const decreaseButton = document.getElementById('decreaseQuantity');
-    const increaseButton = document.getElementById('increaseQuantity');
+    const increaseBtn = document.getElementById('increaseQuantity');
+    const decreaseBtn = document.getElementById('decreaseQuantity');
+    const quantitySpan = document.getElementById('quantity');
+    const sizeSelect = document.getElementById('size');
+    const addOnsSelect = document.getElementById('Add-Ons');
+    const cupColorSelect = document.getElementById('cupColor');
+    const stickersSelect = document.getElementById('stickers');
+    const preMadeThemesSelect = document.getElementById('preMadeThemes');
+    const accessoriesSelect = document.getElementById('accessories');
+    const lidTypeSelect = document.getElementById('lidType');
+    const strawOptionsSelect = document.getElementById('strawOptions');
+    const submitButton = document.querySelector('.submit-button');
 
     let quantity = 1;
 
-    decreaseButton.addEventListener('click', () => {
+    increaseBtn.addEventListener('click', () => {
+        quantity++;
+        quantitySpan.textContent = quantity;
+    });
+
+    decreaseBtn.addEventListener('click', () => {
         if (quantity > 1) {
             quantity--;
-            quantityElement.textContent = quantity;
+            quantitySpan.textContent = quantity;
         }
     });
 
-    increaseButton.addEventListener('click', () => {
-        quantity++;
-        quantityElement.textContent = quantity;
+    submitButton.addEventListener('click', () => {
+        const productDetails = {
+            name: 'Soda',
+            quantity: quantity,
+            size: sizeSelect.value,
+            addOns: addOnsSelect.value,
+            cupColor: cupColorSelect.value,
+            stickers: stickersSelect.value,
+            preMadeThemes: preMadeThemesSelect.value,
+            accessories: accessoriesSelect.value,
+            lidType: lidTypeSelect.value,
+            strawOptions: strawOptionsSelect.value
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(productDetails);
+        localStorage.setItem('cart', JSON.stringify(cart));
     });
 
     // JavaScript to handle hover events
