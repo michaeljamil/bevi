@@ -243,7 +243,7 @@
     <div class="swiper review-slider">
         <div class="swiper-wrapper">
             <?php
-            // Include the file that connects to the database
+            // include the connect.php that contain the connection
             include 'connect.php';
 
             // Query to select feedback data
@@ -289,10 +289,7 @@
   
     <!-- Modal Content -->
     <form class="modal-content animate" action="feedback.php" method="post">
-      <!--<div class="imgcontainer">
-        <img src="images/customer01.jpg" alt="Avatar" class="avatar">
-      </div>
-    -->
+      
       <div class="container">
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="Enter Your Name" name="name" required>

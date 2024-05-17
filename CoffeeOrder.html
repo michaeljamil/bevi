@@ -122,6 +122,7 @@
             margin: 20px auto 0;
             width: 100%;
             max-width: 300px;
+            text-decoration: none;
         }
 
         .submit-button:hover {
@@ -236,11 +237,11 @@
                     <label for="accessories">Accessories:</label>
                     <select id="accessories">
                         <option value="none">None</option>
-                        <option value="spoon">Cup sleeves (protective, customizable)</option>
-                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
-                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
-                        <option value="straw">Cup holder (for larger cups)</option>
-                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                        <option value="sleeves">Cup sleeves (protective, customizable)</option>
+                        <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="holder">Cup holder (for larger cups)</option>
+                        <option value="charms">Customized charms/keychains attached to the cup</option>
                     </select>
                 </div>
                 <div class="customization-option">
@@ -279,27 +280,53 @@
             </div>
         </div>
 
-        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+        <a href="cart.html" class="submit-button">Add to Cart</a>
     </div>
 </div>
 
 <script>
-    const quantityElement = document.getElementById('quantity');
-    const decreaseButton = document.getElementById('decreaseQuantity');
-    const increaseButton = document.getElementById('increaseQuantity');
+    const increaseBtn = document.getElementById('increaseQuantity');
+    const decreaseBtn = document.getElementById('decreaseQuantity');
+    const quantitySpan = document.getElementById('quantity');
+    const sizeSelect = document.getElementById('size');
+    const addOnsSelect = document.getElementById('Add-Ons');
+    const cupColorSelect = document.getElementById('cupColor');
+    const stickersSelect = document.getElementById('stickers');
+    const preMadeThemesSelect = document.getElementById('preMadeThemes');
+    const accessoriesSelect = document.getElementById('accessories');
+    const lidTypeSelect = document.getElementById('lidType');
+    const strawOptionsSelect = document.getElementById('strawOptions');
+    const submitButton = document.querySelector('.submit-button');
 
     let quantity = 1;
 
-    decreaseButton.addEventListener('click', () => {
+    increaseBtn.addEventListener('click', () => {
+        quantity++;
+        quantitySpan.textContent = quantity;
+    });
+
+    decreaseBtn.addEventListener('click', () => {
         if (quantity > 1) {
             quantity--;
-            quantityElement.textContent = quantity;
+            quantitySpan.textContent = quantity;
         }
     });
 
-    increaseButton.addEventListener('click', () => {
-        quantity++;
-        quantityElement.textContent = quantity;
+    submitButton.addEventListener('click', () => {
+        const productDetails = {
+            name: 'Coffee',
+            quantity: quantity,
+            size: sizeSelect.value,
+            addOns: addOnsSelect.value,
+            cupColor: cupColorSelect.value,
+            stickers: stickersSelect.value,
+            preMadeThemes: preMadeThemesSelect.value,
+            accessories: accessoriesSelect.value,
+            lidType: lidTypeSelect.value,
+            strawOptions: strawOptionsSelect.value
+        };
+
+        localStorage.setItem('productDetails', JSON.stringify(productDetails));
     });
 
     // JavaScript to handle hover events
