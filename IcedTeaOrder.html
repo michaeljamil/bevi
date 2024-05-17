@@ -176,9 +176,9 @@
         <div class="size-select">
             <label for="size">Size:</label>
             <select id="size">
-                <option value="Venti">Venti</option>
                 <option value="Medio">Medio</option>
                 <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
             </select>
         </div>
 
@@ -289,26 +289,6 @@
 </div>
 
 <script>
-    const quantityElement = document.getElementById('quantity');
-    const decreaseButton = document.getElementById('decreaseQuantity');
-    const increaseButton = document.getElementById('increaseQuantity');
-
-    let quantity = 1;
-
-    decreaseButton.addEventListener('click', () => {
-        if (quantity > 1) {
-            quantity--;
-            quantityElement.textContent = quantity;
-        }
-    });
-
-    increaseButton.addEventListener('click', () => {
-        quantity++;
-        quantityElement.textContent = quantity;
-    });
-
-    
-    // JavaScript code for adding to cart
     const increaseBtn = document.getElementById('increaseQuantity');
     const decreaseBtn = document.getElementById('decreaseQuantity');
     const quantitySpan = document.getElementById('quantity');
@@ -322,6 +302,23 @@
     const strawOptionsSelect = document.getElementById('strawOptions');
     const submitButton = document.querySelector('.submit-button');
 
+    let quantity = 1;
+    let price = calculatePrice();
+
+    // Event listeners for increasing and decreasing quantity
+    increaseBtn.addEventListener('click', () => {
+        quantity++;
+        quantitySpan.textContent = quantity;
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantitySpan.textContent = quantity;
+        }
+    });
+    
+    // Event listener for submitting the product to the cart
     submitButton.addEventListener('click', () => {
         const productDetails = {
             name: 'Iced Tea',
@@ -333,13 +330,42 @@
             preMadeThemes: preMadeThemesSelect.value,
             accessories: accessoriesSelect.value,
             lidType: lidTypeSelect.value,
-            strawOptions: strawOptionsSelect.value
+            strawOptions: strawOptionsSelect.value,
+            price: price // Include the price in the product details
         };
 
+        // Retrieve the cart from local storage or initialize an empty array
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Push the product details to the cart array
         cart.push(productDetails);
+        // Store the updated cart back to local storage
         localStorage.setItem('cart', JSON.stringify(cart));
     });
+
+     // Function to calculate the price
+     function calculatePrice() {
+        let basePrice = 79; // Base price
+        let sizePrice = 0;
+        let addOnsPrice = 0;
+
+        // Calculate price based on selected size
+        const selectedSize = sizeSelect.value;
+        if (selectedSize === 'Grande') {
+            sizePrice += 10;
+        } else if (selectedSize === 'Venti') {
+            sizePrice += 20;
+        }
+
+        // Calculate price based on selected add-ons
+        const selectedAddOns = addOnsSelect.value;
+        if (selectedAddOns !== 'None' && selectedAddOns !== 'none' && selectedAddOns !== "" ) {
+            addOnsPrice += 10;
+        }
+
+        // Calculate total price
+        let totalPrice = basePrice + sizePrice + addOnsPrice;
+        return totalPrice;
+    }
 
     
     // JavaScript to handle hover events

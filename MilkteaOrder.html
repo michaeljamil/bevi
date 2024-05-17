@@ -176,9 +176,9 @@
         <div class="size-select">
             <label for="size">Size:</label>
             <select id="size">
-                <option value="Venti">Venti</option>
                 <option value="Medio">Medio</option>
                 <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
             </select>
         </div>
 
@@ -300,6 +300,7 @@
     const submitButton = document.querySelector('.submit-button');
 
     let quantity = 1;
+    let price = calculatePrice();
 
     increaseBtn.addEventListener('click', () => {
         quantity++;
@@ -313,6 +314,7 @@
         }
     });
 
+    // Event listener for submitting the product to the cart
     submitButton.addEventListener('click', () => {
         const productDetails = {
             name: 'Milk Tea',
@@ -324,13 +326,42 @@
             preMadeThemes: preMadeThemesSelect.value,
             accessories: accessoriesSelect.value,
             lidType: lidTypeSelect.value,
-            strawOptions: strawOptionsSelect.value
+            strawOptions: strawOptionsSelect.value,
+            price: price // Include the price in the product details
         };
 
+        // Retrieve the cart from local storage or initialize an empty array
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Push the product details to the cart array
         cart.push(productDetails);
+        // Store the updated cart back to local storage
         localStorage.setItem('cart', JSON.stringify(cart));
     });
+
+     // Function to calculate the price
+     function calculatePrice() {
+        let basePrice = 85; // Base price
+        let sizePrice = 0;
+        let addOnsPrice = 0;
+
+        // Calculate price based on selected size
+        const selectedSize = sizeSelect.value;
+        if (selectedSize === 'Grande') {
+            sizePrice += 10;
+        } else if (selectedSize === 'Venti') {
+            sizePrice += 20;
+        }
+
+        // Calculate price based on selected add-ons
+        const selectedAddOns = addOnsSelect.value;
+        if (selectedAddOns !== 'None' && selectedAddOns !== 'none' && selectedAddOns !== "" ) {
+            addOnsPrice += 10;
+        }
+
+        // Calculate total price
+        let totalPrice = basePrice + sizePrice + addOnsPrice;
+        return totalPrice;
+    }
 
     // JavaScript to handle hover events
     const preMadeThemes = document.getElementById('preMadeThemes');
