@@ -186,7 +186,7 @@
 
     <div class="box-container">
 
-        <a href="productCustomization.html" class="box">
+        <a href="CoffeeOrder.html" class="box">
             <img src="images/coffee.png" alt="">
             <div class="content">
                 <h3>Hot Coffee</h3>
@@ -194,7 +194,7 @@
             </div>
         </a>
 
-        <a href="#" class="box">
+        <a href="IcedCoffeeOrder.html" class="box">
             <img src="images/iced coffee.png" alt="">
             <div class="content">
                 <h3>Iced Coffee</h3>
@@ -202,7 +202,7 @@
             </div>
         </a>
 
-        <a href="#" class="box">
+        <a href="MilkteaOrder.html" class="box">
             <img src="images/milktea.png" alt="">
             <div class="content">
                 <h3>Milktea</h3>
@@ -210,7 +210,7 @@
             </div>
         </a>
 
-        <a href="#" class="box">
+        <a href="IcedTeaOrder.html" class="box">
             <img src="images/iced tea.png" alt="">
             <div class="content">
                 <h3>Iced Tea</h3>
@@ -218,7 +218,7 @@
             </div>
         </a>
 
-        <a href="#" class="box">
+        <a href="FrappeOrder.html" class="box">
             <img src="images/frappe.png" alt="">
             <div class="content">
                 <h3>Frappe</h3>
@@ -226,7 +226,7 @@
             </div>
         </a>
 
-        <a href="#" class="box">
+        <a href="SodaOrder.html" class="box">
             <img src="images/soda.png" alt="">
             <div class="content">
                 <h3> Soda</h3>

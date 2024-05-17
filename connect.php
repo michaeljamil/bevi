@@ -3,7 +3,7 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
-    $password = "1234"; //Palitan mo na lang pass tas username base sa mysql server mo
+    $password = "0907Mairu-kun!/"; //Palitan mo na lang pass tas username base sa mysql server mo
 
     $conn = new mysqli($servername, $username, $password);
 

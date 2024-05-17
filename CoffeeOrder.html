@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Itim&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #FFEBC1, #D7A86E, #A64B2A);
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-image {
+            max-width: 200px;
+        }
+
+        .product-name {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #8d7066;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #555;
+        }
+
+        .quantity-control, .size-select, .customization-section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quantity-control button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #d09d8c;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+
+        .quantity-control button:hover {
+            background-color: #b06a53;
+        }
+
+        .size-select select, .customization-section select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #d09d8c;
+            font-size: 16px;
+            color: #b06a53;
+            background-color: #fff;
+        }
+
+        .customization-section {
+            background-color: #f7e9d7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .customization-section h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+            color: #8d7066;
+        }
+
+        .customization-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .customization-option {
+            text-align: left;
+        }
+
+        .customization-option label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .submit-button {
+            padding: 15px 20px;
+            background-color: #b06a53;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .submit-button:hover {
+            background-color: #d09d8c;
+        }
+
+        .submit-button{
+            text-decoration: none;
+        }
+
+        /* Styles for hover image */
+        .hover-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hover-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-container:hover .hover-image-container {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-detail">
+        <img src="images/Coffee-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Coffee</h1>
+        <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Venti">Venti</option>
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Americano</option>
+                        <option value="Standard">Caramel Machiatto</option>
+                        <option value="Standard">French Vanilla</option>
+                        <option value="Standard">Hazelnut</option>
+                        <option value="Standard">Pumpkin Spice Latte</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+    </div>
+</div>
+
+<script>
+    const quantityElement = document.getElementById('quantity');
+    const decreaseButton = document.getElementById('decreaseQuantity');
+    const increaseButton = document.getElementById('increaseQuantity');
+
+    let quantity = 1;
+
+    decreaseButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityElement.textContent = quantity;
+        }
+    });
+
+    increaseButton.addEventListener('click', () => {
+        quantity++;
+        quantityElement.textContent = quantity;
+    });
+
+    // JavaScript to handle hover events
+    const preMadeThemes = document.getElementById('preMadeThemes');
+    const hoverImageContainer = document.getElementById('hoverImageContainer');
+    const hoverImage = document.getElementById('hoverImage');
+
+    const themeImages = {
+        "Bini": "images/bini.png",
+        "BlackPink": "images/BlackPink.png",
+        "BTS": "images/BTS.png",
+        "New Jeans": "images/NewJeans.png",
+        "Taylor": "images/taylor.png",
+        "Twice": "images/Twice.png"
+    };
+
+    preMadeThemes.addEventListener('mouseover', (event) => {
+        const selectedTheme = event.target.value;
+        if (themeImages[selectedTheme]) {
+            hoverImage.src = themeImages[selectedTheme];
+            hoverImageContainer.style.display = 'block';
+        } else {
+            hoverImageContainer.style.display = 'none';
+        }
+    });
+
+    preMadeThemes.addEventListener('mouseout', () => {
+        hoverImageContainer.style.display = 'none';
+    });
+
+</script>
+
+</body>
+</html>
