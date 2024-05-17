@@ -354,7 +354,7 @@
 
         // Calculate price based on selected add-ons
         const selectedAddOns = addOnsSelect.value;
-        if (selectedAddOns !== 'None' || selectedAddOns !== 'none' ) {
+        if (selectedAddOns !== 'None' && selectedAddOns !== 'none' && selectedAddOns !== "" ) {
             addOnsPrice += 10;
         }
 
