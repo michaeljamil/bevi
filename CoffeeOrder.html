@@ -326,8 +326,11 @@
             strawOptions: strawOptionsSelect.value
         };
 
-        localStorage.setItem('productDetails', JSON.stringify(productDetails));
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(productDetails);
+        localStorage.setItem('cart', JSON.stringify(cart));
     });
+
 
     // JavaScript to handle hover events
     const preMadeThemes = document.getElementById('preMadeThemes');
