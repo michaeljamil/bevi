@@ -195,19 +195,4 @@ window.addEventListener('click', function(event) {
     }
 });
 
-document.getElementById('submitButton').addEventListener('click', () => {
-    const productDetails = {
-        name: 'Coffee',
-        quantity: parseInt(document.getElementById('quantity').textContent),
-        size: document.getElementById('size').value,
-        addOns: document.getElementById('Add-Ons').value,
-        cupColor: document.getElementById('cupColor').value,
-        stickers: document.getElementById('stickers').value,
-        preMadeThemes: document.getElementById('preMadeThemes').value,
-        accessories: document.getElementById('accessories').value,
-        lidType: document.getElementById('lidType').value,
-        strawOptions: document.getElementById('strawOptions').value
-    };
 
-    localStorage.setItem('productDetails', JSON.stringify(productDetails));
-});

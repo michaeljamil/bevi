@@ -199,36 +199,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const cartItemsDiv = document.getElementById('cartItems');
-            const subtotalSpan = document.getElementById('subtotal');
-            const totalSpan = document.getElementById('total');
-            const shippingCost = 30.00; // Flat shipping cost
-            let subtotal = 0.00;
+        const cartItemsDiv = document.getElementById('cartItems');
+        const subtotalSpan = document.getElementById('subtotal');
+        const totalSpan = document.getElementById('total');
+        const shippingCost = 5.00; // Flat shipping cost
+        let subtotal = 0.00;
 
-            // Function to update the total cost
-            function updateTotal() {
-                subtotalSpan.textContent = `$${subtotal.toFixed(2)}`;
-                totalSpan.textContent = `$${(subtotal + shippingCost).toFixed(2)}`;
-            }
+        // Function to update the total cost
+        function updateTotal() {
+            subtotalSpan.textContent = `$${subtotal.toFixed(2)}`;
+            totalSpan.textContent = `$${(subtotal + shippingCost).toFixed(2)}`;
+        }
 
-            // Retrieve product details from local storage
-            const productDetails = JSON.parse(localStorage.getItem('productDetails'));
-            if (productDetails) {
-                const { name, quantity, size, addOns, cupColor, stickers, preMadeThemes, accessories, lidType, strawOptions } = productDetails;
+        // Retrieve cart items from local storage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cartItems.length > 0) {
+            cartItems.forEach((item, index) => {
+                const { name, quantity, size, addOns, cupColor, stickers, preMadeThemes, accessories, lidType, strawOptions } = item;
                 const pricePerItem = 4.50; // Example price, adjust as needed
                 const itemTotal = pricePerItem * quantity;
 
                 const cartItemHTML = `
-                    <tr>
+                    <tr data-index="${index}">
                         <td>
-                            <img src="images/Coffee-removebg-preview.png" alt="${name}">
+                            <img src="images/${name.replace(/\s+/g, '')}-removebg-preview.png" alt="${name}">
                             <span>${name}</span>
                         </td>
                         <td><span>$${pricePerItem.toFixed(2)}</span></td>
                         <td>
                             <div class="quantity-buttons">
                                 <button class="decrease-quantity">-</button>
-                                <span>${quantity}</span>
+                                <span class="item-quantity">${quantity}</span>
                                 <button class="increase-quantity">+</button>
                             </div>
                         </td>
@@ -237,43 +239,53 @@
                     </tr>
                 `;
 
-                cartItemsDiv.innerHTML = cartItemHTML;
-                subtotal = itemTotal;
-                updateTotal();
+                cartItemsDiv.insertAdjacentHTML('beforeend', cartItemHTML);
+                subtotal += itemTotal;
+            });
+            updateTotal();
+        } else {
+            cartItemsDiv.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+        }
 
-                // Quantity adjustment event listeners
-                document.querySelector('.decrease-quantity').addEventListener('click', function() {
-                    if (quantity > 1) {
-                        quantity--;
-                        updateCartItem();
-                    }
-                });
+        // Event delegation for quantity adjustment and removal
+        cartItemsDiv.addEventListener('click', function(event) {
+            const target = event.target;
+            const row = target.closest('tr');
+            const index = row.getAttribute('data-index');
+            let quantity = parseInt(row.querySelector('.item-quantity').textContent);
+            const pricePerItem = 4.50; // Example price, adjust as needed
 
-                document.querySelector('.increase-quantity').addEventListener('click', function() {
-                    quantity++;
-                    updateCartItem();
-                });
-
-                // Remove button event listener
-                document.querySelector('.remove-button').addEventListener('click', function() {
+            if (target.classList.contains('decrease-quantity') && quantity > 1) {
+                quantity--;
+            } else if (target.classList.contains('increase-quantity')) {
+                quantity++;
+            } else if (target.classList.contains('remove-button')) {
+                cartItems.splice(index, 1);
+                row.remove();
+                if (cartItems.length === 0) {
                     cartItemsDiv.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
-                    subtotal = 0;
-                    updateTotal();
-                    localStorage.removeItem('productDetails');
-                });
-
-                // Update cart item details and totals
-                function updateCartItem() {
-                    document.querySelector('.quantity-buttons span').textContent = quantity;
-                    const newTotal = pricePerItem * quantity;
-                    document.querySelector('.item-total').textContent = `$${newTotal.toFixed(2)}`;
-                    subtotal = newTotal;
-                    updateTotal();
                 }
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                updateSubtotal();
+                return;
             } else {
-                cartItemsDiv.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+                return;
             }
+
+            cartItems[index].quantity = quantity;
+            row.querySelector('.item-quantity').textContent = quantity;
+            const newTotal = pricePerItem * quantity;
+            row.querySelector('.item-total').textContent = `$${newTotal.toFixed(2)}`;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateSubtotal();
         });
+
+        // Function to update the subtotal and total
+        function updateSubtotal() {
+            subtotal = cartItems.reduce((acc, item) => acc + (4.50 * item.quantity), 0); // Adjust price per item as needed
+            updateTotal();
+        }
+    });
     </script>
 </body>
 </html>

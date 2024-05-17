@@ -307,6 +307,41 @@
         quantityElement.textContent = quantity;
     });
 
+    
+    // JavaScript code for adding to cart
+    const increaseBtn = document.getElementById('increaseQuantity');
+    const decreaseBtn = document.getElementById('decreaseQuantity');
+    const quantitySpan = document.getElementById('quantity');
+    const sizeSelect = document.getElementById('size');
+    const addOnsSelect = document.getElementById('Add-Ons');
+    const cupColorSelect = document.getElementById('cupColor');
+    const stickersSelect = document.getElementById('stickers');
+    const preMadeThemesSelect = document.getElementById('preMadeThemes');
+    const accessoriesSelect = document.getElementById('accessories');
+    const lidTypeSelect = document.getElementById('lidType');
+    const strawOptionsSelect = document.getElementById('strawOptions');
+    const submitButton = document.querySelector('.submit-button');
+
+    submitButton.addEventListener('click', () => {
+        const productDetails = {
+            name: 'Iced Tea',
+            quantity: quantity,
+            size: sizeSelect.value,
+            addOns: addOnsSelect.value,
+            cupColor: cupColorSelect.value,
+            stickers: stickersSelect.value,
+            preMadeThemes: preMadeThemesSelect.value,
+            accessories: accessoriesSelect.value,
+            lidType: lidTypeSelect.value,
+            strawOptions: strawOptionsSelect.value
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(productDetails);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    });
+
+    
     // JavaScript to handle hover events
     const preMadeThemes = document.getElementById('preMadeThemes');
     const hoverImageContainer = document.getElementById('hoverImageContainer');
@@ -334,6 +369,8 @@
     preMadeThemes.addEventListener('mouseout', () => {
         hoverImageContainer.style.display = 'none';
     });
+    
+
 
 </script>
 
