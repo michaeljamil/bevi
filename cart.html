@@ -225,6 +225,7 @@
             const shippingCost = 30.00; // Flat shipping cost
             let item_price = 0.00;
             let subtotal = 0.00;
+            
 
             // Function to update the total cost
             function updateTotal() {
@@ -235,7 +236,7 @@
             
             // Retrieve cart items from local storage
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
+            
             if (cartItems.length > 0) {
                 cartItems.forEach((item, index) => {
                     const { name, quantity, price, size, addOns, cupColor, stickers, lidType, preMadeThemes, strawOptions } = item;
@@ -335,6 +336,26 @@
                 subtotal = cartItems.reduce((acc, item) => acc + (item_price * item.quantity), 0);
                 updateTotal();
             }
+        });
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Function to update item totals in the cart
+        function updateAllItemTotals(cartItems) {
+            const itemQuantitySpan = document.querySelector('.item-quantity');
+            const itemQuantityText = itemQuantitySpan.textContent;
+            const quantityInt = parseInt(itemQuantityText)
+            cartItems.forEach(item => {
+                item.itemTotal = parseFloat(item.price) * quantityInt;
+            });
+
+            // Save the updated array back to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+        // Add event listener to the Checkout button
+        document.querySelector('.checkout-button').addEventListener('click', function(event) {
+            updateAllItemTotals(cartItems);
         });
     </script>
 </body>
