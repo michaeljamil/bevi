@@ -38,45 +38,91 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
+// Function to open a modal
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
 
-// Function to open the feedback modal
+// Function to close a modal
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target == modal) {
+            closeModal(modal.id);
+        }
+    });
+}
+
+// Functions to open and close specific modals
+function openCoffeeModal() {
+    openModal('coffeeModal');
+}
+
+function closeCoffeeModal() {
+    closeModal('coffeeModal');
+}
+
+function openIcedCoffeeModal() {
+    openModal('icedCoffeeModal');
+}
+
+function closeIcedCoffeeModal() {
+    closeModal('icedCoffeeModal');
+}
+
+function openMilkteaModal() {
+    openModal('milkteaModal');
+}
+
+function closeMilkteaModal() {
+    closeModal('milkteaModal');
+}
+
+function openIcedTeaModal() {
+    openModal('icedTeaModal');
+}
+
+function closeIcedTeaModal() {
+    closeModal('icedTeaModal');
+}
+
+function openFrappeModal() {
+    openModal('frappeModal');
+}
+
+function closeFrappeModal() {
+    closeModal('frappeModal');
+}
+
+function openSodaModal() {
+    openModal('sodaModal');
+}
+
+function closeSodaModal() {
+    closeModal('sodaModal');
+}
+
 function openFeedbackModal() {
-    var modal = document.getElementById('feedbackModal');
-    modal.style.display = "block";
+    openModal('feedbackModal');
 }
 
-// Function to close the feedback modal
 function closeFeedbackModal() {
-    var modal = document.getElementById('feedbackModal');
-    modal.style.display = "none";
+    closeModal('feedbackModal');
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    var modal = document.getElementById('feedbackModal');
-    if (event.target == modal) {
-        closeFeedbackModal();
-    }
-}
-
-// Function to open the forgotpassword modal
 function openForgotPasswordModal() {
-    var modal = document.getElementById('forgetpasswordModal');
-    modal.style.display = "block";
+    openModal('forgetpasswordModal');
 }
 
-// Function to close the feedback modal
 function closeForgotPasswordModal() {
-    var modal = document.getElementById('forgetpasswordModal');
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    var modal = document.getElementById('forgetpasswordModal');
-    if (event.target == modal) {
-        closeForgotPasswordModal();
-    }
+    closeModal('forgetpasswordModal');
 }
 
 function togglePasswordVisibility(inputId) {
@@ -93,54 +139,51 @@ function togglePasswordVisibility(inputId) {
     }
 }
 
-
 /* for mobile view */
 let menu = document.querySelector('#menu-btn');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () =>{
+menu.onclick = () => {
     menu.classList.toggle('fa-times');
     navbar.classList.toggle('active');
 }
 
-window.onscroll = () =>{
+window.onscroll = () => {
     menu.classList.remove('fa-times');
     navbar.classList.remove('active');
 };
 
-document.querySelectorAll('.image-slider img').forEach(images =>{
-    images.onclick = () =>{
+document.querySelectorAll('.image-slider img').forEach(images => {
+    images.onclick = () => {
         var src = images.getAttribute('src');
         document.querySelector('.main-home-image').src = src;
     };
 });
 
-
-
-
 // Menu Form
-    const popup = document.getElementById('popup');
-    const showPopupButton = document.getElementById('showPopup');
+const popup = document.getElementById('popup');
+const showPopupButton = document.getElementById('showPopup');
 
-    showPopupButton.addEventListener('click', () => {
-        popup.style.display = 'flex';
+showPopupButton.addEventListener('click', () => {
+    popup.style.display = 'flex';
+});
+
+function closePopup() {
+    popup.style.display = 'none';
+}
+
+const form = document.getElementById('orderForm');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const orderDetails = {};
+    formData.forEach((value, key) => {
+        orderDetails[key] = value;
     });
+    alert('Order placed successfully!\n' + JSON.stringify(orderDetails, null, 2));
+    closePopup();
+});
 
-    function closePopup() {
-        popup.style.display = 'none';
-    }
-
-    const form = document.getElementById('orderForm');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const orderDetails = {};
-        formData.forEach((value, key) => {
-            orderDetails[key] = value;
-        });
-        alert('Order placed successfully!\n' + JSON.stringify(orderDetails, null, 2));
-        closePopup();
-    });
 // Pre Made Themes Image Slider
 
 const productContainers = [...document.querySelectorAll('.product-container')];
@@ -153,12 +196,12 @@ productContainers.forEach((item, i) => {
 
     nxtBtn[i].addEventListener('click', () => {
         item.scrollLeft += containerWidth;
-    })
+    });
 
     preBtn[i].addEventListener('click', () => {
         item.scrollLeft -= containerWidth;
-    })
-})
+    });
+});
 
 // Function to open the feedback popup
 function openFeedbackPopup() {
@@ -174,12 +217,11 @@ function closeFeedbackPopup() {
     document.body.style.overflow = ''; // Enable scrolling when the popup is closed
 }
 
-/// Event listener to open the popup when "Give Feedback" button is clicked
+// Event listener to open the popup when "Give Feedback" button is clicked
 document.querySelector('.review-btn').addEventListener('click', function(event) {
     event.preventDefault();
     openFeedbackPopup();
 });
-
 
 // Event listener to close the popup when the close button is clicked
 document.querySelector('.close-btn').addEventListener('click', function(event) {
@@ -194,5 +236,3 @@ window.addEventListener('click', function(event) {
         closeFeedbackPopup();
     }
 });
-
-

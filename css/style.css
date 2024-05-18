@@ -1077,6 +1077,7 @@ section{
 /* Input fields */
 .modal-content input[type="text"],
 .modal-content input[type="email"],
+.modal-content input[type="number"],
 .modal-content textarea,
 .modal-content input[type="date"] {
     width: calc(100% - 20px); /* Adjust input width */

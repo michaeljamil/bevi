@@ -22,6 +22,291 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+<style>
+        .menu-container {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 70%; /* Full width */
+            height: 80%; /* Full height */
+            padding-top: 60px;
+        }
+        /* Coffee Product Detail */
+        .product-detail-coffee {
+            background: linear-gradient(to bottom right, #FFBE98, #FEECE2, #F7DED0);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+        /* Iced Coffee Product Detail */
+        .product-detail-iced-coffee {
+            background: linear-gradient(to bottom right, #eed8c2, #e5ceb7, #e1c4a5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+
+        /*  Milktea Product Detail */
+        .product-detail-milktea {
+            background: linear-gradient(to bottom right, #8ba888, #c0cfb2, #fff);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+
+        /*  Iced Tea Product Detail */
+        .product-detail-iced-tea {
+            background: linear-gradient(to bottom right, #ffc284,#ffd28e, #ffe096);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+
+        /*  Frappe Product Detail */
+        .product-detail-frappe {
+            background: linear-gradient(to bottom right, 	#f9e2e5, 	#fee7f1, #f4d3d8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+
+        /*  Soda Product Detail */
+        .product-detail-soda {
+            background: linear-gradient(to bottom right, #008DDA, #41C9E2, #ACE2E1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 70%; /* Adjust width */
+            height: 80vh; /* Adjust height */
+            margin: auto; /* Center horizontally */
+            position: fixed; /* Fixed position */
+            overflow: auto; /* Enable scroll if needed */
+
+            left: 0;
+            right: 0;
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            z-index: 1; /* Layered above other content */
+            padding: 20px; /* Add padding */
+            text-align: center;
+        }
+
+
+        .product-image {
+            max-width: 200px;
+        }
+
+        .product-name {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #222831;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #31363F;
+        }
+
+        .quantity-control, .size-select, .customization-section {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .quantity-control button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #31363F;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+
+        .quantity-control button:hover {
+            background-color: #EEEEEE;
+        }
+
+        .size-select select, .customization-section select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #222831;
+            font-size: 16px;
+            color: #31363F;
+            background-color: #fff;
+        }
+
+        .customization-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .customization-section h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+            color: #222831;
+        }
+
+        .customization-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .customization-option {
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        .customization-option label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #222831;
+        }
+
+        .submit-button {
+            padding: 10px;
+            background-color: #31363F;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 20px;
+            width: 20%;
+            max-width: 300px;
+            text-decoration: none;
+        }
+
+        .submit-button:hover {
+            background-color: #B4B4B8;
+        }
+
+        .submit-button{
+            text-decoration: none;
+        }
+
+        .cancel-button {
+            padding: 10px;
+            background-color: #F1EFEF;
+            color: #31363F;
+            border: 1px solid black;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 20%;
+            margin-right: 20px;
+            max-width: 300px;
+            text-decoration: none;
+        }
+
+        .cancel-button:hover {
+            background-color: #D8D8D8;
+        }
+
+        .cancel-button{
+            text-decoration: none;
+        }
+
+        /* Styles for hover image */
+        .hover-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hover-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-container:hover .hover-image-container {
+            display: block;
+        }
+
+    </style>
 <body>
     
 
@@ -186,7 +471,7 @@
 
     <div class="box-container">
 
-        <a href="CoffeeOrder.html" class="box">
+        <a href="javascript:openCoffeeModal()" class="box">
             <img src="images/coffee.png" alt="">
             <div class="content">
                 <h3>Hot Coffee</h3>
@@ -194,7 +479,7 @@
             </div>
         </a>
 
-        <a href="IcedCoffeeOrder.html" class="box">
+        <a href="javascript:openIcedCoffeeModal()" class="box">
             <img src="images/iced coffee.png" alt="">
             <div class="content">
                 <h3>Iced Coffee</h3>
@@ -202,7 +487,7 @@
             </div>
         </a>
 
-        <a href="MilkteaOrder.html" class="box">
+        <a href="javascript:openMilkteaModal()" class="box">
             <img src="images/milktea.png" alt="">
             <div class="content">
                 <h3>Milktea</h3>
@@ -210,7 +495,7 @@
             </div>
         </a>
 
-        <a href="IcedTeaOrder.html" class="box">
+        <a href="javascript:openIcedTeaModal()" class="box">
             <img src="images/iced tea.png" alt="">
             <div class="content">
                 <h3>Iced Tea</h3>
@@ -218,7 +503,7 @@
             </div>
         </a>
 
-        <a href="FrappeOrder.html" class="box">
+        <a href="javascript:openFrappeModal()" class="box">
             <img src="images/frappe.png" alt="">
             <div class="content">
                 <h3>Frappe</h3>
@@ -226,7 +511,7 @@
             </div>
         </a>
 
-        <a href="SodaOrder.html" class="box">
+        <a href="javascript:openSodaModal()" class="box">
             <img src="images/soda.png" alt="">
             <div class="content">
                 <h3> Soda</h3>
@@ -313,6 +598,773 @@
         <button type="button" onclick="closeFeedbackModal()" class="btn">Cancel</button>
       </div>
     </form>
+</div>
+
+
+<!---- Coffee Modal ----->
+
+<div id="coffeeModal" class="menu-container">
+    <span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
+    <div class="product-detail-coffee">
+        <img src="images/Coffee-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Coffee</h1>
+        <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="sleeves">Cup sleeves (protective, customizable)</option>
+                        <option value="stirrers">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="bag">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="holder">Cup holder (for larger cups)</option>
+                        <option value="charms">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Americano</option>
+                        <option value="Standard">Caramel Machiatto</option>
+                        <option value="Standard">French Vanilla</option>
+                        <option value="Standard">Hazelnut</option>
+                        <option value="Standard">Pumpkin Spice Latte</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html" class="submit-button">Add to Cart</a>
+        <button type="button" onclick="closeCoffeeModal()" class="cancel-button">Cancel</button>
+    </div>
+</div>
+
+
+
+<!---- Iced Coffee Modal ----->
+<div id="icedCoffeeModal" class="menu-container">
+<span onclick="closeIcedCoffeeModal()" class="close" title="Close Modal">&times;</span>
+    <div class="product-detail-iced-coffee">
+        <img src="images/IcedCoffee-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Iced Coffee</h1>
+        <p class="product-description">Enjoy your favorite Iced Coffee in this beautifully designed cup with a unique theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Choco Kisses</option>
+                        <option value="Standard">Kape Caramel</option>
+                        <option value="Standard">Mocha</option>
+                        <option value="Standard">Black Forest</option>
+                        <option value="Standard">Choco Fudge</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html" class="submit-button">Add to Cart</a>
+        <button type="button" onclick="closeIcedCoffeeModal()" class="cancel-button">Cancel</button>
+    </div>
+</div>
+
+<!-- Milktea Modal -->
+
+<div id="milkteaModal" class="menu-container">
+<span onclick="closeMilkteaModal()" class="close" title="Close Modal">&times;</span>
+    <div class="product-detail-milktea">
+        <img src="images/Milktea-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Milktea</h1>
+        <p class="product-description">Enjoy your favorite Milktea in this beautifully designed cup with a unique and pre-made theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Macha</option>
+                        <option value="Standard">Red Velvet</option>
+                        <option value="Standard">Cookies and Cream</option>
+                        <option value="Standard">Taro</option>
+                        <option value="Standard">Okinawa </option>
+                        <option value="Standard">Dark Chocolate </option>
+
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+        <button type="button" onclick="closeMilkteaModal()" class="cancel-button">Cancel</button>
+    </div>
+</div>
+
+<!-- Iced Tea Modal -->
+<div id="icedTeaModal" class="menu-container">
+<span onclick="closeIcedTeaModal()" class="close" title="Close Modal">&times;</span>
+    <div class="product-detail-iced-tea">
+        <img src="images/IcedTea-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Iced Tea</h1>
+        <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Peach Tea</option>
+                        <option value="Standard">Blueberry Lavender</option>
+                        <option value="Standard">Hibiscus</option>
+                        <option value="Standard">Lemonade</option>
+                        <option value="Standard">Iced Mint</option>
+                        <option value="Standard">Green Tea</option>
+                        <option value="Standard">Black Tea</option>
+
+                        <option value="Standard">Sweet Tea</option>
+
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+        <button type="button" onclick="closeIcedTeaModal()" class="cancel-button">Cancel</button>
+
+    </div>
+</div>
+
+<!-- Frappe Modal -->
+<div id="frappeModal" class="menu-container">
+<span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
+<div class="product-detail-frappe">
+        <img src="images/Frappe-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Frappe </h1>
+        <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Strawberry</option>
+                        <option value="Standard">Taro</option>
+                        <option value="Standard">Mango</option>
+                        <option value="Standard">Avocado</option>
+                        <option value="Standard"> Mocha</option>
+                        <option value="Standard"> Black Forest</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+        <button type="button" onclick="closeFrappeModal()" class="cancel-button">Cancel</button>
+
+    </div>
+</div>
+
+<!-- Soda Modal -->
+<div id="sodaModal" class="menu-container">
+<span onclick="closeSodaModal()" class="close" title="Close Modal">&times;</span>   
+    <div class="product-detail-soda">
+        <img src="images/Soda-removebg-preview.png" alt="Product Image" class="product-image">
+        <h1 class="product-name">Soda</h1>
+        <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
+        
+        <div class="quantity-control">
+            <button id="decreaseQuantity">-</button>
+            <span id="quantity">1</span>
+            <button id="increaseQuantity">+</button>
+        </div>
+
+        <div class="size-select">
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+                <option value="Venti">Venti</option>
+            </select>
+        </div>
+
+        <div class="customization-section">
+            <h3>Customization</h3>
+            <div class="customization-options">
+                <div class="customization-option">
+                    <label for="Add-Ons">Add Ons:</label>
+                    <select id="Add-Ons">
+                        <option value="">None</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Crystal">Crystal</option>
+                        <option value="Cream Cheese">Cream Cheese</option>
+                        <option value="Coffee Jelly">Coffee Jelly</option>
+                        <option value="Crushed Oreo">Crushed Oreo</option>
+                        <option value="Cream Puff">Cream Puff</option>
+                        <option value="Cheesecake">Cheesecake</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="cupColor">Cup Color:</label>
+                    <select id="cupColor">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="stickers">Stickers:</label>
+                    <select id="stickers">
+                        <option value="none">None</option>
+                        <option value="Boba/bubble">Boba/bubble tea illustrations</option>
+                        <option value="Cute animals">Cute animals (cats, pandas, etc.)</option>
+                        <option value="Food emojis">Food emojis (smiley faces, hearts, stars)</option>
+                        <option value="Inspirational">Inspirational quotes</option>
+                        <option value="Personalized">Personalized stickers (name, initials)</option>
+                    </select>
+                </div>
+                <div class="customization-option dropdown-container">
+                    <label for="preMadeThemes">Pre-made Themes:</label>
+                    <select id="preMadeThemes">
+                        <option value="">None</option>
+                        <option value="Bini">Bini Theme</option>
+                        <option value="BlackPink">BlackPink Theme</option>
+                        <option value="BTS">BTS Theme</option>
+                        <option value="New Jeans">New Jeans Theme</option>
+                        <option value="Taylor">Taylor Swift Theme</option>
+                        <option value="Twice">Twice Theme</option>
+                    </select>
+                    <div class="hover-image-container" id="hoverImageContainer">
+                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
+                    </div>
+                </div>
+                <div class="customization-option">
+                    <label for="accessories">Accessories:</label>
+                    <select id="accessories">
+                        <option value="none">None</option>
+                        <option value="spoon">Cup sleeves (protective, customizable)</option>
+                        <option value="lid">Stirrers/spoons (plastic, wooden, metal)</option>
+                        <option value="straw">Carrying bag/pouch (reusable, eco-friendly)</option>
+                        <option value="straw">Cup holder (for larger cups)</option>
+                        <option value="straw">Customized charms/keychains attached to the cup</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="lidType">Lid Type:</label>
+                    <select id="lidType">
+                        <option value="none">None</option>
+                        <option value="Dome">Dome Lid</option>
+                        <option value="Flat">Flat Lid</option>
+                        <option value="Sip Through">Sip Through Lid</option>
+                        <option value="Straw hole lid">Straw hole lid</option>
+                        <option value="Custom-designed">Custom-designed lid (with logo or pattern)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Straw Options:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option>
+                        <option value="Standard">Standard plastic straw</option>
+                        <option value="Biodegradable">Biodegradable paper straw</option>
+                        <option value="Stainless">Stainless steel reusable straw</option>
+                        <option value="Bubble">Bubble tea straw (larger diameter for boba)</option>
+                    </select>
+                </div>
+                <div class="customization-option">
+                    <label for="strawOptions">Flavor:</label>
+                    <select id="strawOptions">
+                        <option value="none">None</option> 
+                        <option value="Standard">Cherry</option>
+                        <option value="Standard">Apricot</option>
+                        <option value="Standard">Punch</option>
+                        <option value="Standard">Lemonade</option>
+                        <option value="Standard">Lavender</option>
+                        <option value="Standard">Cola</option>
+
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="cart.html"><button class="submit-button">Add to Cart</button></a>
+        <button type="button" onclick="closeSodaModal()" class="cancel-button">Cancel</button>
+
+    </div>
 </div>
 
 <section class="footer">
