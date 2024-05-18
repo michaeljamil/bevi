@@ -419,14 +419,31 @@
 
     <h1 class="logo">Bevi </h1>
 
-    <nav class="navbar">
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#menu">DRINKS</a>
-        <a href="cart.html">CART</a>
-        <a href="#review">REVIEW</a>
-        
-    </nav>
+    <?php
+        // Check if user is logged in
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+            // If logged in, display logout button
+            echo ' <nav class="navbar">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#menu">DRINKS</a>
+            <a href="cart.html">CART</a>
+            <a href="#review">REVIEW</a>
+            
+        </nav>';
+        } else {
+            // If not logged in, display login button
+            echo '<nav class="navbar">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#menu">DRINKS</a>
+            <a href="#review">REVIEW</a>
+            
+        </nav>';
+        }
+    ?>
+
+
 
     <?php
         // Check if user is logged in
@@ -441,7 +458,7 @@
               <h3>Name ng user itu</h3>
               <ul>
                 <li>
-                  <a href="#">My profile</a>
+                  <a href="profile.php">My profile</a>
                 </li>
                 <li>
                 <a href="logout.php">Logout</a>
