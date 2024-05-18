@@ -60,6 +60,7 @@ window.onclick = function(event) {
     });
 }
 
+
 // Functions to open and close specific modals
 function openCoffeeModal() {
     openModal('coffeeModal');
