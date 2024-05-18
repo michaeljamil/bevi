@@ -708,7 +708,18 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
-    <button onclick="openFeedbackModal()" class="review-btn">Give Feedback</a>
+
+    <?php
+        // Check if user is logged in
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+            // If logged in, display logout button
+            echo ' <button onclick="openFeedbackModal()" class="review-btn">Give Feedback</a>';
+        } else {
+            // If not logged in, display login button
+            echo '';
+        }
+    ?>
+
 </section>
 
 
