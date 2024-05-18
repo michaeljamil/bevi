@@ -103,6 +103,17 @@
         .remove-button:hover {
             background-color: #b06a53;
         }
+        .update-button {
+            background-color: #d09d8c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .update-button:hover {
+            background-color: #b06a53;
+        }
         .cart-summary th {
             text-align: left;
         }
@@ -221,33 +232,61 @@
                 totalSpan.textContent = `Php${(subtotal + shippingCost).toFixed(2)}`;
             }
 
+            
             // Retrieve cart items from local storage
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
             if (cartItems.length > 0) {
                 cartItems.forEach((item, index) => {
-                    const { name, quantity, price } = item; // Retrieve the price from the item object
+                    const { name, quantity, price, size, addOns, cupColor, stickers, lidType, preMadeThemes, strawOptions } = item;
+                    let customizations = '';
+
+                    if (size && size !== 'None' && size !== 'none' && size !== '') {
+                        customizations += `<br><span>Size: ${size}</span>`;
+                    }
+                    if (addOns && addOns !== 'None' && addOns !== 'none' && addOns !== '') {
+                        customizations += `<br><span>Add-ons: ${addOns}</span>`;
+                    }
+                    if (cupColor && cupColor !== 'None' && cupColor !== 'none' && cupColor !== '') {
+                        customizations += `<br><span>Cup Color: ${cupColor}</span>`;
+                    }
+                    if (stickers && stickers !== 'None' && stickers !== 'none' && stickers !== '') {
+                        customizations += `<br><span>Stickers: ${stickers}</span>`;
+                    }
+                    if (lidType && lidType !== 'None' && lidType !== 'none' && lidType !== '') {
+                        customizations += `<br><span>Lid Type: ${lidType}</span>`;
+                    }
+                    if (preMadeThemes && preMadeThemes !== 'None' && preMadeThemes !== 'none' && preMadeThemes !== '') {
+                        customizations += `<br><span>Pre-Made Themes: ${preMadeThemes}</span>`;
+                    }
+                    if (strawOptions && strawOptions !== 'None' && strawOptions !== 'none' && strawOptions !== '') {
+                        customizations += `<br><span>Straw Options: ${strawOptions}</span>`;
+                    }
                     const itemTotal = parseFloat(price) * quantity;
                     item_price = parseFloat(price);
                     //const itemTotal = pricePerItem * quantity;
 
                     const cartItemHTML = `
-                                <tr data-index="${index}">
-                                <td>
-                                    <img src="images/${name.replace(/\s+/g, '')}-removebg-preview.png" alt="${name}">
-                                    <span>${name}</span>
-                                </td>
-                                <td><span>Php${price.toFixed(2)}</span></td>
-                                <td>
-                                    <div class="quantity-buttons">
-                                        <button class="decrease-quantity">-</button>
-                                        <span class="item-quantity">${quantity}</span>
-                                        <button class="increase-quantity">+</button>
-                                    </div>
-                                </td>
-                                <td><span class="item-total">Php${itemTotal.toFixed(2)}</span></td>
-                                <td><button class="remove-button">Remove</button></td>
-                            </tr>
+                        <tr data-index="${index}">
+                            <td>
+                                <img src="images/${name.replace(/\s+/g, '')}-removebg-preview.png" alt="${name}">
+                                <span>${name}</span>
+                                <span>${customizations}</span>
+                            </td>
+                            <td><span>Php${price.toFixed(2)}</span></td>
+                            <td>
+                                <div class="quantity-buttons">
+                                    <button class="decrease-quantity">-</button>
+                                    <span class="item-quantity">${quantity}</span>
+                                    <button class="increase-quantity">+</button>
+                                </div>
+                            </td>
+                            <td><span class="item-total">Php${itemTotal.toFixed(2)}</span></td>
+                            <td>
+                                <button class="remove-button">Remove</button>
+                                <button class="update-button">Update</button>
+                            </td>
+                        </tr>
                         `;
 
                         cartItemsDiv.insertAdjacentHTML('beforeend', cartItemHTML);
