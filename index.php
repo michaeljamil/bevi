@@ -471,6 +471,7 @@
             <img src="images/coffee.png" alt="">
             <div class="content">
                 <h3>Hot Coffee</h3>
+                <h3>Php 70</h3>
                 <p>Indulge in the rich aroma and comforting warmth of freshly brewed beans with our Hot Coffee. Perfect for early mornings or late nights, this classic beverage offers a revitalizing boost of energy with every sip.</p>
             </div>
         </a>
@@ -479,6 +480,7 @@
             <img src="images/iced coffee.png" alt="">
             <div class="content">
                 <h3>Iced Coffee</h3>
+                <h3>Php 70</h3>
                 <p>Cool down and refresh with our Iced Coffee, a chilled delight that invigorates with every sip. Balanced flavors, combined with a refreshing chill, make it the perfect companion for any time of day.</p>
             </div>
         </a>
@@ -487,6 +489,7 @@
             <img src="images/milktea.png" alt="">
             <div class="content">
                 <h3>Milktea</h3>
+                <h3>Php 70</h3>
                 <p>Experience creamy perfection with our Milktea, crafted to satisfy even the most discerning tea enthusiasts. Choose from a variety of flavors and enjoy the perfect blend of sweetness and creaminess in every sip.</p>
             </div>
         </a>
@@ -495,6 +498,7 @@
             <img src="images/iced tea.png" alt="">
             <div class="content">
                 <h3>Iced Tea</h3>
+                <h3>Php 70</h3>
                 <p>Enjoy a classic refreshment with our Iced Tea, a timeless favorite that offers a cool and revitalizing escape. With a variety of flavors to choose from, every sip is a journey into refreshing bliss.</p>
             </div>
         </a>
@@ -503,6 +507,7 @@
             <img src="images/frappe.png" alt="">
             <div class="content">
                 <h3>Frappe</h3>
+                <h3>Php 70</h3>
                 <p>Indulge your senses with our Frappes, a symphony of blended goodness that combines creamy textures with decadent toppings. Each sip offers a delightful escape into a world of indulgence and satisfaction.</p>
             </div>
         </a>
@@ -511,6 +516,7 @@
             <img src="images/soda.png" alt="">
             <div class="content">
                 <h3> Soda</h3>
+                <h3>Php 70</h3>
                 <p>Quench your thirst with our selection of Sodas, offering a fizzy burst of flavor that delights the senses and refreshes the palate. Choose from a variety of flavors and enjoy a bubbly treat anytime, anywhere.</p>
             </div>
         </a>
@@ -625,7 +631,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
@@ -752,7 +758,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
@@ -877,7 +883,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
@@ -1004,7 +1010,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
@@ -1135,7 +1141,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
@@ -1262,7 +1268,7 @@
             <h3>Customization</h3>
             <div class="customization-options">
                 <div class="customization-option">
-                    <label for="Add-Ons">Add Ons:</label>
+                    <label for="Add-Ons">Add Ons (+Php10):</label>
                     <select id="Add-Ons">
                         <option value="">None</option>
                         <option value="Pearl">Pearl</option>
