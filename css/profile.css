@@ -202,7 +202,7 @@
   html [type='button'],
   [type='reset'],
   [type='submit'] {
-    -webkit-appearance: button;
+    --webkit-appearance: button;
   }
   
   button::-moz-focus-inner,
@@ -223,7 +223,7 @@
   input[type='time'],
   input[type='datetime-local'],
   input[type='month'] {
-    -webkit-appearance: listbox;
+    --webkit-appearance: listbox;
   }
   
   textarea {
