@@ -673,9 +673,6 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -800,9 +797,6 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -925,9 +919,6 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -1052,9 +1043,6 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -1183,9 +1171,6 @@
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
                     </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
@@ -1309,10 +1294,7 @@
                         <option value="New Jeans">New Jeans Theme</option>
                         <option value="Taylor">Taylor Swift Theme</option>
                         <option value="Twice">Twice Theme</option>
-                    </select>
-                    <div class="hover-image-container" id="hoverImageContainer">
-                        <img src="images/Bini.png" alt="Hover Image" id="hoverImage">
-                    </div>
+                    </select>   
                 </div>
                 <div class="customization-option">
                     <label for="accessories">Accessories:</label>
