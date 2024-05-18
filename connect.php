@@ -18,7 +18,7 @@
         echo "Error creating database: " . $conn->error;
     }
 
-    $sqlCust = "CREATE TABLE IF NOT EXISTS `customer` (
+    $sqlCust = "CREATE TABLE IF NOT EXISTS `bevi_db`.`customer` (
                     `customer_id` int NOT NULL AUTO_INCREMENT,
                     `firstName` varchar(50) NOT NULL,
                     `lastName` varchar(45) NOT NULL,
