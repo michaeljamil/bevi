@@ -37,7 +37,7 @@
         .product-detail-coffee {
             background: linear-gradient(to bottom right, #FFBE98, #FEECE2, #F7DED0);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 10px 0 10px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
