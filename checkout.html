@@ -202,6 +202,12 @@
             margin: 5px 0;
             font-size: 20px;
         }
+        .customizations {
+            display: block;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 5px;
+        }
 
         @media (min-width: 768px) {
             .content {
@@ -229,33 +235,9 @@
         <h1>Checkout Form</h1>
         <div class="content">
             <div class="product-list">
-                <div class="product">
-                    <img src="images/Coffee-removebg-preview.png" alt="Coffee Blend">
-                    <div class="product-details">
-                        <div class="product-info">
-                            <h2>Coffee Blend</h2>
-                            <p class="price">$9.99</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="images/Frappe-removebg-preview.png" alt="Frappe">
-                    <div class="product-details">
-                        <div class="product-info">
-                            <h2>Frappe</h2>
-                            <p class="price">$4.50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="images/IcedCoffee-removebg-preview.png" alt="Iced Coffee">
-                    <div class="product-details">
-                        <div class="product-info">
-                            <h2>Iced Coffee</h2>
-                            <p class="price">$6.25</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Dynamic cart items will be inserted here -->
+                <div id="cartItems"></div>
+
                 <div class="order-summary">
                     <h3>Order Summary</h3>
                     <p id="subtotal">Subtotal: $0.00</p>
@@ -267,16 +249,16 @@
                 <h2>Recipient Information</h2>
                 <form id="checkoutForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Name" id="nameInput" value="John Doe" readonly>
+                        <input type="text" placeholder="Name" id="nameInput" value="John Doe">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Address" id="addressInput" value="123 Main St, Anytown" readonly>
+                        <input type="text" placeholder="Address" id="addressInput" value="123 Main St, Anytown">
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email Address" id="emailInput" value="johndoe@example.com" readonly>
+                        <input type="email" placeholder="Email Address" id="emailInput" value="johndoe@example.com">
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="Phone Number" id="phoneInput" value="123-456-7890" readonly  >
+                        <input type="tel" placeholder="Phone Number" id="phoneInput" value="123-456-7890">
                     </div>
                     <div class="form-group">
                         <textarea placeholder="Message for Seller" id="messageInput" rows="4" cols="63"></textarea>
@@ -299,6 +281,85 @@
     </div>
 
     <script>
+        window.onload = function() {
+            const cartItems = document.getElementById('cartItems');
+            const cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            cartData.forEach(item => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+
+                const imgElement = document.createElement('img');
+                imgElement.src = `images/${item.name.replace(/\s+/g, '')}-removebg-preview.png`;
+                imgElement.alt = item.name;
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.classList.add('product-details');
+
+                const infoDiv = document.createElement('div');
+                infoDiv.classList.add('product-info');
+
+                const nameElement = document.createElement('h2');
+                nameElement.textContent = item.name;
+
+                const priceElement = document.createElement('p');
+                priceElement.classList.add('price');
+                priceElement.textContent = `$${item.itemTotal}`;
+
+                const customizationsElement = document.createElement('span');
+                customizationsElement.classList.add('customizations');
+
+                const customizations = [];
+
+                if (item.size && item.size !== 'None' && item.size !== 'none' && item.size !== '') {
+                    customizations.push(`Size: ${item.size}`);
+                }
+                if (item.addOns && item.addOns !== 'None' && item.addOns !== 'none' && item.addOns !== '') {
+                    customizations.push(`Add-ons: ${item.addOns}`);
+                }
+                if (item.cupColor && item.cupColor !== 'None' && item.cupColor !== 'none' && item.cupColor !== '') {
+                    customizations.push(`Cup Color: ${item.cupColor}`);
+                }
+                if (item.stickers && item.stickers !== 'None' && item.stickers !== 'none' && item.stickers !== '') {
+                    customizations.push(`Stickers: ${item.stickers}`);
+                }
+                if (item.lidType && item.lidType !== 'None' && item.lidType !== 'none' && item.lidType !== '') {
+                    customizations.push(`Lid Type: ${item.lidType}`);
+                }
+                if (item.preMadeThemes && item.preMadeThemes !== 'None' && item.preMadeThemes !== 'none' && item.preMadeThemes !== '') {
+                    customizations.push(`Pre-Made Themes: ${item.preMadeThemes}`);
+                }
+                if (item.strawOptions && item.strawOptions !== 'None' && item.strawOptions !== 'none' && item.strawOptions !== '') {
+                    customizations.push(`Straw Options: ${item.strawOptions}`);
+                }
+
+                customizationsElement.innerHTML = customizations.join(' | ');
+
+                infoDiv.appendChild(nameElement);
+                infoDiv.appendChild(customizationsElement);
+                infoDiv.appendChild(priceElement);
+
+                detailsDiv.appendChild(infoDiv);
+                productDiv.appendChild(imgElement);
+                productDiv.appendChild(detailsDiv);
+
+                cartItems.appendChild(productDiv);
+            });
+
+            // Calculate and update the order summary
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            const shippingCost = 5.00;
+            let subtotal = 0;
+
+            cartData.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+            subtotalElement.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+            totalElement.textContent = `Total: $${(subtotal + shippingCost).toFixed(2)}`;
+        };
+
         function calculateTotals() {
             const products = document.querySelectorAll('.product');
             let subtotal = 0;
