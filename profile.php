@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/profile.css">
     <!-- custom css file link  -->
+
+    
+
+
 </head>
 <body>
 <a href="index.php#menu">
@@ -103,5 +110,42 @@
       </div>
     </div>
   </div>
+    <?php
+        
+        include "connect.php";
+
+        // Check if the user is logged in and session variables are set
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && isset($_SESSION['username']) && isset($_SESSION['email'])) {
+            // Retrieve logged-in user's information from the database
+            $loggedUser = $_SESSION['username'];
+            $loggedEmail = $_SESSION['email'];
+            $sql = "SELECT * FROM `bevi_db`.`customer` WHERE username = '$loggedUser' AND email = '$loggedEmail'";
+            $result = $conn->query($sql);
+
+            if ($result && $result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                // Extract user data
+                $email = $row['email'];
+                $first_name = $row['firstName'];
+                $last_name = $row['lastName'];
+                //$address = $row['address'];
+                // Populate the form fields with the user's information
+                echo "
+                    <script>
+                        document.getElementById('input-username').value = '$loggedUser';
+                        document.getElementById('input-email').value = '$email';
+                        document.getElementById('input-first-name').value = '$first_name';
+                        document.getElementById('input-last-name').value = '$last_name';
+                    </script>
+                ";
+            } else {
+                echo "User not found in the database.";
+            }
+        } else {
+            // If the user is not logged in or session variables are not set, redirect to the login page
+            header("Location: login.php");
+            exit;
+        }
+        ?>
 </body>
 </html>

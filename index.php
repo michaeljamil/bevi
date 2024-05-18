@@ -455,7 +455,7 @@
               <img src="images/user.png" />
             </div>
             <div class="profile-menu">
-              <h3>Name ng user itu</h3>
+              <h3>'. $_SESSION['name'] .'</h3>
               <ul>
                 <li>
                   <a href="profile.php">My profile</a>

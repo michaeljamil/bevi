@@ -3,7 +3,7 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
-    $password = ""; //Palitan mo na lang pass tas username base sa mysql server mo
+    $password = "1234"; //Palitan mo na lang pass tas username base sa mysql server mo
 
     $conn = new mysqli($servername, $username, $password);
 
@@ -18,10 +18,11 @@
         echo "Error creating database: " . $conn->error;
     }
 
-    $sqlCust = "CREATE TABLE IF NOT EXISTS `bevi_db`.`customer` (
+    $sqlCust = "CREATE TABLE IF NOT EXISTS `customer` (
                     `customer_id` int NOT NULL AUTO_INCREMENT,
-                    `name` varchar(50) NOT NULL,
-                    `email` varchar(50) DEFAULT NULL,
+                    `firstName` varchar(50) NOT NULL,
+                    `lastName` varchar(45) NOT NULL,
+                    `email` varchar(50) NOT NULL,
                     `username` varchar(50) NOT NULL,
                     `password` varchar(255) NOT NULL,
                     PRIMARY KEY (`customer_id`)

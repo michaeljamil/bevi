@@ -25,16 +25,25 @@
             
             if (!empty($email) && !empty($password)) {
                 // Retrieve hashed password from the database based on the provided email
-                $sql = "SELECT password FROM bevi_db.customer WHERE email = '$email'";
-                $result = $conn->query($sql);
+                $sql = "SELECT firstName, lastName, email, username, password FROM bevi_db.customer WHERE email = '$email'";                $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $hashed_password = $row['password'];
+                    $firstName = $row['firstName'];
+                    $lastName = $row['lastName'];
+                    $name = $firstName . ' ' . $lastName;
+                    $username = $row['username'];
+                    $email = $row['email'];
+                    
                     
                     // Verify the password
                     if (password_verify($password, $hashed_password)) {
                         $_SESSION['loggedIn'] = true; // Set a session variable to indicate user is logged in
+                        $_SESSION['name'] = $name; //Set name in session
+                        $_SESSION['email'] = $email;
+                        $_SESSION['username'] = $username;
+                        
                         echo "<script>
                                 alert('Login successful!');
                                 window.location.href = 'index.php';
@@ -65,7 +74,8 @@
             <form action="addCustomer.php" method="post">
                 <h1>Create Account</h1>
                 <span>or use your email for registeration</span>
-                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="firstName" placeholder="FirstName">
+                <input type="text" name="lastName" placeholder="LastName">
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
