@@ -444,9 +444,6 @@
                   <a href="#">My profile</a>
                 </li>
                 <li>
-                  <a href="#">Setting</a>
-                </li>
-                <li>
                 <a href="logout.php">Logout</a>
                 </li>
               </ul>
@@ -734,7 +731,7 @@
 <!---- Coffee Modal ----->
 
 <div id="coffeeModal" class="menu-container">
-    <span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
+<span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
     <div class="product-detail-coffee">
         <img src="images/Coffee-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Coffee</h1>

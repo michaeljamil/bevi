@@ -1242,6 +1242,12 @@ section{
     cursor: pointer;
 }
 
+/* Back Button */
+
+.resize-image{
+    width: 20%;
+}
+
 @media(max-width:991px){
 
     html{

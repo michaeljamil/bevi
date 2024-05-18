@@ -73,6 +73,10 @@
             </form>
         </div>
         <div class="form-container sign-in">
+        <a href="index.php" class="back">
+            <img src="images/back.png" alt="Back" style="width: 50px; height: 60px; padding-top: 20px; padding-left: 10px; position: fixed;">
+        </a>
+
             <form action="" method="post">
                 <h1>Sign In</h1>
                 <span>or use your email password</span>
