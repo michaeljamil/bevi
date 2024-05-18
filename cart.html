@@ -238,7 +238,7 @@
 
             if (cartItems.length > 0) {
                 cartItems.forEach((item, index) => {
-                    const { name, quantity, price, size, addOns, cupColor, stickers } = item;
+                    const { name, quantity, price, size, addOns, cupColor, stickers, lidType, preMadeThemes, strawOptions } = item;
                     let customizations = '';
 
                     if (size && size !== 'None' && size !== 'none' && size !== '') {
@@ -252,6 +252,15 @@
                     }
                     if (stickers && stickers !== 'None' && stickers !== 'none' && stickers !== '') {
                         customizations += `<br><span>Stickers: ${stickers}</span>`;
+                    }
+                    if (lidType && lidType !== 'None' && lidType !== 'none' && lidType !== '') {
+                        customizations += `<br><span>Lid Type: ${lidType}</span>`;
+                    }
+                    if (preMadeThemes && preMadeThemes !== 'None' && preMadeThemes !== 'none' && preMadeThemes !== '') {
+                        customizations += `<br><span>Pre-Made Themes: ${preMadeThemes}</span>`;
+                    }
+                    if (strawOptions && strawOptions !== 'None' && strawOptions !== 'none' && strawOptions !== '') {
+                        customizations += `<br><span>Straw Options: ${strawOptions}</span>`;
                     }
                     const itemTotal = parseFloat(price) * quantity;
                     item_price = parseFloat(price);
