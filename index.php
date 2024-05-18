@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bevi</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -306,6 +307,110 @@
             display: block;
         }
 
+        .action {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            }
+
+            .action .profile {
+            position: relative;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            }
+
+            .action .profile img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            }
+
+            .action .profile-menu {
+            position: absolute;
+            top: 120px;
+            right: -10px;
+            padding: 10px 20px;
+            background: #fff;
+            width: 200px;
+            box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            transition: 0.5s;
+            visibility: hidden;
+            opacity: 0;
+            }
+
+            .action .profile-menu.active {
+            top: 80px;
+            visibility: visible;
+            opacity: 1;
+            }
+
+            .action .profile-menu::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: 28px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            transform: rotate(45deg);
+            }
+
+            .action .profile-menu h3 {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px 0;
+            font-weight: 500;
+            color: #555;
+            line-height: 1.5em;
+            }
+
+            .action .profile-menu h3 span {
+            font-size: 14px;
+            color: #cecece;
+            font-weight: 300;
+            }
+
+            .action .profile-menu ul li {
+            list-style: none;
+            padding: 16px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            }
+
+            .action .profile-menu ul li img {
+            max-width: 20px;
+            margin-right: 10px;
+            opacity: 0.5;
+            transition: 0.5s;
+            }
+
+            .action .profile-menu ul li:hover img {
+            opacity: 1;
+            }
+
+            .action .profile-menu ul li a {
+            display: inline-block;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: 0.5s;
+            }
+
+            .action .profile-menu ul li:hover a {
+            color: #ff5d94;
+            }
+
+
     </style>
 <body>
 <header class="header">
@@ -320,18 +425,41 @@
         <a href="#menu">DRINKS</a>
         <a href="cart.html">CART</a>
         <a href="#review">REVIEW</a>
+        
     </nav>
 
     <?php
         // Check if user is logged in
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             // If logged in, display logout button
-            echo '<a href="logout.php" class="btn" id="logoutBtn">Log out</a>';
+            echo ' <a href="javascript:menuToggle()">
+            <div class="action">
+            <div class="profile">
+              <img src="images/user.png" />
+            </div>
+            <div class="profile-menu">
+              <h3>Name ng user itu</h3>
+              <ul>
+                <li>
+                  <a href="#">My profile</a>
+                </li>
+                <li>
+                  <a href="#">Setting</a>
+                </li>
+                <li>
+                <a href="logout.php">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+             </a>';
         } else {
             // If not logged in, display login button
             echo '<a href="login.php" class="btn" id="loginBtn">Log in</a>';
         }
     ?>
+    
+    
 
 </header>
 
@@ -361,7 +489,7 @@
 
 </section>
 <section class="featured" id="featured">
-    <h1 class="heading"> Popular <span> Pre Made Themes</span> </h1>    
+    <h1 class="heading"> POPULAR <span> PRE-MADE THEMES</span> </h1>    
 
     <div class="product"> 
         <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
@@ -424,7 +552,7 @@
 
 <section class="about" id="about">
 
-    <h1 class="heading"> about us <span>get to know us</span> </h1>    
+    <h1 class="heading"> ABOUT US <span>GET TO KNOW US</span> </h1>    
 
     <div class="row">
 
@@ -463,7 +591,7 @@
 
 <section class="menu" id="menu">
 
-    <h1 class="heading"> our menu <span>choose your drink</span> </h1>
+    <h1 class="heading"> OUR MENU <span>CHOOSE YOUR DRINK</span> </h1>
 
     <div class="box-container">
 
@@ -526,7 +654,7 @@
 </section>
 
 <section class="review" id="review">
-    <h1 class="heading"> reviews <span>Their thoughts</span> </h1>
+    <h1 class="heading"> REVIEWS <span>THEIR THOUGHTS</span> </h1>
     <div class="swiper review-slider">
         <div class="swiper-wrapper">
             <?php

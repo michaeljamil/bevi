@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/* Profile Dropdown */
+
+function menuToggle() {
+    const toggleMenu = document.querySelector(".profile-menu");
+    toggleMenu.classList.toggle("active");
+  }
+
+
 /* login */
 
 const container = document.getElementById('login-container');
