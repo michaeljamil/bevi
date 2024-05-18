@@ -308,8 +308,6 @@
 
     </style>
 <body>
-    
-
 <header class="header">
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -336,8 +334,6 @@
     ?>
 
 </header>
-
-
 
 <section class="home" id="home">
 
@@ -1117,7 +1113,7 @@
 <span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
 <div class="product-detail-frappe">
         <img src="images/Frappe-removebg-preview.png" alt="Product Image" class="product-image">
-        <h1 class="product-name">Frappe </h1>
+        <h1 class="product-name">Frappe</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
         
         <div class="quantity-control">
@@ -1400,6 +1396,118 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script>
+    const increaseBtn = document.getElementById('increaseQuantity');
+    const decreaseBtn = document.getElementById('decreaseQuantity');
+    const quantitySpan = document.getElementById('quantity');
+    const sizeSelect = document.getElementById('size');
+    const addOnsSelect = document.getElementById('Add-Ons');
+    const cupColorSelect = document.getElementById('cupColor');
+    const stickersSelect = document.getElementById('stickers');
+    const preMadeThemesSelect = document.getElementById('preMadeThemes');
+    const accessoriesSelect = document.getElementById('accessories');
+    const lidTypeSelect = document.getElementById('lidType');
+    const strawOptionsSelect = document.getElementById('strawOptions');
+
+    let quantity = 1;
+
+    increaseBtn.addEventListener('click', () => {
+        quantity++;
+        quantitySpan.textContent = quantity;
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantitySpan.textContent = quantity;
+        }
+    });
+
+    const submitButtons = document.querySelectorAll('.submit-button');
+
+    submitButtons.forEach(submitButton => {
+        submitButton.addEventListener('click', () => {
+            const productName = submitButton.closest('.menu-container').querySelector('.product-name').textContent;
+            const quantity = parseInt(submitButton.closest('.menu-container').querySelector('#quantity').textContent);
+            const size = submitButton.closest('.menu-container').querySelector('#size').value;
+            const addOns = submitButton.closest('.menu-container').querySelector('#Add-Ons').value;
+            const cupColor = submitButton.closest('.menu-container').querySelector('#cupColor').value;
+            const stickers = submitButton.closest('.menu-container').querySelector('#stickers').value;
+            const preMadeThemes = submitButton.closest('.menu-container').querySelector('#preMadeThemes').value;
+            const accessories = submitButton.closest('.menu-container').querySelector('#accessories').value;
+            const lidType = submitButton.closest('.menu-container').querySelector('#lidType').value;
+            const strawOptions = submitButton.closest('.menu-container').querySelector('#strawOptions').value;
+            const price = calculatePrice(productName, size, addOns);
+
+            const productDetails = {
+                name: productName,
+                quantity: quantity,
+                size: size,
+                addOns: addOns,
+                cupColor: cupColor,
+                stickers: stickers,
+                preMadeThemes: preMadeThemes,
+                accessories: accessories,
+                lidType: lidType,
+                strawOptions: strawOptions,
+                price: price
+            };
+
+            // Retrieve the cart from local storage or initialize an empty array
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Push the product details to the cart array
+            cart.push(productDetails);
+            // Store the updated cart back to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        });
+    });
+    
+    function calculatePrice(productName, size, addOns) {
+        let basePrice;
+        switch (productName) {
+            case 'Coffee':
+                basePrice = 79;
+                break;
+            case 'Iced Coffee':
+                basePrice = 85;
+                break;
+            case 'Milktea':
+                basePrice = 85;
+                break;
+            case 'Iced Tea':
+                basePrice = 79;
+                break;
+            case 'Frappe':
+                basePrice = 90;
+                break;
+            case 'Soda':
+                basePrice = 60;
+                break;
+            default:
+                basePrice = 0;
+        }
+
+        let sizePrice = basePrice; // Initialize sizePrice with the base price
+        let addOnsPrice = 0;
+
+        // Calculate price based on selected size
+        if (size === 'Grande') {
+            sizePrice += 10;
+        } else if (size === 'Venti') {
+            sizePrice += 20;
+        }
+
+        // Calculate price based on selected add-ons
+        if (addOns !== 'None' && addOns !== 'none' && addOns !== "") {
+            addOnsPrice += 10;
+        }
+
+        // Calculate total price
+        let totalPrice = sizePrice + addOnsPrice;
+        return totalPrice;
+    }
+
+</script>
 
 
 </body>
