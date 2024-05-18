@@ -607,9 +607,9 @@
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -734,9 +734,9 @@
         <p class="product-description">Enjoy your favorite Iced Coffee in this beautifully designed cup with a unique theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -859,9 +859,9 @@
         <p class="product-description">Enjoy your favorite Milktea in this beautifully designed cup with a unique and pre-made theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -986,9 +986,9 @@
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -1117,9 +1117,9 @@
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -1244,9 +1244,9 @@
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
         
         <div class="quantity-control">
-            <button id="decreaseQuantity">-</button>
-            <span id="quantity">1</span>
-            <button id="increaseQuantity">+</button>
+            <button class="decreaseQuantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increaseQuantity">+</button>
         </div>
 
         <div class="size-select">
@@ -1397,38 +1397,34 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 <script>
-    const increaseBtn = document.getElementById('increaseQuantity');
-    const decreaseBtn = document.getElementById('decreaseQuantity');
-    const quantitySpan = document.getElementById('quantity');
-    const sizeSelect = document.getElementById('size');
-    const addOnsSelect = document.getElementById('Add-Ons');
-    const cupColorSelect = document.getElementById('cupColor');
-    const stickersSelect = document.getElementById('stickers');
-    const preMadeThemesSelect = document.getElementById('preMadeThemes');
-    const accessoriesSelect = document.getElementById('accessories');
-    const lidTypeSelect = document.getElementById('lidType');
-    const strawOptionsSelect = document.getElementById('strawOptions');
+    document.addEventListener('DOMContentLoaded', function() {
+        const increaseBtns = document.querySelectorAll('.increaseQuantity');
+        const decreaseBtns = document.querySelectorAll('.decreaseQuantity');
+        const quantitySpans = document.querySelectorAll('.quantity');
 
-    let quantity = 1;
+        increaseBtns.forEach((increaseBtn, index) => {
+            increaseBtn.addEventListener('click', () => {
+                quantitySpans[index].textContent = parseInt(quantitySpans[index].textContent) + 1;
+            });
+        });
 
-    increaseBtn.addEventListener('click', () => {
-        quantity++;
-        quantitySpan.textContent = quantity;
+        decreaseBtns.forEach((decreaseBtn, index) => {
+            decreaseBtn.addEventListener('click', () => {
+                if (parseInt(quantitySpans[index].textContent) > 1) {
+                    quantitySpans[index].textContent = parseInt(quantitySpans[index].textContent) - 1;
+                }
+            });
+        });
     });
 
-    decreaseBtn.addEventListener('click', () => {
-        if (quantity > 1) {
-            quantity--;
-            quantitySpan.textContent = quantity;
-        }
-    });
+    
 
     const submitButtons = document.querySelectorAll('.submit-button');
 
     submitButtons.forEach(submitButton => {
         submitButton.addEventListener('click', () => {
             const productName = submitButton.closest('.menu-container').querySelector('.product-name').textContent;
-            const quantity = parseInt(submitButton.closest('.menu-container').querySelector('#quantity').textContent);
+            const quantity = parseInt(submitButton.closest('.menu-container').querySelector('.quantity').textContent);
             const size = submitButton.closest('.menu-container').querySelector('#size').value;
             const addOns = submitButton.closest('.menu-container').querySelector('#Add-Ons').value;
             const cupColor = submitButton.closest('.menu-container').querySelector('#cupColor').value;
@@ -1452,6 +1448,9 @@
                 strawOptions: strawOptions,
                 price: price
             };
+
+            console.log('Adding product to cart:', productDetails);
+            
 
             // Retrieve the cart from local storage or initialize an empty array
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
