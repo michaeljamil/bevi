@@ -257,13 +257,13 @@
                         <input type="text" name="name" placeholder="Name" id="nameInput">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="address" placeholder="Address" id="addressInput" value="123 Main St, Anytown">
+                        <input type="text" name="address" placeholder="Address" id="addressInput">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" id="emailInput" value="johndoe@example.com">
+                        <input type="email" name="email" placeholder="Email Address" id="emailInput">
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" id="phoneInput" value="123-456-7890">
+                        <input type="tel" name="phone" placeholder="Phone Number" id="phoneInput">
                     </div>
                     <div class="form-group">
                         <textarea placeholder="Message for Seller" name="message" id="messageInput" rows="4" cols="63"></textarea>
@@ -428,7 +428,7 @@
                 const paymentMethod = document.getElementById('paymentMethod').value;
 
                 // Simple validation
-                if (!name || !address || !email || !phone || !message || !paymentMethod) {
+                if (!name || !address || !email || !phone || !paymentMethod) {
                     alert('Please fill in all the fields.');
                     return;
                 }

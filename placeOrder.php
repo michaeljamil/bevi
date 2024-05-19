@@ -17,7 +17,7 @@
 
 
         // Insert into database
-        $sql = "INSERT INTO `bevi_db`.`orders` (customer_name, address, message, paymentMethod, date, status, total_amount) VALUES ('$name', '$address', '$message', '$paymentMethod', NOW(), 'PENDING', '$totalAmount')";
+        $sql = "INSERT INTO `bevi_db`.`orders` (customer_name, address, message, paymentMethod, date, status, total_amount, phone) VALUES ('$name', '$address', '$message', '$paymentMethod', NOW(), 'PENDING', '$totalAmount', '$phone')";
         
         if ($conn->query($sql) === TRUE) {
             
