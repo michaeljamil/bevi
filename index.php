@@ -38,7 +38,7 @@
         .product-detail-coffee {
             background: linear-gradient(to bottom right, #FFBE98, #FEECE2, #F7DED0);
             border-radius: 10px;
-            box-shadow: 10px 0 10px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -57,7 +57,7 @@
         .product-detail-iced-coffee {
             background: linear-gradient(to bottom right, #eed8c2, #e5ceb7, #e1c4a5);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -77,7 +77,7 @@
         .product-detail-milktea {
             background: linear-gradient(to bottom right, #8ba888, #c0cfb2, #fff);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -97,7 +97,7 @@
         .product-detail-iced-tea {
             background: linear-gradient(to bottom right, #ffc284,#ffd28e, #ffe096);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -117,7 +117,7 @@
         .product-detail-frappe {
             background: linear-gradient(to bottom right, 	#f9e2e5, 	#fee7f1, #f4d3d8);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -137,7 +137,7 @@
         .product-detail-soda {
             background: linear-gradient(to bottom right, #008DDA, #41C9E2, #ACE2E1);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 5px 5px 5px 5px #888888;
             width: 70%; /* Adjust width */
             height: 80vh; /* Adjust height */
             margin: auto; /* Center horizontally */
@@ -333,6 +333,7 @@
             }
 
             .action .profile-menu {
+            box-shadow: 5px 5px 5px #888888;
             position: absolute;
             top: 120px;
             right: -10px;
@@ -407,7 +408,7 @@
             }
 
             .action .profile-menu ul li:hover a {
-            color: #ff5d94;
+            color: #e9c3b1;
             }
 
 
@@ -575,7 +576,7 @@
         </div>
 
         <div class="content">
-            <h3 class="title">what's make our store special!</h3>
+            <h3 class="title">What Makes Our Store Special~</h3>
             <p>Welcome to Bevi, where we've made it our mission to ensure that your
                  beverage cravings are met with ease, affordability, and personalized satisfaction. 
                  Our 24/7 e-commerce platform offers a diverse selection of drinks, from comforting 
@@ -585,11 +586,11 @@
             <div class="icons-container">
                 <div class="icons">
                     <img src="images/sparkling-water.png" alt="">
-                    <h3>quality drinks</h3>
+                    <h3>Quality Drinks</h3>
                 </div>
                 <div class="icons">
                     <img src="images/membership.png" alt="">
-                    <h3> discounts</h3>
+                    <h3> Discounts</h3>
                 </div>
                 <div class="icons">
                     <img src="images/customize.png" alt="">
