@@ -446,8 +446,10 @@
                                             echo "<td>" . $row["message"] . "</td>";
                                             // Add action buttons if needed
                                             echo "<td>";
-                                            echo "<button class='order-complete'>Order Completed</button>";
-                                            echo "<button class='order-return'>Order Cancelled</button>";
+                                            echo "<form method='post' action='updateOrderStatus.php'>";
+                                            echo "<input type='hidden' name='orderId' value='" . $row["order_id"] . "'>";
+                                            echo "<button type='submit' class='order-complete' name='markComplete'>Order Completed</button>";
+                                            echo "<button type='submit' class='order-return' name='markCancelled'>Order Cancelled</button>";
                                             echo "</td>";
                                             echo "</tr>";
                                         }
