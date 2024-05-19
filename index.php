@@ -622,17 +622,35 @@
     <h1 class="heading"> OUR MENU <span>CHOOSE YOUR DRINK</span> </h1>
 
     <div class="box-container">
-
-        <a href="javascript:openCoffeeModal()" class="box">
+            <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openCoffeeModal()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/coffee.png" alt="">
             <div class="content">
                 <h3>Hot Coffee</h3>
                 <h3>Php 79</h3>
                 <p>Indulge in the rich aroma and comforting warmth of freshly brewed beans with our Hot Coffee. Perfect for early mornings or late nights, this classic beverage offers a revitalizing boost of energy with every sip.</p>
+                
             </div>
         </a>
 
-        <a href="javascript:openIcedCoffeeModal()" class="box">
+            <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openIcedCoffeeModal()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/iced coffee.png" alt="">
             <div class="content">
                 <h3>Iced Coffee</h3>
@@ -641,7 +659,16 @@
             </div>
         </a>
 
-        <a href="javascript:openMilkteaModal()" class="box">
+        <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openMilkteaModal()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/milktea.png" alt="">
             <div class="content">
                 <h3>Milktea</h3>
@@ -650,7 +677,16 @@
             </div>
         </a>
 
-        <a href="javascript:openIcedTeaModal()" class="box">
+        <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openIcedTea()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/iced tea.png" alt="">
             <div class="content">
                 <h3>Iced Tea</h3>
@@ -659,7 +695,16 @@
             </div>
         </a>
 
-        <a href="javascript:openFrappeModal()" class="box">
+        <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openFrappeModal()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/frappe.png" alt="">
             <div class="content">
                 <h3>Frappe</h3>
@@ -668,7 +713,16 @@
             </div>
         </a>
 
-        <a href="javascript:openSodaModal()" class="box">
+        <?php
+                // Check if user is logged in
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    // If logged in, display add to cart button
+                    echo '<a href="javascript:openSodaModal()" class="box">';
+                } else {
+                    // If not logged in, prompt to login
+                    echo '<a class="box" onclick="alert(\'Need to login first\')">';
+                }
+                ?>
             <img src="images/soda.png" alt="">
             <div class="content">
                 <h3> Soda</h3>
