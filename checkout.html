@@ -240,9 +240,9 @@
 
                 <div class="order-summary">
                     <h3>Order Summary</h3>
-                    <p id="subtotal">Subtotal: $0.00</p>
-                    <p id="shipping">Shipping: $5.00</p>
-                    <p id="total">Total: $5.00</p>
+                    <p id="subtotal">Subtotal: Php0.00</p>
+                    <p id="shipping">Shipping: Php30.00</p>
+                    <p id="total">Total: Php5.00</p>
                 </div>
             </div>
             <div class="checkout-form">
@@ -283,148 +283,119 @@
     <script>
         window.onload = function() {
             const cartItems = document.getElementById('cartItems');
-            const cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cartData.length > 0) {
+                cartData.forEach(item => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
 
-            cartData.forEach(item => {
-                const productDiv = document.createElement('div');
-                productDiv.classList.add('product');
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `images/${item.name.replace(/\s+/g, '')}-removebg-preview.png`;
+                    imgElement.alt = item.name;
 
-                const imgElement = document.createElement('img');
-                imgElement.src = `images/${item.name.replace(/\s+/g, '')}-removebg-preview.png`;
-                imgElement.alt = item.name;
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.classList.add('product-details');
 
-                const detailsDiv = document.createElement('div');
-                detailsDiv.classList.add('product-details');
+                    const infoDiv = document.createElement('div');
+                    infoDiv.classList.add('product-info');
 
-                const infoDiv = document.createElement('div');
-                infoDiv.classList.add('product-info');
+                    const nameElement = document.createElement('h2');
+                    nameElement.textContent = item.name;
 
-                const nameElement = document.createElement('h2');
-                nameElement.textContent = item.name;
+                    let finalItemPrice = item.price * item.quantity;
+                    const priceElement = document.createElement('p');
+                    priceElement.classList.add('price');
+                    priceElement.textContent = `Php${finalItemPrice.toFixed(2)}`;
 
-                const priceElement = document.createElement('p');
-                priceElement.classList.add('price');
-                priceElement.textContent = `$${item.itemTotal}`;
+                    const customizationsElement = document.createElement('span');
+                    customizationsElement.classList.add('customizations');
 
-                const customizationsElement = document.createElement('span');
-                customizationsElement.classList.add('customizations');
+                    const customizations = [];
 
-                const customizations = [];
+                    if (item.size && item.size !== 'None') {
+                        customizations.push(`Size: ${item.size}`);
+                    }
+                    if (item.addOns && item.addOns !== 'None') {
+                        customizations.push(`Add-ons: ${item.addOns}`);
+                    }
+                    if (item.cupColor && item.cupColor !== 'None') {
+                        customizations.push(`Cup Color: ${item.cupColor}`);
+                    }
+                    if (item.stickers && item.stickers !== 'None') {
+                        customizations.push(`Stickers: ${item.stickers}`);
+                    }
+                    if (item.lidType && item.lidType !== 'None') {
+                        customizations.push(`Lid Type: ${item.lidType}`);
+                    }
+                    if (item.preMadeThemes && item.preMadeThemes !== 'None') {
+                        customizations.push(`Pre-Made Themes: ${item.preMadeThemes}`);
+                    }
+                    if (item.strawOptions && item.strawOptions !== 'None') {
+                        customizations.push(`Straw Options: ${item.strawOptions}`);
+                    }
 
-                if (item.size && item.size !== 'None' && item.size !== 'none' && item.size !== '') {
-                    customizations.push(`Size: ${item.size}`);
+                    customizationsElement.innerHTML = customizations.join(' | ');
+
+                    const quantityElement = document.createElement('p');
+                    quantityElement.classList.add('quantity-display');
+                    quantityElement.textContent = `x${item.quantity}`;
+
+                    infoDiv.appendChild(nameElement);
+                    infoDiv.appendChild(customizationsElement);
+                    infoDiv.appendChild(priceElement);
+                    infoDiv.appendChild(quantityElement);
+                    detailsDiv.appendChild(infoDiv);
+                    productDiv.appendChild(imgElement);
+                    productDiv.appendChild(detailsDiv);
+
+                    cartItems.appendChild(productDiv);
+                });
+
+                // Calculate and update the order summary
+                const subtotalElement = document.getElementById('subtotal');
+                const totalElement = document.getElementById('total');
+                const shippingCost = 30.00;
+                let subtotal = 0;
+
+                cartData.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                });
+
+                subtotalElement.textContent = `Subtotal: Php${subtotal.toFixed(2)}`;
+                totalElement.textContent = `Total: Php${(subtotal + shippingCost).toFixed(2)}`;
+            } else {
+                cartItems.innerHTML = '<div>Your cart is empty.</div>';
+            }
+
+            // Checkout form submission
+            document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Get the form values
+                const name = document.getElementById('nameInput').value;
+                const address = document.getElementById('addressInput').value;
+                const email = document.getElementById('emailInput').value;
+                const phone = document.getElementById('phoneInput').value;
+                const zip = document.getElementById('zipInput').value;
+                const paymentMethod = document.getElementById('paymentMethod').value;
+
+                // Simple validation
+                if (!name || !address || !email || !phone || !zip || !paymentMethod) {
+                    alert('Please fill in all the fields.');
+                    return;
                 }
-                if (item.addOns && item.addOns !== 'None' && item.addOns !== 'none' && item.addOns !== '') {
-                    customizations.push(`Add-ons: ${item.addOns}`);
-                }
-                if (item.cupColor && item.cupColor !== 'None' && item.cupColor !== 'none' && item.cupColor !== '') {
-                    customizations.push(`Cup Color: ${item.cupColor}`);
-                }
-                if (item.stickers && item.stickers !== 'None' && item.stickers !== 'none' && item.stickers !== '') {
-                    customizations.push(`Stickers: ${item.stickers}`);
-                }
-                if (item.lidType && item.lidType !== 'None' && item.lidType !== 'none' && item.lidType !== '') {
-                    customizations.push(`Lid Type: ${item.lidType}`);
-                }
-                if (item.preMadeThemes && item.preMadeThemes !== 'None' && item.preMadeThemes !== 'none' && item.preMadeThemes !== '') {
-                    customizations.push(`Pre-Made Themes: ${item.preMadeThemes}`);
-                }
-                if (item.strawOptions && item.strawOptions !== 'None' && item.strawOptions !== 'none' && item.strawOptions !== '') {
-                    customizations.push(`Straw Options: ${item.strawOptions}`);
+
+                // Placeholder function to simulate order placement
+                function placeOrder() {
+                    alert('Order placed successfully!');
+                    // You can add more actions here, like sending the data to a server
                 }
 
-                customizationsElement.innerHTML = customizations.join(' | ');
-
-                infoDiv.appendChild(nameElement);
-                infoDiv.appendChild(customizationsElement);
-                infoDiv.appendChild(priceElement);
-
-                detailsDiv.appendChild(infoDiv);
-                productDiv.appendChild(imgElement);
-                productDiv.appendChild(detailsDiv);
-
-                cartItems.appendChild(productDiv);
+                placeOrder();
             });
-
-            // Calculate and update the order summary
-            const subtotalElement = document.getElementById('subtotal');
-            const totalElement = document.getElementById('total');
-            const shippingCost = 5.00;
-            let subtotal = 0;
-
-            cartData.forEach(item => {
-                subtotal += item.price * item.quantity;
-            });
-
-            subtotalElement.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-            totalElement.textContent = `Total: $${(subtotal + shippingCost).toFixed(2)}`;
         };
 
-        function calculateTotals() {
-            const products = document.querySelectorAll('.product');
-            let subtotal = 0;
-            const shipping = 5.00;
 
-            products.forEach(product => {
-                const price = parseFloat(product.querySelector('.price').textContent.replace('$', ''));
-                const quantity = parseInt(product.querySelector('.quantity-input').value);
-                subtotal += price * quantity;
-            });
-
-            document.getElementById('subtotal').textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-            document.getElementById('total').textContent = `Total: $${(subtotal + shipping).toFixed(2)}`;
-        }
-
-        document.querySelectorAll('.quantity-input').forEach(input => {
-            input.addEventListener('change', calculateTotals);
-        });
-
-        document.querySelectorAll('.quantity-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const input = e.target.closest('.quantity-controls').querySelector('.quantity-input');
-                let value = parseInt(input.value);
-
-                if (e.target.classList.contains('plus')) {
-                    value++;
-                } else if (e.target.classList.contains('minus') && value > 1) {
-                    value--;
-                }
-
-                input.value = value;
-                calculateTotals();
-            });
-        });
-
-        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get the form values
-            const name = document.getElementById('nameInput').value;
-            const address = document.getElementById('addressInput').value;
-            const email = document.getElementById('emailInput').value;
-            const phone = document.getElementById('phoneInput').value;
-            const zip = document.getElementById('zipInput').value;
-            const paymentMethod = document.getElementById('paymentMethod').value;
-
-            // Simple validation (just checking if the fields are filled)
-            if (!name || !address || !email || !phone || !zip || !paymentMethod) {
-                alert('Please fill in all the fields.');
-                return;
-            }
-
-            // Here you can add more complex validation if needed
-
-            // Placeholder function to simulate order placement
-            function placeOrder() {
-                alert('Order placed successfully!');
-                // You can add more actions here, like sending the data to a server
-            }
-
-            placeOrder();
-        });
-
-        // Initial calculation
-        calculateTotals();
     </script>
 
 </body>
