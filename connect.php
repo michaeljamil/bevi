@@ -3,8 +3,8 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
-    $database = "bevi_db";
-    $password = "1052"; //Palitan mo na lang pass tas username base sa mysql server mo
+    $password = "0907Mairu-kun!/"; //Palitan mo na lang pass tas username base sa mysql server mo
+    $database ="bevi_db";
     $conn = new mysqli($servername, $username, $password, $database);
 
     if ($conn->connect_error) {
@@ -54,6 +54,7 @@
                     `date` date NOT NULL,
                     `status` varchar(45) NOT NULL,
                     `address` varchar(255) NOT NULL,
+                    `phone` varchar(15) NOT NULL,
                     `paymentMethod` varchar(45) NOT NULL,
                     `total_amount` int NOT NULL,
                     `message` text,
