@@ -128,6 +128,22 @@ if ($orderResult && $orderResult->num_rows > 0) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group focused">
+                                    <?php
+                                        // Fetch order history based on customer name
+                                        $orderHistorySql = "SELECT * FROM `bevi_db`.`orders` WHERE customer_name = ?";
+                                        $orderStmt = $conn->prepare($orderHistorySql);
+                                        $orderStmt->bind_param("s", $_SESSION["name"]); // Assuming $_SESSION["name"] holds the customer name
+                                        $orderStmt->execute();
+                                        $orderResult = $orderStmt->get_result();
+                                        $orderHistory = [];
+
+                                        if ($orderResult && $orderResult->num_rows > 0) {
+                                            while ($orderRow = $orderResult->fetch_assoc()) {
+                                                $orderHistory[] = $orderRow;
+                                            }
+                                        }
+                                        ?>
+
                                         <?php if (!empty($orderHistory)): ?>
                                             <ul class="order-history-list">
                                                 <?php foreach ($orderHistory as $order): ?>
@@ -135,13 +151,14 @@ if ($orderResult && $orderResult->num_rows > 0) {
                                                         <strong>Order ID:</strong> <?php echo htmlspecialchars($order['order_id']); ?><br>
                                                         <strong>Date:</strong> <?php echo htmlspecialchars($order['date']); ?><br>
                                                         <strong>Total:</strong> ₱<?php echo htmlspecialchars($order['total_amount']); ?><br>
-                                                        <strong>Status:</strong> <?php echo htmlspecialchars($order['status']); ?><br>
+                                                        <strong>Status:</strong> <?php echo htmlspecialchars($order['status']); ?><br><br>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         <?php else: ?>
                                             <p>No orders found.</p>
                                         <?php endif; ?>
+
                                     </div>
                                 </div>
                             </div>
