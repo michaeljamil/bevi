@@ -18,7 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the SQL statement
     if (mysqli_query($conn, $sql)) {
-        echo "Feedback submitted successfully!";
+        echo "<script>
+                alert('Feedback Successfully Sent')
+                window.location.href = 'index.php';
+                </script>";
+        exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn); // Corrected variable name
     }
