@@ -300,6 +300,7 @@
                                 <script>
                                     document.getElementById('nameInput').value = '" . $row['firstName'] . " " . $row['lastName'] . "';
                                     document.getElementById('emailInput').value = '" . $row['email'] . "';
+                                    document.getElementById('addressInput').value = '" . $row['address'] . "';
                                 </script>
                             ";
                         } else {
