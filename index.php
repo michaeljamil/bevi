@@ -681,7 +681,7 @@
                 // Check if user is logged in
                 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                     // If logged in, display add to cart button
-                    echo '<a href="javascript:openIcedTea()" class="box">';
+                    echo '<a href="javascript:openIcedTeaModal()" class="box">';
                 } else {
                     // If not logged in, prompt to login
                     echo '<a class="box" onclick="alert(\'Need to login first\')">';
