@@ -88,6 +88,17 @@ session_start();
                                 </div>
                             </div>
                         </div>
+                        <!-- Order History -->
+                        <h6 class="heading-small text-muted mb-4">Order History</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group focused">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
