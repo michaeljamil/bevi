@@ -839,8 +839,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
@@ -964,8 +964,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
@@ -1087,8 +1087,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
@@ -1212,8 +1212,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
@@ -1341,8 +1341,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
@@ -1466,8 +1466,8 @@
             <label for="size">Size:</label>
             <select id="size">
                 <option value="Medio">Medio</option>
-                <option value="Grande">Grande</option>
-                <option value="Venti">Venti</option>
+                <option value="Grande">Grande (+P10)</option>
+                <option value="Venti">Venti (+P20)</option>
             </select>
         </div>
 
