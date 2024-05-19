@@ -414,6 +414,7 @@
                                     <th scope="col">Order Date</th>
                                     <th scope="col">Order Status</th>
                                     <th scope="col">Shipping Address</th>
+                                    <th scope="col">Phone</th>
                                     <th scope="col">Payment Method</th>
                                     <th scope="col">Total Amount</th>
                                     <th scope="col">Customer Message</th>
@@ -441,6 +442,7 @@
                                             echo "<td>" . $row["date"] . "</td>";
                                             echo "<td>" . $row["status"] . "</td>";
                                             echo "<td>" . $row["address"] . "</td>";
+                                            echo "<td>" . $row["phone"] . "</td>";
                                             echo "<td>" . $row["paymentMethod"] . "</td>";
                                             echo "<td>" . $row["total_amount"] . "</td>";
                                             echo "<td>" . $row["message"] . "</td>";
