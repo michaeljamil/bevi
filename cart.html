@@ -210,22 +210,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // function getTotalPrice() {
-            //     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            //     let totalPrice = 0;
-            //     cartItems.forEach(item => {
-            //         totalPrice += item.price || 0;
-            //     });
-            //     return totalPrice;
-            // }
-
             const cartItemsDiv = document.getElementById('cartItems');
             const subtotalSpan = document.getElementById('subtotal');
             const totalSpan = document.getElementById('total');
             const shippingCost = 30.00; // Flat shipping cost
-            let item_price = 0.00;
             let subtotal = 0.00;
-            
 
             // Function to update the total cost
             function updateTotal() {
@@ -233,39 +222,23 @@
                 totalSpan.textContent = `Php${(subtotal + shippingCost).toFixed(2)}`;
             }
 
-            
             // Retrieve cart items from local storage
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            
+
             if (cartItems.length > 0) {
                 cartItems.forEach((item, index) => {
                     const { name, quantity, price, size, addOns, cupColor, stickers, lidType, preMadeThemes, strawOptions } = item;
                     let customizations = '';
 
-                    if (size && size !== 'None' && size !== 'none' && size !== '') {
-                        customizations += `<br><span>Size: ${size}</span>`;
-                    }
-                    if (addOns && addOns !== 'None' && addOns !== 'none' && addOns !== '') {
-                        customizations += `<br><span>Add-ons: ${addOns}</span>`;
-                    }
-                    if (cupColor && cupColor !== 'None' && cupColor !== 'none' && cupColor !== '') {
-                        customizations += `<br><span>Cup Color: ${cupColor}</span>`;
-                    }
-                    if (stickers && stickers !== 'None' && stickers !== 'none' && stickers !== '') {
-                        customizations += `<br><span>Stickers: ${stickers}</span>`;
-                    }
-                    if (lidType && lidType !== 'None' && lidType !== 'none' && lidType !== '') {
-                        customizations += `<br><span>Lid Type: ${lidType}</span>`;
-                    }
-                    if (preMadeThemes && preMadeThemes !== 'None' && preMadeThemes !== 'none' && preMadeThemes !== '') {
-                        customizations += `<br><span>Pre-Made Themes: ${preMadeThemes}</span>`;
-                    }
-                    if (strawOptions && strawOptions !== 'None' && strawOptions !== 'none' && strawOptions !== '') {
-                        customizations += `<br><span>Straw Options: ${strawOptions}</span>`;
-                    }
+                    if (size) customizations += `<br><span>Size: ${size}</span>`;
+                    if (addOns) customizations += `<br><span>Add-ons: ${addOns}</span>`;
+                    if (cupColor) customizations += `<br><span>Cup Color: ${cupColor}</span>`;
+                    if (stickers) customizations += `<br><span>Stickers: ${stickers}</span>`;
+                    if (lidType) customizations += `<br><span>Lid Type: ${lidType}</span>`;
+                    if (preMadeThemes) customizations += `<br><span>Pre-Made Themes: ${preMadeThemes}</span>`;
+                    if (strawOptions) customizations += `<br><span>Straw Options: ${strawOptions}</span>`;
+
                     const itemTotal = parseFloat(price) * quantity;
-                    item_price = parseFloat(price);
-                    //const itemTotal = pricePerItem * quantity;
 
                     const cartItemHTML = `
                         <tr data-index="${index}">
@@ -285,15 +258,14 @@
                             <td><span class="item-total">Php${itemTotal.toFixed(2)}</span></td>
                             <td>
                                 <button class="remove-button">Remove</button>
-                                <button class="update-button">Update</button>
                             </td>
                         </tr>
-                        `;
+                    `;
 
-                        cartItemsDiv.insertAdjacentHTML('beforeend', cartItemHTML);
-                        subtotal += itemTotal;
-                    });
-                    updateTotal();
+                    cartItemsDiv.insertAdjacentHTML('beforeend', cartItemHTML);
+                    subtotal += itemTotal;
+                });
+                updateTotal();
             } else {
                 cartItemsDiv.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
             }
@@ -304,7 +276,7 @@
                 const row = target.closest('tr');
                 const index = row.getAttribute('data-index');
                 let quantity = parseInt(row.querySelector('.item-quantity').textContent);
-                //const pricePerItem = 30.50;
+                const pricePerItem = parseFloat(cartItems[index].price);
 
                 if (target.classList.contains('decrease-quantity') && quantity > 1) {
                     quantity--;
@@ -325,7 +297,7 @@
 
                 cartItems[index].quantity = quantity;
                 row.querySelector('.item-quantity').textContent = quantity;
-                const newTotal = item_price * quantity;
+                const newTotal = pricePerItem * quantity;
                 row.querySelector('.item-total').textContent = `Php${newTotal.toFixed(2)}`;
                 localStorage.setItem('cart', JSON.stringify(cartItems));
                 updateSubtotal();
@@ -333,30 +305,29 @@
 
             // Function to update the subtotal and total
             function updateSubtotal() {
-                subtotal = cartItems.reduce((acc, item) => acc + (item_price * item.quantity), 0);
+                subtotal = cartItems.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0);
                 updateTotal();
             }
-        });
 
-        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Function to update item totals in the cart before checkout
+            function updateAllItemTotals(cart) {
+                cart.forEach(item => {
+                    const itemQuantitySpan = document.querySelector(`tr[data-index="${cart.indexOf(item)}"] .item-quantity`);
+                    const itemQuantityText = itemQuantitySpan.textContent;
+                    item.itemTotal = parseFloat(item.price) * parseInt(itemQuantityText);
+                    item.quantity = parseInt(itemQuantityText);
+                });
+                // Save the updated array back to local storage
+                localStorage.setItem('updatedCart', JSON.stringify(cart));
+            }
 
-        // Function to update item totals in the cart
-        function updateAllItemTotals(cartItems) {
-            const itemQuantitySpan = document.querySelector('.item-quantity');
-            const itemQuantityText = itemQuantitySpan.textContent;
-            const quantityInt = parseInt(itemQuantityText)
-            cartItems.forEach(item => {
-                item.itemTotal = parseFloat(item.price) * quantityInt;
+            // Add event listener to the Checkout button
+            document.querySelector('.checkout-button').addEventListener('click', function(event) {
+                updateAllItemTotals(cartItems);
             });
-
-            // Save the updated array back to local storage
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        }
-
-        // Add event listener to the Checkout button
-        document.querySelector('.checkout-button').addEventListener('click', function(event) {
-            updateAllItemTotals(cartItems);
         });
+
+
     </script>
 </body>
 </html>
