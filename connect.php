@@ -3,8 +3,8 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
-    $password = "1052"; //Palitan mo na lang pass tas username base sa mysql server mo
-
+   
+    $password = ""; //Palitan mo na lang pass tas username base sa mysql server mo
     $conn = new mysqli($servername, $username, $password);
 
     if ($conn->connect_error) {
