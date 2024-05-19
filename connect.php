@@ -54,7 +54,9 @@
                     `date` date NOT NULL,
                     `status` varchar(45) NOT NULL,
                     `address` varchar(255) NOT NULL,
+                    `paymentMethod` varchar(45) NOT NULL,
                     `total_amount` int NOT NULL,
+                    `message` text,
                     PRIMARY KEY (`order_id`)
                 )";
                 
