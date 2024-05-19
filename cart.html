@@ -204,7 +204,7 @@
                     <td><span id="total">Php0.00</span></td>
                 </tr>
             </table>
-            <a href="checkout.php"><button type="button" class="checkout-button">Checkout</button></a>
+            <button type="button" class="checkout-button">Checkout</button>
         </form>
     </div>
 
@@ -323,7 +323,12 @@
 
             // Add event listener to the Checkout button
             document.querySelector('.checkout-button').addEventListener('click', function(event) {
+                if (cartItems.length === 0) {
+                    alert("Please add a product");
+                    return;
+                }
                 updateAllItemTotals(cartItems);
+                window.location.href = 'checkout.php'; // Proceed to checkout if cart is not empty
             });
         });
 
