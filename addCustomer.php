@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Check if email already exists
-    $email_check_sql = "SELECT * FROM customer WHERE email = ?";
+    $email_check_sql = "SELECT * FROM bevi_db.customer WHERE email = ?";
     $stmt = $conn->prepare($email_check_sql);
     if (!$stmt) {
         die("Error preparing statement (email check): " . $conn->error);
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Insert data into the database
-    $insert_sql = "INSERT INTO customer (firstName, lastName, email, username, password) 
+    $insert_sql = "INSERT INTO bevi_db.customer (firstName, lastName, email, username, password) 
                    VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insert_sql);
     if (!$stmt) {

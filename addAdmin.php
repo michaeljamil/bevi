@@ -16,7 +16,10 @@
 
                     // Check if passwords match
                     if ($password !== $conf_password) {
-                        echo '<script>alert("Error: Passwords do not match")</script>';
+                        echo "<script>
+                              alert('Error: Passwords do not match')
+                              window.location.href = 'admin.php';
+                              </script>";
                         exit;
                     } else {
                         // Insert data into the database
