@@ -35,6 +35,7 @@
         // Retrieve form data
         $fname = $_POST['firstName'];
         $lname = $_POST['lastName'];
+        $address = $_POST['address'];
         $email = $_POST['email'];
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -47,8 +48,8 @@
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert data into the database
-        $insert_sql = "INSERT INTO `bevi_db`.`customer` (firstName, lastName, email, username, password) 
-                       VALUES ('$fname', '$lname', '$email', '$username', '$hashed_password')";
+        $insert_sql = "INSERT INTO `bevi_db`.`customer` (firstName, lastName, address, email, username, password) 
+                       VALUES ('$fname', '$lname', '$address', '$email', '$username', '$hashed_password')";
         
         if ($conn->query($insert_sql) === TRUE) {
             echo "New record created successfully";
