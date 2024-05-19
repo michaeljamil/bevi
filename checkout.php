@@ -250,33 +250,37 @@
                     <p id="total">Total: Php5.00</p>
                 </div>
             </div>
-            <div class="checkout-form">
+            <div class="checkout-form" >
                 <h2>Recipient Information</h2>
-                <form id="checkoutForm">
+                <form id="checkoutForm" method="post" action="placeOrder.php" onsubmit="setTotalAmount()">
                     <div class="form-group">
-                        <input type="text" placeholder="Name" id="nameInput" value="">
+                        <input type="text" name="name" placeholder="Name" id="nameInput">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Address" id="addressInput" value="123 Main St, Anytown">
+                        <input type="text" name="address" placeholder="Address" id="addressInput" value="123 Main St, Anytown">
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email Address" id="emailInput" value="johndoe@example.com">
+                        <input type="email" name="email" placeholder="Email Address" id="emailInput" value="johndoe@example.com">
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="Phone Number" id="phoneInput" value="123-456-7890">
+                        <input type="tel" name="phone" placeholder="Phone Number" id="phoneInput" value="123-456-7890">
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Message for Seller" id="messageInput" rows="4" cols="63"></textarea>
+                        <textarea placeholder="Message for Seller" name="message" id="messageInput" rows="4" cols="63"></textarea>
                     </div>                    
                     <div class="form-group">
-                        <select id="paymentMethod" required>
+                        <select name="paymentMethod" id="paymentMethod" required>
                             <option value="" disabled selected>Select Payment Method</option>
-                            <option value="creditCard">Cash on Delivery</option>
-                            <option value="paypal">Gcash</option>
-                            <option value="crypto">Paymaya</option>
+                            <option value="COD">Cash on Delivery</option>
+                            <option value="Gcash">Gcash</option>
+                            <option value="Paymaya">Paymaya</option>
                         </select>
                     </div>
+                    <input type="hidden" name="totalAmount" id="totalAmount">
+                    <button type="submit" class="order-btn">Place Order</button>
                 </form>
+
+
                 <?php
                     
                     include "connect.php";
@@ -310,7 +314,7 @@
                 ?>
 
                 <!-- <a href="javascript:openplaceOrderModal()"> -->
-                <button type="submit" name="submit" class="order-btn" onclick="placeOrder()">Place Order</button>
+                
                 <!-- </a> -->
             </div>
         </div>
@@ -385,7 +389,15 @@
                     productDiv.appendChild(detailsDiv);
 
                     cartItems.appendChild(productDiv);
+
+                    
                 });
+
+                // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                // const cartInput = document.getElementById('cartInput');
+                // if (cart.length > 0) {
+                //     cartInput.value = JSON.stringify(cart);
+                // }
 
                 // Calculate and update the order summary
                 const subtotalElement = document.getElementById('subtotal');
@@ -412,25 +424,41 @@
                 const address = document.getElementById('addressInput').value;
                 const email = document.getElementById('emailInput').value;
                 const phone = document.getElementById('phoneInput').value;
-                const zip = document.getElementById('zipInput').value;
+                const message = document.getElementById('messageInput').value;
                 const paymentMethod = document.getElementById('paymentMethod').value;
 
                 // Simple validation
-                if (!name || !address || !email || !phone || !zip || !paymentMethod) {
+                if (!name || !address || !email || !phone || !message || !paymentMethod) {
                     alert('Please fill in all the fields.');
                     return;
                 }
 
-                
-                placeOrder();
+                this.submit();
+                clearLocalStorage()
+                //placeOrder();
             });
         };
+
+        function setTotalAmount() {
+            var totalElement = document.getElementById("total");
+            var totalAmountInput = document.getElementById("totalAmount");
+            var totalText = totalElement.innerText;
+
+            // Extract numeric value from the text
+            var totalAmount = parseFloat(totalText.replace(/[^\d.-]/g, ''));
+            totalAmountInput.value = totalAmount.toFixed(2); // Ensure it's formatted as a number with two decimal places
+        }
+        function clearLocalStorage() {
+            localStorage.removeItem('cart');
+        }
+
+
         // Placeholder function to simulate order placement
-        function placeOrder() {
-                    alert('Order placed successfully!');
-                    // You can add more actions here, like sending the data to a server
-                    localStorage.removeItem('cart');
-                }
+        // function placeOrder() {
+        //             alert('Order placed successfully!');
+        //             // You can add more actions here, like sending the data to a server
+        //             localStorage.removeItem('cart');
+        //         }
 
 
     </script>
