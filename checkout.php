@@ -29,7 +29,9 @@
             color: #343a40;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #FFEBC1, #D7A86E, #A64B2A);
+            background-image: url(images/bevi-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; /* or background-size: contain; */            
             display: flex;
             justify-content: center;
             align-items: center;
