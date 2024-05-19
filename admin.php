@@ -342,7 +342,6 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Username</th>
-                                    <th scope="col">Password</th>
 
                                 </tr>
                             </thead>
@@ -361,10 +360,11 @@
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo "<tr>";
                                             echo "<th scope='row'>" . $row["customer_id"] . "</th>";
-                                            echo "<td>" . $row["name"] . "</td>";
+                                            echo "<td>" . $row["firstName"] . "</td>";
+                                            echo "<td>" . $row["lastName"] . "</td>";
+                                            echo "<td>" . $row["address"] . "</td>";
                                             echo "<td>" . $row["email"] . "</td>";
                                             echo "<td>" . $row["username"] . "</td>";
-                                            echo "<td>" . substr($row["password"], 0, 10) . "</td>";
                                             echo "</tr>";
                                         }
                                     } else {
