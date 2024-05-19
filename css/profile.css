@@ -254,7 +254,7 @@
   
   [type='search'] {
     outline-offset: -2px;
-    -webkit-appearance: none;
+    --webkit-appearance: none;
   }
   
   [type='search']::-webkit-search-cancel-button,
@@ -2056,4 +2056,87 @@
 
 .back-button:hover {
     background-color: #b06a53;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  color: #070F2B;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Add a shadow */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* The Close Button */
+.close {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Label for inputs */
+.modal-content label {
+  display: block; /* Ensure each label appears on a new line */
+  font-size: 1.0rem; /* Font size */
+  margin-bottom: 10px; /* Add some space between labels */
+  text-align: left; /* Align labels to the left */
+}
+
+/* Input fields */
+.modal-content input[type="text"],
+.modal-content input[type="email"] {
+  width: calc(100% - 20px); /* Adjust input width */
+  padding: 5px; /* Add some padding */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 10px; /* Add some space between inputs */
+  border-radius: 5px; /* Rounded corners */
+  border: 2px solid #ccc; /* Border */
+}
+
+/* Container for the submit button */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button */
+  margin-top: 10px; /* Space above container */
+}
+
+/* Submit button */
+.modal-content input[type="submit"] {
+  padding: 10px 20px; /* Add some padding */
+  background-color: #7E6363; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer/hand icon */
+  font-size: 1rem; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.modal-content input[type="submit"]:hover {
+  background-color: #A87C7C; /* Darker green */
 }
