@@ -3,9 +3,9 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
-   
-    $password = ""; //Palitan mo na lang pass tas username base sa mysql server mo
-    $conn = new mysqli($servername, $username, $password);
+    $database = "bevi_db";
+    $password = "1052"; //Palitan mo na lang pass tas username base sa mysql server mo
+    $conn = new mysqli($servername, $username, $password, $database);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
