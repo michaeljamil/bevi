@@ -1041,7 +1041,7 @@ section{
     background: linear-gradient(to right, #fcf9f7, #ffffff);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    width: 60%; /* Adjust width */
+    width: 50%; /* Adjust width */
     height: 80vh; /* Adjust height */
     margin: auto; /* Center horizontally */
     position: fixed; /* Fixed position */
@@ -1056,16 +1056,15 @@ section{
 
 /* Close Button */
 .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #000;
-    font-size: 14px;
+  color: #000;
+  float: right;
+  font-size: 100px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #f00; /* Red color on hover */
+    color: white; /* Red color on hover */
     cursor: pointer;
 }
 
@@ -1100,7 +1099,7 @@ section{
     border: none; /* No border */
     cursor: pointer; /* Cursor on hover */
     font-size: 1.5rem; /* Font size */
-    display: inline-block; /* Ensure buttons are displayed inline */
+    display: inline-flex; /* Ensure buttons are displayed inline */
     margin: 10px; /* Add margin around buttons */
 }
 .modal-content button[type="button"] {
@@ -1110,7 +1109,7 @@ section{
     border: none; /* No border */
     cursor: pointer; /* Cursor on hover */
     font-size: 1.5rem; /* Font size */
-    display: inline-block; /* Ensure buttons are displayed inline */
+    display: inline-flex; /* Ensure buttons are displayed inline */
     margin: 10px; /* Add margin around buttons */
 }
 
@@ -1155,20 +1154,7 @@ section{
     text-align: center;
 }
 
-/* Close Button */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #000;
-    font-size: 14px;
-}
 
-.close:hover,
-.close:focus {
-    color: #f00; /* Red color on hover */
-    cursor: pointer;
-}
 
 /* Label for inputs */
 .forgot-modal-content label {

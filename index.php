@@ -411,6 +411,19 @@
             color: #e9c3b1;
             }
 
+            /* Close Button */
+            .close {
+            color: #000;
+            float: right;
+            font-size: 25px;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black; /* Red color on hover */
+                cursor: pointer;
+            }
+
 
     </style>
 <body>
@@ -726,12 +739,9 @@
 
 <!-- The Modal -->
 <div id="feedbackModal" class="modal">
-    <span onclick="closeFeedbackModal()" class="close" title="Close Modal">&times;</span>
-  
-    <!-- Modal Content -->
+        <!-- Modal Content -->
     <form class="modal-content animate" action="feedback.php" method="post">
-      
-      <div class="container">
+    <span onclick="closeFeedbackModal()" class="close" title="Close Modal">&times;</span>
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="Enter Your Name" name="name" required>
   
@@ -752,7 +762,6 @@
   
         <button type="submit" class="btn" name="submit">Submit</button>
         <button type="button" onclick="closeFeedbackModal()" class="btn">Cancel</button>
-      </div>
     </form>
 </div>
 
@@ -760,7 +769,6 @@
 <!---- Coffee Modal ----->
 
 <div id="coffeeModal" class="menu-container">
-<span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
     <div class="product-detail-coffee">
         <img src="images/Coffee-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Coffee</h1>
@@ -771,6 +779,7 @@
             <span class="quantity">1</span>
             <button class="increaseQuantity">+</button>
         </div>
+        <span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
 
         <div class="size-select">
             <label for="size">Size:</label>
@@ -884,12 +893,12 @@
 
 <!---- Iced Coffee Modal ----->
 <div id="icedCoffeeModal" class="menu-container">
-<span onclick="closeIcedCoffeeModal()" class="close" title="Close Modal">&times;</span>
     <div class="product-detail-iced-coffee">
         <img src="images/IcedCoffee-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Iced Coffee</h1>
         <p class="product-description">Enjoy your favorite Iced Coffee in this beautifully designed cup with a unique theme.</p>
-        
+        <span onclick="closeIcedCoffeeModal()" class="close" title="Close Modal">&times;</span>
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
@@ -1006,12 +1015,12 @@
 <!-- Milktea Modal -->
 
 <div id="milkteaModal" class="menu-container">
-<span onclick="closeMilkteaModal()" class="close" title="Close Modal">&times;</span>
     <div class="product-detail-milktea">
         <img src="images/Milktea-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Milktea</h1>
         <p class="product-description">Enjoy your favorite Milktea in this beautifully designed cup with a unique and pre-made theme.</p>
-        
+        <span onclick="closeMilkteaModal()" class="close" title="Close Modal">&times;</span>
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
@@ -1130,12 +1139,12 @@
 
 <!-- Iced Tea Modal -->
 <div id="icedTeaModal" class="menu-container">
-<span onclick="closeIcedTeaModal()" class="close" title="Close Modal">&times;</span>
     <div class="product-detail-iced-tea">
         <img src="images/IcedTea-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Iced Tea</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        
+        <span onclick="closeIcedTeaModal()" class="close" title="Close Modal">&times;</span>
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
@@ -1258,12 +1267,12 @@
 
 <!-- Frappe Modal -->
 <div id="frappeModal" class="menu-container">
-<span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
 <div class="product-detail-frappe">
         <img src="images/Frappe-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Frappe</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        
+        <span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
@@ -1382,12 +1391,12 @@
 
 <!-- Soda Modal -->
 <div id="sodaModal" class="menu-container">
-<span onclick="closeSodaModal()" class="close" title="Close Modal">&times;</span>   
     <div class="product-detail-soda">
         <img src="images/Soda-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Soda</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        
+        <span onclick="closeSodaModal()" class="close" title="Close Modal">&times;</span>   
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
