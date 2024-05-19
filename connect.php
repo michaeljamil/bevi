@@ -22,6 +22,7 @@
                     `customer_id` int NOT NULL AUTO_INCREMENT,
                     `firstName` varchar(50) NOT NULL,
                     `lastName` varchar(45) NOT NULL,
+                    `address` varchar(255) NOT NULL,
                     `email` varchar(50) NOT NULL,
                     `username` varchar(50) NOT NULL,
                     `password` varchar(255) NOT NULL,
@@ -48,16 +49,12 @@
                     PRIMARY KEY (`feedback_id`)
                 )";
     $sqlOrder = "CREATE TABLE IF NOT EXISTS `bevi_db`.`orders` (
-                    `order_id` INT NOT NULL AUTO_INCREMENT,
-                    `product` VARCHAR(45) NOT NULL,
-                    `cup_color` VARCHAR(45) NOT NULL,
-                    `add_ons` VARCHAR(45) NOT NULL,
-                    `stickers` VARCHAR(45) NOT NULL,
-                    `accessories` VARCHAR(45) NOT NULL,
-                    `lid_type` VARCHAR(45) NOT NULL,
-                    `straw_option` VARCHAR(45) NOT NULL,
-                    `pre_made_theme` VARCHAR(45) NOT NULL,
-                    `amount` VARCHAR(45) NOT NULL,
+                    `order_id` int NOT NULL AUTO_INCREMENT,
+                    `customer_name` varchar(45) NOT NULL,
+                    `date` date NOT NULL,
+                    `status` varchar(45) NOT NULL,
+                    `address` varchar(255) NOT NULL,
+                    `total_amount` int NOT NULL,
                     PRIMARY KEY (`order_id`)
                 )";
                 
