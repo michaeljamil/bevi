@@ -770,16 +770,16 @@
 
 <div id="coffeeModal" class="menu-container">
     <div class="product-detail-coffee">
+    <span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
         <img src="images/Coffee-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Coffee</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        
+
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
             <span class="quantity">1</span>
             <button class="increaseQuantity">+</button>
         </div>
-        <span onclick="closeCoffeeModal()" class="close" title="Close Modal">&times;</span>
 
         <div class="size-select">
             <label for="size">Size:</label>
@@ -894,10 +894,11 @@
 <!---- Iced Coffee Modal ----->
 <div id="icedCoffeeModal" class="menu-container">
     <div class="product-detail-iced-coffee">
+    <span onclick="closeIcedCoffeeModal()" class="close" title="Close Modal">&times;</span>
+
         <img src="images/IcedCoffee-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Iced Coffee</h1>
         <p class="product-description">Enjoy your favorite Iced Coffee in this beautifully designed cup with a unique theme.</p>
-        <span onclick="closeIcedCoffeeModal()" class="close" title="Close Modal">&times;</span>
 
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
@@ -1016,10 +1017,11 @@
 
 <div id="milkteaModal" class="menu-container">
     <div class="product-detail-milktea">
+    <span onclick="closeMilkteaModal()" class="close" title="Close Modal">&times;</span>
+
         <img src="images/Milktea-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Milktea</h1>
         <p class="product-description">Enjoy your favorite Milktea in this beautifully designed cup with a unique and pre-made theme.</p>
-        <span onclick="closeMilkteaModal()" class="close" title="Close Modal">&times;</span>
 
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
@@ -1140,10 +1142,11 @@
 <!-- Iced Tea Modal -->
 <div id="icedTeaModal" class="menu-container">
     <div class="product-detail-iced-tea">
+    <span onclick="closeIcedTeaModal()" class="close" title="Close Modal">&times;</span>
+
         <img src="images/IcedTea-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Iced Tea</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        <span onclick="closeIcedTeaModal()" class="close" title="Close Modal">&times;</span>
 
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
@@ -1268,10 +1271,11 @@
 <!-- Frappe Modal -->
 <div id="frappeModal" class="menu-container">
 <div class="product-detail-frappe">
+<span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
+
         <img src="images/Frappe-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Frappe</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        <span onclick="closeFrappeModal()" class="close" title="Close Modal">&times;</span>   
 
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
@@ -1392,10 +1396,11 @@
 <!-- Soda Modal -->
 <div id="sodaModal" class="menu-container">
     <div class="product-detail-soda">
+    <span onclick="closeSodaModal()" class="close" title="Close Modal">&times;</span>   
+
         <img src="images/Soda-removebg-preview.png" alt="Product Image" class="product-image">
         <h1 class="product-name">Soda</h1>
         <p class="product-description">Enjoy your favorite coffee in this beautifully designed cup with a unique coffee theme.</p>
-        <span onclick="closeSodaModal()" class="close" title="Close Modal">&times;</span>   
 
         <div class="quantity-control">
             <button class="decreaseQuantity">-</button>
