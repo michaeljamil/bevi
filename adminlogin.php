@@ -36,7 +36,7 @@
                         $_SESSION['loggedIn'] = true; // Set a session variable to indicate user is logged in
                         echo "<script>
                                 alert('Login successful!');
-                                window.location.href = 'index.php';
+                                window.location.href = 'admin.php';
                             </script>";
                         
                         exit;
@@ -59,10 +59,10 @@
         ?>
     <div class="login-container" id="login-container">
         <div class="form-container sign-in">
-            <form action="login.php" method="post">
+            <form action="adminlogin.php" method="post">
                 <h1>Admin Sign In</h1>
                 <p></p>
-                <span>or use your email password</span>
+                <span>Use your Email and Password</span>
                 <input type="email" placeholder="Email" name="email">
                 <input type="password" placeholder="Password" name="password">
                 <a href="#" onclick="openForgotPasswordModal()">Forget Your Password?</a>                <button>Sign In</button>
@@ -79,16 +79,16 @@
     </div>
 
 
- <!-- The Modal -->
- <div id="forgetpasswordModal" class="forgot-modal">
+  <!-- The Modal -->
+  <div id="forgetpasswordModal" class="forgot-modal">
     <span onclick="closeForgotPasswordModal()" class="close" title="Close Modal">&times;</span>
     <!-- Modal Content -->
-    <form class="forgot-modal-content animate" action="/submit-feedback.php">
+    <form class="forgot-modal-content animate" action="resetPassword.php" method="post">
         <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Enter Your Email" name="email" required>
             <label for="username"><b>Username</b></label>
-            <input type="email" placeholder="Enter Your Username" name="username" required>
+            <input type="text" placeholder="Enter Your Username" name="username" required>
             <label for="newPassword"><b>New Password</b></label>
             <div class="password-wrapper">
                 <input type="password" placeholder="Enter Your New Password" name="newPassword" id="newPassword" required>
