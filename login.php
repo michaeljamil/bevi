@@ -65,7 +65,7 @@
         }
 
         // Redirect to index.html if the form is not submitted
-        //header("Location: index.html");
+        //header("Location: index.php");
         ?>
 
 

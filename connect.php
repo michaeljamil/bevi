@@ -3,8 +3,8 @@
     //Create connection
     $servername = "localhost";
     $username = "root";
+   
     $password = ""; //Palitan mo na lang pass tas username base sa mysql server mo
-
     $conn = new mysqli($servername, $username, $password);
 
     if ($conn->connect_error) {
@@ -22,7 +22,7 @@
                     `customer_id` int NOT NULL AUTO_INCREMENT,
                     `firstName` varchar(50) NOT NULL,
                     `lastName` varchar(45) NOT NULL,
-                    `address` varchar(255) NOT NULL,
+                    `address` varchar(255) NULL,
                     `email` varchar(50) NOT NULL,
                     `username` varchar(50) NOT NULL,
                     `password` varchar(255) NOT NULL,
