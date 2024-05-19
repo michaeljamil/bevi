@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -249,7 +252,7 @@
                 <h2>Recipient Information</h2>
                 <form id="checkoutForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Name" id="nameInput" value="John Doe">
+                        <input type="text" placeholder="Name" id="nameInput" value="">
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="Address" id="addressInput" value="123 Main St, Anytown">
@@ -272,10 +275,41 @@
                         </select>
                     </div>
                 </form>
+                <?php
+                    
+                    include "connect.php";
 
-                <a href="javascript:openplaceOrderModal()">
-                <button class="order-btn" onclick="placeOrderModal()">Place Order</button>
-                </a>
+                    // Check if the user is logged in
+                    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && isset($_SESSION['username']) && isset($_SESSION['email'])) {
+                        // Retrieve logged-in user's information from the database
+                        $loggedUser = $_SESSION['username'];
+                        $loggedEmail = $_SESSION['email'];
+                        $sql = "SELECT * FROM `bevi_db`.`customer` WHERE username = '$loggedUser' AND email = '$loggedEmail'";
+                        $result = $conn->query($sql);
+
+                        if ($result && $result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            // Output JavaScript code to set form field values
+                            echo "
+                                <script>
+                                    document.getElementById('nameInput').value = '" . $row['firstName'] . " " . $row['lastName'] . "';
+                                    document.getElementById('emailInput').value = '" . $row['email'] . "';
+                                </script>
+                            ";
+                        } else {
+                            echo "// User not found";
+                        }
+                        
+                    } else {
+                        echo "// Not logged in";
+                    }
+
+                    $conn->close();
+                ?>
+
+                <!-- <a href="javascript:openplaceOrderModal()"> -->
+                <button type="submit" name="submit" class="order-btn" onclick="placeOrder()">Place Order</button>
+                <!-- </a> -->
             </div>
         </div>
     </div>
@@ -385,15 +419,16 @@
                     return;
                 }
 
-                // Placeholder function to simulate order placement
-                function placeOrder() {
-                    alert('Order placed successfully!');
-                    // You can add more actions here, like sending the data to a server
-                }
-
+                
                 placeOrder();
             });
         };
+        // Placeholder function to simulate order placement
+        function placeOrder() {
+                    alert('Order placed successfully!');
+                    // You can add more actions here, like sending the data to a server
+                    localStorage.removeItem('cart');
+                }
 
 
     </script>
