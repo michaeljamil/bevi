@@ -78,39 +78,39 @@ document.querySelectorAll('.navigation a:not([href="index.html"])').forEach(link
 
 // Orders JS //
 
-// Sample order data (you can replace this with your actual data)
-const orders = [
-  { id: 1, customerid: 2, date: 'March', status: 'Pending', items: 'Frappe', shippingAddress: 'Daraga', total: 1500 },
-  // Add more order records as needed
-];
+// // Sample order data (you can replace this with your actual data)
+// const orders = [
+//   { id: 1, customerid: 2, date: 'March', status: 'Pending', items: 'Frappe', shippingAddress: 'Daraga', total: 1500 },
+//   // Add more order records as needed
+// ];
 
-// Function to populate the table with order data
-function populateOrdersTable() {
-  const tbody = document.querySelector('.orderdetails .manager table tbody');
-  tbody.innerHTML = ''; // Clear existing table rows
+// // Function to populate the table with order data
+// function populateOrdersTable() {
+//   const tbody = document.querySelector('.orderdetails .manager table tbody');
+//   tbody.innerHTML = ''; // Clear existing table rows
 
-  orders.forEach(order => {
-      const row = `
-          <tr>
-              <th scope="row">${order.id}</th>
-              <td>${order.customerid}</td>
-              <td>${order.date}</td>
-              <td>${order.status}</td>
-              <td>${order.items}</td>
-              <td>${order.shippingAddress}</td>
-              <td>${order.total}</td>
-              <td>
-                    <button class="order-complete" onclick="orderComplete(${order.id})">Order Completed</button>
-                    <button class="order-return" onclick="orderReturn(${order.id})">Order Cancelled</button>
-              </td>
-          </tr>
-      `;
-      tbody.innerHTML += row;
-  });
-}
+//   orders.forEach(order => {
+//       const row = `
+//           <tr>
+//               <th scope="row">${order.id}</th>
+//               <td>${order.customerid}</td>
+//               <td>${order.date}</td>
+//               <td>${order.status}</td>
+//               <td>${order.items}</td>
+//               <td>${order.shippingAddress}</td>
+//               <td>${order.total}</td>
+//               <td>
+//                     <button class="order-complete" onclick="orderComplete(${order.id})">Order Completed</button>
+//                     <button class="order-return" onclick="orderReturn(${order.id})">Order Cancelled</button>
+//               </td>
+//           </tr>
+//       `;
+//       tbody.innerHTML += row;
+//   });
+// }
 
-// Call the function to initially populate the table
-populateOrdersTable();
+// // Call the function to initially populate the table
+// populateOrdersTable();
 
 
 

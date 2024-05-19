@@ -410,19 +410,52 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Order ID</th>
-                                    <th scope="col">Customer ID</th>
+                                    <th scope="col">Customer Name</th>
                                     <th scope="col">Order Date</th>
                                     <th scope="col">Order Status</th>
-                                    <th scope="col">Items Ordered</th>
                                     <th scope="col">Shipping Address</th>
+                                    <th scope="col">Payment Method</th>
                                     <th scope="col">Total Amount</th>
+                                    <th scope="col">Customer Message</th>
                                     <th scope="col"> Action</th>
 
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Customer records will be dynamically inserted here -->
+                                <?php
+                                    include "connect.php";
+                                    
+
+                                    // Query to fetch orders data from the database
+                                    $sql = "SELECT * FROM `bevi_db`.`orders`";
+                                    $result = $conn->query($sql);
+
+                                    // Check if there are any orders
+                                    if ($result->num_rows > 0) {
+                                        // Output data of each row
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row["order_id"] . "</td>";
+                                            echo "<td>" . $row["customer_name"] . "</td>";
+                                            echo "<td>" . $row["date"] . "</td>";
+                                            echo "<td>" . $row["status"] . "</td>";
+                                            echo "<td>" . $row["address"] . "</td>";
+                                            echo "<td>" . $row["paymentMethod"] . "</td>";
+                                            echo "<td>" . $row["total_amount"] . "</td>";
+                                            echo "<td>" . $row["message"] . "</td>";
+                                            // Add action buttons if needed
+                                            echo "<td>";
+                                            echo "<button class='order-complete'>Order Completed</button>";
+                                            echo "<button class='order-return'>Order Cancelled</button>";
+                                            echo "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='8'>No orders found</td></tr>";
+                                    }
+                                    $conn->close();
+                                ?>
                             </tbody>
                         </table>
                     </div>
