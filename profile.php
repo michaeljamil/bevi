@@ -28,7 +28,7 @@
 
 </head>
 <body>
-<a href="index.php#menu">
+    <a href="index.php">
         <button id="backButton" class="back-button">
             <i class="fas fa-chevron-left"></i> Back
         </button>
