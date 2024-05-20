@@ -116,7 +116,19 @@
  <div id="forgetpasswordModal" class="forgot-modal">
     <span onclick="closeForgotPasswordModal()" class="close" title="Close Modal">&times;</span>
     <!-- Modal Content -->
-    <form class="forgot-modal-content animate" action="resetPassword.php" method="post">
+        
+        <form class="forgot-modal-content animate" action="sendVerificationCode.php" method="post">
+            <div class="container">
+                <h1>Enter your Email</h1><br><br><br>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Your Email" name="email" required>
+                <button type="submit" class="btn">Send Verification Code</button>
+                <button type="button" onclick="closeForgotPasswordModal()" class="btn">Cancel</button>
+            </div>
+        </form>
+        
+
+    <!-- <form class="forgot-modal-content animate" action="resetPassword.php" method="post">
         <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Enter Your Email" name="email" required>
@@ -139,7 +151,7 @@
             <button type="submit" class="btn">Reset</button>
             <button type="button" onclick="closeForgotPasswordModal()" class="btn">Cancel</button>
         </div>
-    </form>
+    </form> -->
 </div>
     <script src="js/script.js"></script>
 </body>
