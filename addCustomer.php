@@ -5,25 +5,25 @@ function validate_password($password) {
     if (strlen($password) < 8) {
         return "<script>
                     alert('Password must be at least 8 characters long.');
-                    window.location.href = 'register.php';
+                    window.location.href = 'login.php';
                 </script>";
     }
     if (!preg_match('/[A-Z]/', $password)) {
         return "<script>
                     alert('Password must have at least one UPPERCASE letter.');
-                    window.location.href = 'register.php';
+                    window.location.href = 'login.php';
                 </script>";
     }
     if (!preg_match('/[\W]/', $password)) {
         return "<script>
                     alert('Password must have at least one special character.');
-                    window.location.href = 'register.php';
+                    window.location.href = 'login.php';
                 </script>";
     }
     if (!preg_match('/[0-9]/', $password)) {
         return "<script>
                     alert('Password must have at least one number.');
-                    window.location.href = 'register.php';
+                    window.location.href = 'login.php';
                 </script>";
     }
     return true;
