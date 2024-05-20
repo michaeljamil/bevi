@@ -16,8 +16,8 @@
             position: relative;
         }
         .password-container input {
-            padding-right: 200px; 
-            /* width: calc(100% - 50px); */
+            padding-right: 140px; 
+            /* width: calc(100% - 150px); */
         }
         .toggle-password-login {
             position: absolute;
