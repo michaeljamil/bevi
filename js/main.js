@@ -54,7 +54,7 @@ function toggleMenu() {
 }
 
 // Add event listeners to navigation links (excluding "Sign Out")
-document.querySelectorAll('.navigation a:not([href="index.html"])').forEach(link => {
+document.querySelectorAll('.navigation a:not([href="index.php"])').forEach(link => {
   link.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent default link behavior
 
@@ -71,6 +71,7 @@ document.querySelectorAll('.navigation a:not([href="index.html"])').forEach(link
       });
   });
 });
+
 
 
 
