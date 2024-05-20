@@ -452,6 +452,7 @@
                                             echo "<input type='hidden' name='orderId' value='" . $row["order_id"] . "'>";
                                             echo "<button type='submit' class='order-complete' name='markComplete'>Order Completed</button>";
                                             echo "<button type='submit' class='order-return' name='markCancelled'>Order Cancelled</button>";
+                                            echo "</form>";
                                             echo "</td>";
                                             echo "</tr>";
                                         }
