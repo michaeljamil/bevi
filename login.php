@@ -10,6 +10,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .password-container {
+            position: relative;
+        }
+        .password-container input {
+            padding-right: 200px; 
+            /* width: calc(100% - 50px); */
+        }
+        .toggle-password-login {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body class="login">
 
@@ -78,7 +96,12 @@
                 <input type="text" name="lastName" placeholder="LastName">
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                <div class="password-container">
+                    <input type="password" id="login-password" placeholder="Password" name="password">
+                    <span class="toggle-password-login" onclick="togglePasswordVisibility('login-password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
                 <button type="submit" name="submit">Sign Up</button>
             </form>
         </div>
@@ -91,7 +114,12 @@
                 <h1>Sign In</h1>
                 <span>or use your email password</span>
                 <input type="email" placeholder="Email" name="email">
-                <input type="password" placeholder="Password" name="password">
+                <div class="password-container">
+                    <input type="password" id="login-password" placeholder="Password" name="password">
+                    <span class="toggle-password-login" onclick="togglePasswordVisibility('login-password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
                 <a href="#" onclick="openForgotPasswordModal()">Forget Your Password?</a>  
                 <button type="submit" name="submit">Sign In</button>
             </form>
@@ -154,5 +182,6 @@
     </form> -->
 </div>
     <script src="js/script.js"></script>
+    
 </body>
 </html>

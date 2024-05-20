@@ -23,7 +23,7 @@
         .password-container input {
             padding-right: 200px;
         }
-        .toggle-password {
+        .toggle-password-reset{
             position: absolute;
             top: 40%;
             right: 10px;
@@ -44,13 +44,13 @@
             </div>
             <div class="password-container">
                 <input type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
-                <span class="toggle-password" onclick="togglePasswordVisibility('newPassword')">
+                <span class="toggle-password-reset" onclick="togglePasswordVisibility('newPassword')">
                     <i class="fas fa-eye"></i>
                 </span>
             </div>
             <div class="password-container">
                 <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password" required>
-                <span class="toggle-password" onclick="togglePasswordVisibility('confirmNewPassword')">
+                <span class="toggle-password-reset" onclick="togglePasswordVisibility('confirmNewPassword')">
                     <i class="fas fa-eye"></i>
                 </span>
             </div>
